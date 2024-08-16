@@ -30,7 +30,7 @@ int main() {
                 }
                 total.bookNo = trans.bookNo;
                 total.units_sold = trans.units_sold;
-                total.revenue = total.revenue;
+                total.revenue = trans.revenue;
             }
         }
         std::cout << total.bookNo << " " << total.units_sold
