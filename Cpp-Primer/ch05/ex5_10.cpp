@@ -31,11 +31,11 @@ int main() {
                 break;
         }
     }
-    cout << "Number of vowel a: \t" << aCnt << '\n'
-         << "Number of vowel e: \t" << eCnt << '\n'
-         << "Number of vowel i: \t" << iCnt << '\n'
-         << "Number of vowel o: \t" << oCnt << '\n'
-         << "Number of vowel u: \t" << uCnt << endl;
+    cout << "Number of vowel a(A): \t" << aCnt << '\n'
+         << "Number of vowel e(E): \t" << eCnt << '\n'
+         << "Number of vowel i(I): \t" << iCnt << '\n'
+         << "Number of vowel o(O): \t" << oCnt << '\n'
+         << "Number of vowel u(U): \t" << uCnt << endl;
 
     return 0;
 }
