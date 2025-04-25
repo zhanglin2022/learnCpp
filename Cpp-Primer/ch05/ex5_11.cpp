@@ -6,8 +6,9 @@ using std::endl;
 
 int main() {
     char ch;
-    unsigned aCnt=0, eCnt = 0, iCnt = 0, oCnt = 0, uCnt = 0;
-    while(cin >> ch) {
+    unsigned aCnt=0, eCnt = 0, iCnt = 0, oCnt = 0, uCnt = 0, 
+             spaceCnt = 0, tabCnt = 0, newlineCnt = 0;
+    while(cin >> std::noskipws >> ch) {
         switch (ch) {
             case 'a':
             case 'A':
@@ -29,13 +30,25 @@ int main() {
             case 'U':
                 ++uCnt;
                 break;
+            case ' ':
+                ++spaceCnt;
+                break;
+            case '\t':
+                ++tabCnt;
+                break;
+            case '\n':
+                ++newlineCnt;
+                break;
         }
     }
     cout << "Number of vowel a(A): \t" << aCnt << '\n'
          << "Number of vowel e(E): \t" << eCnt << '\n'
          << "Number of vowel i(I): \t" << iCnt << '\n'
          << "Number of vowel o(O): \t" << oCnt << '\n'
-         << "Number of vowel u(U): \t" << uCnt << endl;
+         << "Number of vowel u(U): \t" << uCnt << '\n'
+         << "Number of vowel blank spaces: \t" << spaceCnt << '\n'
+         << "Number of vowel tabs: \t" << tabCnt << '\n'
+         << "Number of vowel newlines: \t" << newlineCnt << endl;
 
     return 0;
 }
