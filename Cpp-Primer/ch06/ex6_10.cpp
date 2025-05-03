@@ -14,7 +14,7 @@ void swap(int* a, int* b) {
 int main() {
     for(int i, j; cout <<"Enter two numbers: \n", cin >> i >> j;) {
         swap(&i, &j);
-        cout << "i= " << i << ", j= " << j << endl;
+        cout << i << " " << j << endl;
     }
     return 0;
 }
