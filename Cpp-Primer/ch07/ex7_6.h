@@ -1,5 +1,5 @@
-#ifndef EX7_2_H
-#define EX7_2_H
+#ifndef EX7_6_H
+#define EX7_6_H
 
 #include <iostream>
 
