@@ -9,8 +9,10 @@ using std::cerr;
 int main() {
     Sales_data total(cin);
     if (!total.isbn().empty()) {
-        Sales_data trans(cin);
-        while (!trans.isbn().empty()) {
+        istream &is = cin;
+        while (is) {
+            Sales_data trans(is);
+            if (!is) break;
             if (total.isbn() == trans.isbn())
                 total.combine(trans);
             else {
@@ -18,7 +20,7 @@ int main() {
                 total = trans;
             }
         }
-        print(cout, total);
+        print(cout, total) << endl;;
     } else {
         cerr << "No data?!" << endl;
         return -1;
