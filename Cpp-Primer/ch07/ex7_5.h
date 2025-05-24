@@ -9,8 +9,8 @@ struct Person {
     string name;
     string address;
 
-    string const& getName() const { return name; }
-    string const& getAddress() const { return address; }
+    const string & getName() const { return name; }
+    const string & getAddress() const { return address; }
 };
 
 #endif
