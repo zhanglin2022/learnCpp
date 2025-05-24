@@ -8,6 +8,9 @@ using std::string;
 using std::istream;
 using std::ostream;
 
+struct Sales_data;
+istream &read (istream&, Sales_data&);
+
 struct Sales_data {
     Sales_data() = default;
     Sales_data(const string &s): bookNo(s) { }
