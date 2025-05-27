@@ -9,4 +9,6 @@ int main() {
     cout << "\n"; 
     myScreen.display(cout); 
     cout << "\n";
+
+    return 0;
 }
