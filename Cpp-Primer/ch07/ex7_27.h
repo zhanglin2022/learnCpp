@@ -16,14 +16,17 @@ public:
     inline char get(pos r, pos c) const { return contents[r * width + c]; };
     Screen &move(pos r, pos c);
     Screen &set(char c);
+    
     Screen &display(std::ostream &os) { do_display(os); return *this; }
     const Screen &display(std::ostream &os) const { do_display(os); return *this; }
 
 private:
+    void do_display(std::ostream &os) const {os << contents;}
+    
+private:
     pos cursor = 0;
     pos height = 0, width = 0;
     std::string contents;
-    void do_display(std::ostream &os) const {os << contents;}
 };
 
 inline Screen &Screen::move(pos r, pos c) {
