@@ -36,7 +36,8 @@ public:
     Sales_data(const string &s): Sales_data(s, 0, 0) 
     { cout << "Sales_data(const string&)" << endl; }
 
-    Sales_data(istream &is): Sales_data() { read(is, *this); }
+    Sales_data(istream &is): Sales_data() 
+    { cout << "Sales_data(istream &is)" << endl; read(is, *this); }
 
     const std::string &isbn() const { return bookNo; }
     Sales_data& combine (const Sales_data&);
