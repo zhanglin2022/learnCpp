@@ -1,3 +1,5 @@
+#include <vector>
+
 class NoDefault {
 public:
     NoDefault(int i) { }
@@ -12,6 +14,8 @@ private:
 
 int main() {
     C c;
+    std::vector<C> vec(10);
+    // std::vector<NoDefault> vec1(10); // error: no matching function for call to ‘NoDefault::NoDefault()’
 
     return 0;
 }
