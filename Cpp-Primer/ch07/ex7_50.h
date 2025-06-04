@@ -1,5 +1,3 @@
-
-
 #ifndef EX7_50_H
 #define EX7_50_H
 
