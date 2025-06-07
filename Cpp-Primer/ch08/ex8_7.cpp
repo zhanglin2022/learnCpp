@@ -3,7 +3,7 @@
 // @brief  Rewrite the bookstore program of ex8_6 to write its 
 //         output to a file which is another augment of main
 // @see    "../ch07/ex7_26.h" (Sales_data class)
-// @run    give two parameter: "../../data/book.txt" "./output.txt"
+// @run    give two parameters: "../../data/book.txt" "./output.txt"
 // @output output.txt(The following are contents)
 //         0-201-78345-X 5 110
 //         0-201-78346-X 9 839.2
