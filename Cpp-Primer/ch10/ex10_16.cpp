@@ -36,4 +36,5 @@ int main() {
     vector<string> svec{"aaaa", "aaaaa", "333", "666666"};
     biggies(svec, 5);
 
+    return 0;
 }
