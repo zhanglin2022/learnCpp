@@ -7,8 +7,8 @@
 using std::vector; using std::list; using std::cout; using std::endl;
 using std::back_inserter; using std::front_inserter; using std::inserter;
 
-void println(list<int> &lst) {
-    for (auto l : lst)
+void println(const list<int> &lst) {
+    for (const auto &l : lst)
         cout << l << " ";
     cout << endl;
 }
