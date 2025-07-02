@@ -10,6 +10,7 @@ int main() {
     std::vector<int> vec(in_iter, eof);
     std::sort(vec.begin(), vec.end());
     std::copy(vec.cbegin(), vec.cend(), ostream_iterator<int>(cout, " "));
+    cout << endl;
 
     return 0;
 }
