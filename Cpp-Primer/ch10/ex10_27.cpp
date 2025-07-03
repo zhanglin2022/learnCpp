@@ -2,7 +2,7 @@
 #include <vector>
 #include <list>
 #include <algorithm>
-#include<iterator>
+#include <iterator>
 
 using std::vector; using std::list; using std::cout; using std::endl;
 
