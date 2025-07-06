@@ -12,6 +12,5 @@ int main()
         auto reply = is_excluded ? "excluded" : "not excluded";
         std::cout << reply << std::endl;
     }
-
     return 0;
 }
