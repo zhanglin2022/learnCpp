@@ -21,10 +21,8 @@ int main() {
         ++found;
         --count;
     }
-    
-    for (auto const& kv : authors) {
+    for (auto const& kv : authors)
         cout << kv.second << ", " << kv.first << endl;
-    }
-
+    
     return 0;
 }
