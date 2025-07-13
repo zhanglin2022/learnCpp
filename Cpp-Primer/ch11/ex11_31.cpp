@@ -6,9 +6,9 @@ using std::multimap; using std::string; using std::cout; using std::endl;
 
 int main() {
     multimap<string, string> authors{
-        {"Dostoevsky", "crime and punishment"},
-        {"Dostoevsky", "the brothers karamazov"},
-        {"Ayn Rand", "the fountainhead"}};
+        {"Dostoevsky", "crime-and-punishment"},
+        {"Dostoevsky", "the-brothers-karamazov"},
+        {"Ayn Rand", "the-fountainhead"}};
     string author("Dostoevsky");
     string work("crime and punishment");
     auto found = authors.find(author);
@@ -22,7 +22,7 @@ int main() {
         --count;
     }
     for (auto const& kv : authors)
-        cout << kv.second << ", " << kv.first << endl;
+        cout << kv.first << ": " << kv.second << endl;
     
     return 0;
 }
