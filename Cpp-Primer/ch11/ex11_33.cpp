@@ -45,9 +45,8 @@ void word_transform(ifstream &map_file, ifstream &input) {
 int main () {
     ifstream map_file("../../data/rule_of_transform.txt");
     ifstream input_file("../../data/give_to_transform.txt");
-    if (map_file && input_file)
-        word_transform(map_file, input_file);
-    else 
-        std::cerr << "can't find file documents\n";
+    if (map_file && input_file) word_transform(map_file, input_file);
+    else std::cerr << "can't find file documents\n";
+    
     return 0;
 }
