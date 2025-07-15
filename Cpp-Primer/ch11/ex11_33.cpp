@@ -37,8 +37,7 @@ void word_transform(ifstream &map_file, ifstream &input) {
             if (firstword) firstword = false;
             else cout << " ";
             std::cout << transform(word, trans_map);
-        }
-            
+        }     
         cout << endl;
     }
 }
@@ -49,6 +48,6 @@ int main () {
     if (map_file && input_file)
         word_transform(map_file, input_file);
     else 
-        std::cerr << "can not file documents\n";
+        std::cerr << "can't find file documents\n";
     return 0;
 }
