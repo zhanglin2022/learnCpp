@@ -29,7 +29,7 @@ int main() {
     /** @brief
      *  legal. Butut it's a bad practice. 
      *  Because using smart pointer with raw pointer may 
-     *  cause problems such as double freed.
+     *  cause problems such as double free.
     */
     // process(shared_ptr<int>(p));
     
