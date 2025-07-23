@@ -1,4 +1,4 @@
-#include "./ex12_19.h"
+#include "ex12_19.h"
 #include <iostream>
 
 using std::cout; using std::endl;
