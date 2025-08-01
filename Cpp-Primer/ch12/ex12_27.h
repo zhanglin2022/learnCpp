@@ -22,6 +22,8 @@ public:
     QueryResult query(const string&) const;
 private:
     // TODO: which data should be share  and how to share?
+    // Constructor
+    // function query()
     shared_ptr<vector<string>> file; 
     map<string, shared_ptr<set<line_no>>> word_line;
 };
