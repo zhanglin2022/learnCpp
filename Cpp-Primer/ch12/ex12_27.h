@@ -14,8 +14,8 @@
 using std::cin; using std::cout; using std::endl; using std::vector; 
 using std::map; using std::set; using std::string; using std::shared_ptr; 
 using std::istringstream; using std::ifstream;
-class QueryResult;
 
+class QueryResult;
 class TextQuery { 
 public:
     using Line_no = vector<string>::size_type;
@@ -37,7 +37,7 @@ TextQuery::TextQuery(ifstream &ifs): input(new vector<string>) {
         for (string text, word; line_stream >> text; word.clear()) {
             std::remove_copy_if(text.begin(), text.end(), std::back_inserter(word), ispunct);
             // use reference avoid count of shared_ptr add
-            // if word isn’t already in wm, subscripting adds a new entry
+            // if word isn’t already in word_line, subscripting adds a new entry
             auto &lines = word_line[word];
             // that pointer is null the first time we see word
             if (!lines) lines.reset(new set<Line_no>); 
@@ -45,6 +45,35 @@ TextQuery::TextQuery(ifstream &ifs): input(new vector<string>) {
         }
     }
 }
+
+class QueryResult{
+friend std::ostream& print(std::ostream&, const QueryResult&);
+public:
+    QueryResult(string s, 
+                shared_ptr<set<TextQuery::Line_no>> p,
+                shared_ptr<vector<string>> f):
+        word(s), lines(p), input(f) { }
+private:
+    string word;
+    shared_ptr<set<TextQuery::Line_no>> lines;
+    shared_ptr<vector<string>> input;
+};
+
+QueryResult TextQuery::query(const string &str) const {
+    // use static just allocate once
+    static shared_ptr<set<Line_no>> nodata(new set<Line_no>);
+    auto found = word_line.find(str);
+    if (found == word_line.end()) return QueryResult(str, nodata, input);
+    else return QueryResult(str, found->second, input);
+}
+
+
+
+
+
+
+
+
 
 
 
