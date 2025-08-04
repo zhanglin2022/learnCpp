@@ -22,8 +22,6 @@ public:
     TextQuery(ifstream&);
     QueryResult query(const string&) const;
 private:
-    // Constructor
-    // function query()
     shared_ptr<vector<string>> input; 
     map<string, shared_ptr<set<Line_no>>> word_line;
 };
@@ -70,25 +68,8 @@ QueryResult TextQuery::query(const string &str) const {
 std::ostream& print(std::ostream &os, const QueryResult &qr) {
     os << qr.word << " occurs " << qr.lines->size() << (qr.lines->size() > 1 ? " times" : " time") << endl;
     for (auto i : *qr.lines)
-        os << "\t(line " << i+1 << ") " << qr.input->at(i) << endl;
+        os << "\t(line " << i + 1 << ") " << qr.input->at(i) << endl;
     return os;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif
