@@ -1,6 +1,7 @@
-#ifndef EX12_27_H
-#define EX12_27_H
+#ifndef EX12_32_H
+#define EX12_32_H
 
+#include "ex12_22.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -18,19 +19,19 @@ using std::istringstream; using std::ifstream;
 class QueryResult;
 class TextQuery { 
 public:
-    using Line_no = vector<string>::size_type;
+    using Line_no = StrBlob::size_type;
     TextQuery(ifstream&);
     QueryResult query(const string&) const;
 private:
-    shared_ptr<vector<string>> input; 
-    map<string, shared_ptr<set<Line_no>>> word_line;
+    StrBlob input;
+    map<string, shared_ptr<set<StrBlob::size_type>>> word_line;
 };
 
-TextQuery::TextQuery(ifstream &ifs): input(new vector<string>) {
+TextQuery::TextQuery(ifstream &ifs) {
     if (!ifs) std::cerr << "No input file" << endl;
     Line_no line_no = 0;
     for (string line; getline(ifs, line); ++line_no) {
-        input->push_back(line);
+        input.push_back(line);
         istringstream line_stream(line);
         for (string text, word; line_stream >> text; word.clear()) {
             std::remove_copy_if(text.begin(), text.end(), std::back_inserter(word), ispunct);
@@ -48,13 +49,13 @@ class QueryResult{
 friend std::ostream& print(std::ostream&, const QueryResult&);
 public:
     QueryResult(string s, 
-                shared_ptr<set<TextQuery::Line_no>> p,
-                shared_ptr<vector<string>> f):
+                shared_ptr<set<StrBlob::size_type>> p,
+                const StrBlob &f):
         word(s), lines(p), input(f) { }
 private:
     string word;
     shared_ptr<set<TextQuery::Line_no>> lines;
-    shared_ptr<vector<string>> input;
+    StrBlob input;
 };
 
 QueryResult TextQuery::query(const string &str) const {
@@ -67,8 +68,10 @@ QueryResult TextQuery::query(const string &str) const {
 
 std::ostream& print(std::ostream &os, const QueryResult &qr) {
     os << qr.word << " occurs " << qr.lines->size() << (qr.lines->size() > 1 ? " times" : " time") << endl;
-    for (auto i : *qr.lines)
-        os << "\t(line " << i + 1 << ") " << qr.input->at(i) << endl;
+    for (auto i : *qr.lines) {
+        ConstStrBlobPtr p(qr.input, i);
+        os << "\t(line " << i + 1 << ") " << p.deref() << endl;
+    }
     return os;
 }
 
