@@ -1,4 +1,4 @@
-#include "ex12_32.h"
+#include "ex12_33.h"
 #include <iostream>
 
 void runQueries(std::ifstream &infile) {
