@@ -24,6 +24,5 @@ int main() {
     f(*px, *px);
     delete px;
 
-    return 0;
-    
+    return 0; 
 }
