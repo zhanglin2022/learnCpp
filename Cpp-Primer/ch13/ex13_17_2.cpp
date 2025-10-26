@@ -18,6 +18,7 @@ void f(numbered s) {
 
 int main() {
     // a.mysn=10,unique=11; b.mysn=11,unique=12; c.mysn=12, unique=13
+    numbered a, b = a, c = b;
     f(a); // mysn = 13
     f(b); // mysn = 14
     f(c); // mysn = 15
