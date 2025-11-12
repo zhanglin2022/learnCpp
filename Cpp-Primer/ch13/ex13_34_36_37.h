@@ -10,6 +10,7 @@
 #ifndef EX13_34_36_37_H
 #define EX13_34_36_37_H
 
+#include <iostream>
 #include <string>
 #include <set>
 
@@ -19,8 +20,9 @@ class Folder;
 
 class Message {
     friend class Folder;
+    friend void swap(Message&, Message&);
 public:
-    Message(const string &str = ""): contents(str) { }
+    explicit Message(const string &str = ""): contents(str) { }
     Message(const Message&);
     Message& operator=(const Message&);
     ~Message();
@@ -28,67 +30,42 @@ public:
     void save(Folder&);
     void remove(Folder&);
 
+    void print_debug();
+
 private:
     string contents;
     set<Folder*> folders;
 
-    // utility functions used by copy constructor, assignment, and destructor
-    void add_to_Folders(const Message&);
+    void add_to_folders(const Message&);
     void remove_from_Folders();
+
+    void addFldr(Folder *f) { folders.insert(f); }
+    void remFldr(Folder *f) { folders.erase(f); };
 };
 
-void Message::save(Folder &f) {
-    folders.insert(&f);
-    f.addMsg(this);
-}
-
-void Message::remove(Folder &f) {
-    folders.erase(&f);
-    f.remMsg(this);
-}
-
-void Message::add_to_Folders(const Message &m) {
-    for (auto f : m.folders)
-        f->addMsg(this);
-}
-
-void Message::remove_from_Folders() {
-    for (auto f : folders)
-        f->remMsg(this);
-    folders.clear();
-}
-
-Message::Message(const Message &m) :contents(m.contents), folders(m.folders) {
-    add_to_Folders(m);
-}
-
-Message& Message::operator=(const Message &rhs) {
-    remove_from_Folders();
-    contents = rhs.contents;
-    folders = rhs.folders;
-    add_to_Folders(rhs);
-    return *this;
-}
-
-Message::~Message() {
-    remove_from_Folders();
-}
+void swap(Message&, Message&);
 
 class Folder {
+    friend class Message;
+    friend void swap(Folder&, Folder&);
 public:
-    void addMsg(const Message*);
-    void remMsg(const Message*);
+    Folder() = default;
+    Folder(const Folder&);
+    Folder& operator=(const Folder&);
+    ~Folder();
+
+    void print_debug();
 
 private:
-    set<Message*> messages;
+    set<Message*> msgs;
+    
+    void add_to_message(const Folder&);
+    void remove_from_message();
+
+    void addMsg(Message *m) { msgs.insert(m); }
+    void remMsg(Message *m) { msgs.erase(m); }
 };
 
-
-
-
-
-
-
-
+void swap(Folder&, Folder&);
 
 #endif
