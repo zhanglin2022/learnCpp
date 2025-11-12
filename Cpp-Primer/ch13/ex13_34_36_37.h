@@ -20,6 +20,7 @@ class Folder;
 
 class Message {
     friend class Folder;
+    friend void swap(Message&, Message&);
 public:
     explicit Message(const string &str = ""): contents(str) { }
     Message(const Message&);
@@ -35,12 +36,24 @@ private:
     string contents;
     set<Folder*> folders;
 
-    void add_to_Folders(const Message&);
+    void add_to_folders(const Message&);
     void remove_from_Folders();
 
     void addFldr(Folder *f) { folders.insert(f); }
     void remFldr(Folder *f) { folders.erase(f); };
 };
+
+void swap(Message &lhs, Message &rhs) {
+    using std::swap;
+    lhs.remove_from_Folders();
+    rhs.remove_from_Folders();
+
+    swap(lhs.contents, rhs.contents);
+    swap(lhs.folders, rhs.folders);
+
+    lhs.add_to_folders(lhs);
+    rhs.add_to_folders(rhs);
+}
 
 void Message::save(Folder &f) {
     addFldr(&f);
@@ -52,13 +65,13 @@ void Message::remove(Folder &f) {
     f.remMsg(this);
 }
 
-void Message::add_to_Folders(const Message &m) {
+void Message::add_to_folders(const Message &m) {
     for (auto f : m.folders)
         f->addMsg(this);
 }
 
 Message::Message(const Message &m) :contents(m.contents), folders(m.folders) {
-    add_to_Folders(m);
+    add_to_folders(m);
 }
 
 void Message::remove_from_Folders() {
@@ -83,7 +96,7 @@ Message& Message::operator=(const Message &rhs) {
     remove_from_Folders();
     contents = rhs.contents;
     folders = rhs.folders;
-    add_to_Folders(rhs);
+    add_to_folders(rhs);
     return *this;
 }
 
@@ -93,6 +106,7 @@ void Message::print_debug() {
 
 class Folder {
     friend class Message;
+    friend void swap(Folder&, Folder&);
 public:
     Folder() = default;
     Folder(const Folder&);
@@ -102,26 +116,37 @@ public:
     void print_debug();
 
 private:
-    set<Message*> messages;
+    set<Message*> msgs;
     
     void add_to_message(const Folder&);
     void remove_from_message();
 
-    void addMsg(Message *m) { messages.insert(m); }
-    void remMsg(Message *m) { messages.erase(m); }
+    void addMsg(Message *m) { msgs.insert(m); }
+    void remMsg(Message *m) { msgs.erase(m); }
 };
 
+void swap(Folder &lhs, Folder &rhs) {
+    using std::swap;
+    lhs.remove_from_message();
+    rhs.remove_from_message();
+
+    swap(lhs.msgs, rhs.msgs);
+
+    lhs.add_to_message(lhs);
+    rhs.add_to_message(rhs);
+}
+
 void Folder::add_to_message(const Folder &f) {
-    for (auto m : f.messages)
+    for (auto m : f.msgs)
         m->addFldr(this);
 }
 
-Folder::Folder(const Folder &f): messages(f.messages) {
+Folder::Folder(const Folder &f): msgs(f.msgs) {
     add_to_message(f);
 }
 
 void Folder::remove_from_message() {
-    for (auto m : messages)
+    for (auto m : msgs)
         m->remFldr(this);
 }
 
@@ -131,13 +156,13 @@ Folder::~Folder() {
 
 Folder& Folder::operator=(const Folder &rhs) {
     remove_from_message();
-    messages = rhs.messages;
+    msgs = rhs.msgs;
     add_to_message(rhs);
     return *this;
 }
 
 void Folder::print_debug() {
-    for (auto m : messages)
+    for (auto m : msgs)
         std::cout << m->contents << " ";
     std::cout << std::endl;
 }
