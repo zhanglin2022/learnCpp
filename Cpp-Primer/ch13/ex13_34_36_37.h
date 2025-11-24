@@ -36,7 +36,7 @@ private:
     string contents;
     set<Folder*> folders;
 
-    void add_to_folders(const Message&);
+    void add_to_Folders(const Message&);
     void remove_from_Folders();
 
     void addFldr(Folder *f) { folders.insert(f); }
@@ -59,8 +59,8 @@ public:
 private:
     set<Message*> msgs;
     
-    void add_to_message(const Folder&);
-    void remove_from_message();
+    void add_to_Message(const Folder&);
+    void remove_from_Message();
 
     void addMsg(Message *m) { msgs.insert(m); }
     void remMsg(Message *m) { msgs.erase(m); }
