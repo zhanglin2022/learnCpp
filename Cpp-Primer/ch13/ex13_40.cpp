@@ -1,10 +1,9 @@
-// Exercise 13.39
+// Exercise 13.40
 //
-// Write your own version of StrVec, including versions of reserve, 
-// capacity (§ 9.4, p. 356), and resize (§ 9.3.5, p. 352).
+//  Add a constructor that takes an initializer_list<string> to your StrVec class
 //
 
-#include "ex13_39.h"
+#include "ex13_40.h"
 
 using std::string;
 
@@ -29,18 +28,26 @@ void StrVec::free() {
     }
 }
 
-StrVec::StrVec(const StrVec &rhs) {
-    auto newdata = alloc_n_copy(rhs.elements, rhs.first_free);
+void StrVec::range_initialize(const string *first, const string *last) {
+    auto newdata = alloc_n_copy(first, last);
     elements = newdata.first;
     first_free = cap = newdata.second;
+}
+
+StrVec::StrVec(const StrVec &rhs) {
+    range_initialize(rhs.elements, rhs.first_free);
+}
+
+StrVec::StrVec(initializer_list<string> il) {
+    range_initialize(il.begin(), il.end());
 }
 
 StrVec::~StrVec() {
     free();
 }
 
-StrVec& StrVec::operator=(const StrVec &rhs) {
-    auto newdata = alloc_n_copy(rhs.elements, rhs.first_free);
+StrVec& StrVec::operator=(const StrVec &s) {
+    auto newdata = alloc_n_copy(s.elements, s.first_free);
     free();
     elements = newdata.first;
     first_free = cap = newdata.second;
