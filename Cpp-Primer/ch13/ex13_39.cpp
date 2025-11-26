@@ -29,8 +29,8 @@ void StrVec::free() {
     }
 }
 
-StrVec::StrVec(const StrVec &s) {
-    auto newdata = alloc_n_copy(s.elements, s.first_free);
+StrVec::StrVec(const StrVec &rhs) {
+    auto newdata = alloc_n_copy(rhs.elements, rhs.first_free);
     elements = newdata.first;
     first_free = cap = newdata.second;
 }
@@ -39,8 +39,8 @@ StrVec::~StrVec() {
     free();
 }
 
-StrVec& StrVec::operator=(const StrVec &s) {
-    auto newdata = alloc_n_copy(s.elements, s.first_free);
+StrVec& StrVec::operator=(const StrVec &rhs) {
+    auto newdata = alloc_n_copy(rhs.elements, rhs.first_free);
     free();
     elements = newdata.first;
     first_free = cap = newdata.second;
