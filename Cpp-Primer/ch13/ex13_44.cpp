@@ -33,3 +33,7 @@ void String::free() {
         alloc.deallocate(elements, end - elements);
     }
 }
+
+int main () {
+    return 0;
+}
