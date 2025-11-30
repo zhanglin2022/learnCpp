@@ -49,6 +49,4 @@ private:
     static std::allocator<string> alloc;
 };
 
-std::allocator<string> StrVec::alloc;
-
 #endif
