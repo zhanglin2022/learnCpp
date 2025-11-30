@@ -8,6 +8,8 @@
 #include "ex13_44.h"
 #include <algorithm>
 
+std::allocator<char> String::alloc;
+
 std::pair<char*, char*> 
 String::alloc_n_copy(const char* b, const char *e) {
     auto data = alloc.allocate(e - b);

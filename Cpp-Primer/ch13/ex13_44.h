@@ -30,6 +30,4 @@ private:
     static std::allocator<char> alloc;
 };
 
-std::allocator<char> String::alloc;
-
 #endif
