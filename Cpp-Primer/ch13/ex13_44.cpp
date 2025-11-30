@@ -23,10 +23,10 @@ void String::range_initialize(const char *first, const char *last) {
 }
 
 String::String(const char *c) {
-    char *str = const_cast<char*>(c);
-    while (str)
-        ++str;
-    range_initialize(c, ++str);
+    const char *p = c;
+    while (*p != '\0')
+        ++p;
+    range_initialize(c, ++p);
 }
 
 void String::free() {
