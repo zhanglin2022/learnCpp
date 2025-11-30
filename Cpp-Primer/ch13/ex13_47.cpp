@@ -9,6 +9,8 @@
 #include <iostream>
 #include <algorithm>
 
+std::allocator<char> String::alloc;
+
 std::pair<char*, char*> 
 String::alloc_n_copy(const char* b, const char *e) {
     auto data = alloc.allocate(e - b);
