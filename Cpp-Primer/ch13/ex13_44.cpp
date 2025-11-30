@@ -34,6 +34,6 @@ void String::free() {
     }
 }
 
-int main () {
+int main() {
     return 0;
 }
