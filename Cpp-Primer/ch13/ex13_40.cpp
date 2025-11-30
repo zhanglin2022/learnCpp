@@ -7,6 +7,8 @@
 
 using std::string;
 
+std::allocator<string> StrVec::alloc;
+
 void StrVec::push_back(const string &str) {
     chk_n_alloc();
     alloc.construct(first_free++, str);
