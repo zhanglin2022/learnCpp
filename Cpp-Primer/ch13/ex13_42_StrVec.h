@@ -17,6 +17,7 @@ class StrVec {
 public:
     StrVec(): elements(nullptr), first_free(nullptr), cap(nullptr) { }
     StrVec(initializer_list<string>);
+    StrVec(const StrVec&);
     StrVec& operator=(const StrVec&);
     ~StrVec();
 
@@ -47,5 +48,7 @@ private:
     string *cap;
     static std::allocator<string> alloc;
 };
+
+std::allocator<string> StrVec::alloc;
 
 #endif
