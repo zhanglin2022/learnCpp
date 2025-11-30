@@ -41,3 +41,6 @@ std::ostream& print(std::ostream &os, const QueryResult &qr) {
     return os;
 }
 
+int main() {
+    return 0;
+}
