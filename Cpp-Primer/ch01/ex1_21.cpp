@@ -1,4 +1,8 @@
-// reads two Sales_item objects that have the same ISBN and produces their sum
+// Exercise 1.20
+//
+// Write a program that reads two `Sales_item` objects that have the same ISBN 
+// and produces their sum.
+// 
 
 #include <iostream>
 #include "../include/Sales_item.h"

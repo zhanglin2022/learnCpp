@@ -1,4 +1,8 @@
-// Read several transactions for the same ISBN. Write the sum of all the transactions that were read.
+// Exercise 1.22
+//
+// Write a program that reads several transactions for the same ISBN. Write 
+// the sum of all the transactions that were read.
+//
 
 #include <iostream>
 #include "../include/Sales_item.h"
