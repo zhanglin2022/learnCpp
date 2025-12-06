@@ -1,4 +1,8 @@
-// Rewrite 2.6.2 with using declarations.
+// Exercise 3.1
+// 
+// Rewrite the exercises from § 1.4.1 (p. 13) and § 2.6.2 (p. 76) with 
+// appropriate using declarations.
+//
 
 #include<string>
 #include<iostream>
@@ -10,6 +14,7 @@ using std::endl;
 using std::cerr;
 
 int main() {
+    // Rewrite 2.6.2 with using declarations.
     Sales_data data1, data2;
     double price;
     cin >> data1.bookNo >> data1.units_sold >> price;
