@@ -1,3 +1,9 @@
+// Exercise 5.6
+//
+// Rewrite your grading program to use the conditional operator (§ 4.7, p. 151) 
+// in place of the if–else statement.
+//
+
 #include <iostream>
 #include <string>
 #include <vector>
