@@ -1,3 +1,9 @@
+// Exercise 4.29
+//
+// Predict the output of the following code and explain your reasoning. Now 
+// run the program. Is the output what you expected? If not, figure out why.
+// 
+
 #include <iostream>
 
 using std::cout;

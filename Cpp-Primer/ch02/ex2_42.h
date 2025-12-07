@@ -1,3 +1,9 @@
+// Exercise 2.42
+//
+// Write your own version of the Sales_data.h header and use it to rewrite 
+// the exercise from § 2.6.2(p. 76)
+// 
+
 #ifndef EX2_42_H_
 #define EX2_42_H_
 

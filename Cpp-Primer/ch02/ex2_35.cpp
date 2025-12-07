@@ -1,3 +1,10 @@
+// Exercise 
+// 
+// Determine the types deduced in each of the following definitions.
+// Once you’ve figured out the types,
+// write a program to see whether you were correct.
+//
+
 # include <iostream>
 
 int main() {

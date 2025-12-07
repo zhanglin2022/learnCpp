@@ -1,3 +1,8 @@
+// Exercise 3.24
+//
+// Redo the last exercise from § 3.3.3 (p. 105) using iterators.
+//
+
 #include <vector>
 #include <iostream>
 

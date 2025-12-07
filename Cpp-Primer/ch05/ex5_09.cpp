@@ -1,3 +1,9 @@
+// Exercise 5.9
+//
+// Write a program using a series of if statements to count the number of 
+// vowels in text read from cin。
+//
+
 #include<iostream>
 
 using std::cin;
