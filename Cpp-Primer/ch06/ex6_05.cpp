@@ -1,3 +1,8 @@
+// Exercise 6.5
+//
+// Write a function to return the absolute value of its argument.
+// 
+
 #include <iostream>
 
 using std::cout;
