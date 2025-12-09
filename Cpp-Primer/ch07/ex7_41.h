@@ -1,10 +1,13 @@
-// ex7_41.h
+// Exercise 7.41
 
 // @see ex7_26.h
-// @add 1. use delegating constructions
-//      2. add a statement to the body of each of the constructors 
-//         that print a message whether it is excuted.
-
+// Rewrite your own version of the Sales_data class to use delegating constructors. 
+// Add a statement to the body of each of the constructors that prints a message 
+// whenever it is executed. Write declarations to construct a Sales_data object in 
+// every way possible. 
+// Study the output until you are certain you understand the order of execution 
+// among delegating constructors.
+//
 
 #ifndef EX7_41_H
 #define EX7_41_H

@@ -1,3 +1,8 @@
+// Exercise 7.22
+//
+// Update your Person class to hide its implementation.
+//
+
 #ifndef EX7_22_H
 #define EX7_22_H
 

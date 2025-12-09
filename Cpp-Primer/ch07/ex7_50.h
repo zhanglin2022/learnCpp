@@ -1,3 +1,8 @@
+// Exercise 7.50
+//
+// Determine whether any of your Person class constructors should be explicit.
+//
+
 #ifndef EX7_50_H
 #define EX7_50_H
 
