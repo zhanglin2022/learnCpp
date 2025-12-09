@@ -1,3 +1,8 @@
+// Exercise 7.6
+//
+// Define your own versions of the add, read, and print functions.
+//
+
 #ifndef EX7_6_H
 #define EX7_6_H
 

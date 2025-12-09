@@ -1,3 +1,8 @@
+// Exercise 7.26
+//
+// Define Sales_data::avg_price as an inline function.
+//
+
 #ifndef EX7_26_H
 #define EX7_26_H
 

@@ -1,3 +1,8 @@
+// Exercise 7.13
+//
+// Rewrite the program from page 255 to use the istream constructor.
+//
+
 #include <iostream>
 #include "ex7_12.h"
 

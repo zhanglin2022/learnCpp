@@ -1,3 +1,8 @@
+// Exercise 7.53
+//
+// Define your own version of Debug.
+//
+
 #ifndef EX7_53_H
 #define EX7_53_H
 

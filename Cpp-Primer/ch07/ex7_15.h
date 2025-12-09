@@ -1,3 +1,8 @@
+// Exercise 7.15
+//
+// Add appropriate constructors to your Person class.
+//
+
 #ifndef EX7_15_H
 #define EX7_15_H
 
