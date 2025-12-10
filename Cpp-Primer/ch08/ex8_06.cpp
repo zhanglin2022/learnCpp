@@ -2,7 +2,7 @@
 //
 // @brief  Rewrite the bookstore program from § 7.1.1 (p. 256) to
 //         read its transactions from a file. Pass the name of the
-//         file as an argument to main
+//         file as an argument to main.
 // @see    "../ch07/ex7_26.h" (Sales_data class)
 // @run    give a parameter: "../../data/book.txt"
 // @output 0-201-78345-X 5 110

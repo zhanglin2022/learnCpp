@@ -1,3 +1,9 @@
+// Exercise 8.4
+//
+// Write a function to open a file for input and read its contents into a 
+// vector of strings, storing each line as a separate element in the vector.
+//
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -13,7 +19,7 @@ void readFileToVec(const string& filename, vector<string>& vec) {
     ifstream ifs(filename);
     if (ifs) {
         string buf;
-        while (ifs >> buf)
+        while (getline(ifs, buf))
             vec.push_back(buf);    
     }
 }

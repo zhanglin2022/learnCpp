@@ -1,7 +1,8 @@
 // Exercise 8.8
 //
-// @brief  Rewrite the bookstore program of ex8_7 to append its 
-//         output to its given file
+// @brief  Revise the program from the previous exercise to append its output 
+//         to its given file. Run the program on the same output file at least 
+//         twice to ensure that the data are preserved.
 // @see    "../ch07/ex7_26.h" (Sales_data class)
 // @run    give two parameters: "../../data/book.txt" "./output.txt"
 // @output output.txt(The following are contents)

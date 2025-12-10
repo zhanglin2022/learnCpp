@@ -1,7 +1,7 @@
 // Exercise 8.13
 // 
-// @brief ewrite the phone number program from this section to read from
-//        a named file rather than from cin.'
+// @brief Rewrite the phone number program from this section to read from 
+//        a named file rather than from cin.
 // @see   ex8_11.cpp
 
 #include <iostream>

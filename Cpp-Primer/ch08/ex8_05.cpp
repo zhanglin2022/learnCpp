@@ -1,3 +1,8 @@
+// Exercise 8.5
+//
+// Rewrite the previous program to store each word in a separate element.
+//
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -13,7 +18,7 @@ void readFileToVec(const string& filename, vector<string>& vec) {
     ifstream ifs(filename);
     if (ifs) {
         string buf;
-        while (getline(ifs, buf))
+        while (ifs >> buf)
             vec.push_back(buf);    
     }
 }
