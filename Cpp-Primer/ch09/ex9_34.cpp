@@ -1,5 +1,4 @@
-//
-//  Exercise 9.32 
+//  Exercise 9.34
 //
 //  @Brief  Assuming vi is a container of ints that includes even and odd values, 
 //          predict the behavior of the following loop. 
