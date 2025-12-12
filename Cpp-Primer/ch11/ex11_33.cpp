@@ -1,3 +1,8 @@
+// Exercise 11.33
+//
+// Implement your own version of the word-transformation program.
+//
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
