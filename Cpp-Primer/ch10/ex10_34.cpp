@@ -1,3 +1,8 @@
+// Exercise 10.34
+//
+// Use reverse_iterators to print a vector in reverse order.
+//
+
 #include <iostream>
 #include <vector>
 #include <iterator>
