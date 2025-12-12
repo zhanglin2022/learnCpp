@@ -1,3 +1,8 @@
+// Exercise 10.16
+//
+// Write your own version of the biggies function using lambdas.
+//
+
 #include <iostream>
 #include <vector>
 #include <string>
