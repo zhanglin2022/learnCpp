@@ -1,3 +1,12 @@
+// Exercise 12.13
+//
+// What happens if we execute the following code? 
+//
+// auto sp = make_shared<int>(); 
+// auto p = sp.get(); 
+// delete p;
+//
+
 #include <iostream>
 #include <memory>
 

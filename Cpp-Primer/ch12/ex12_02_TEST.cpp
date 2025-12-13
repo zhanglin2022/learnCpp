@@ -1,4 +1,10 @@
-#include "ex12_2.h"
+// Exercise 12.2
+//
+// Write your own version of the StrBlob class including the const versions 
+// of front and back.
+//
+
+#include "ex12_02.h"
 #include <iostream>
 
 int main() {

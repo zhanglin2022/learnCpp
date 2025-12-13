@@ -1,3 +1,8 @@
+// Exercise 12.7
+//
+// Redo the previous exercise, this time using shared_ptr.
+//
+
 #include <iostream>
 #include <memory>
 #include <vector>

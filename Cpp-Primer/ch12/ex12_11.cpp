@@ -1,3 +1,9 @@
+// Exercise 12.11
+//
+// What would happen if we called process as follows? 
+// process(shared_ptr<int>(p.get()));
+//
+
 #include <iostream>
 #include <memory>
 
