@@ -1,3 +1,9 @@
+// Exercise 11.10
+//
+// Could we define a map from vector<int>::iterator to int? What about from 
+// list<int>::iterator to int? In each case, if not, why not?
+//
+
 #include <map>
 #include <vector>
 #include <list>

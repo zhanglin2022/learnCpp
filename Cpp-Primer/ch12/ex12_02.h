@@ -1,3 +1,9 @@
+// Exercise 12.2
+//
+// Write your own version of the StrBlob class including the const versions 
+// of front and back.
+//
+
 #ifndef EX12_2_H
 #define EX12_2_H
 
@@ -5,7 +11,7 @@
 #include <vector>
 #include <string>
 #include <initializer_list>
-#include <exception>
+#include <stdexcept>
 
 using std::vector; using std::string; using std::make_shared;
 

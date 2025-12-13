@@ -1,3 +1,8 @@
+// Exercise 11.11
+//
+// Redefine bookstore without using decltype.
+//
+
 #include "../ch07/ex7_26.h"
 #include <set>
 
