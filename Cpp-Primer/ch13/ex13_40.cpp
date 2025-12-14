@@ -1,6 +1,6 @@
 // Exercise 13.40
 //
-//  Add a constructor that takes an initializer_list<string> to your StrVec class
+//  Add a constructor that takes an initializer_list<string> to your StrVec class.
 //
 
 #include "ex13_40.h"

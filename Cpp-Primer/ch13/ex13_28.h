@@ -1,3 +1,17 @@
+// Exercise 12.28
+//
+// Given the following classes, implement a default constructor and the necessary 
+// copy-control members. 
+//
+// (a) class TreeNode {        (b) class BinStrTree { 
+//     private:                    private: 
+//         std::string value;          TreeNode *root; 
+//         int count;              }; 
+//         TreeNode *left; 
+//         TreeNode *right; 
+//     };
+//
+
 #ifndef EX13_28_H
 #define EX13_28_H
 

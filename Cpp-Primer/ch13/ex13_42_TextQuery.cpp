@@ -40,7 +40,3 @@ std::ostream& print(std::ostream &os, const QueryResult &qr) {
         os << "\t(line " << i + 1 << ") " << qr.input->at(i) << std::endl;
     return os;
 }
-
-int main() {
-    return 0;
-}

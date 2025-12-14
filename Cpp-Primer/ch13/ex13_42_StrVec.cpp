@@ -91,6 +91,3 @@ void StrVec::resize(size_t count, const string &s) {
     }
 }
 
-int main() {
-    return 0;
-}
