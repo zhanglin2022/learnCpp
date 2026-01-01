@@ -320,3 +320,11 @@ int&& r4 = vi[0] * f();
 
 ## [Exercise 13.48](ex13_48.cpp)
 
+## Exercise 13.49
+>Add a move constructor and move-assignment operator to your
+StrVec, String, and Message classes.
+
+StrVec : [hpp](ex13_49_StrVec.h) | [cpp](ex13_49_StrVec.cpp)
+String : [hpp](ex13_49_String.h) | [cpp](ex13_49_String.cpp)
+Message : [hpp](ex13_49_Message.h) | [cpp](ex13_49_Message.cpp)
+
