@@ -1,6 +1,8 @@
 // Exercise13.30
-// Write and test a swap function for your valuelike version of HasPtr
 // @see ex13_22.h
+// Write and test a swap function for your valuelike version of HasPtr. 
+// Give your swap a print statement that notes when it is executed.
+//
 
 #ifndef EX13_30_H
 #define EX13_30_H

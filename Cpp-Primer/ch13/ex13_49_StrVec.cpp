@@ -1,10 +1,12 @@
-// Exercise 13.42
+// Exercise 13.49
 //
-// Test your StrVec class by using it in place of the vector<string> 
-// in your TextQuery and QueryResult classes
+// @see ex13_42_StrVec.cpp
 //
+// Add a move constructor and move-assignment operator to your StrVec, 
+// String, and Message classes.
+// 
 
-#include "ex13_42_StrVec.h"
+#include "ex13_49_StrVec.h"
 
 using std::string;
 
@@ -54,6 +56,22 @@ StrVec& StrVec::operator=(const StrVec &s) {
     free();
     elements = newdata.first;
     first_free = cap = newdata.second;
+    return *this;
+}
+
+StrVec::StrVec(StrVec &&s) noexcept
+    : elements(s.elements), first_free(s.first_free), cap(s.cap) {
+    s.elements = s.first_free = s.cap = nullptr;
+}
+
+StrVec& StrVec::operator=(StrVec &&rhs) noexcept {
+    if (this != &rhs) {
+        free();
+        elements = rhs.elements;
+        first_free = rhs.first_free;
+        cap = rhs.cap;
+        rhs.elements = rhs.first_free = rhs.cap = nullptr;
+    }
     return *this;
 }
 

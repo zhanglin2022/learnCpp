@@ -1,10 +1,13 @@
-// Exercise 13.40
+// Exercise 13.49
 //
-//  Add a constructor that takes an initializer_list<string> to your StrVec class.
+// @see ex13_42_StrVec.h
 //
+// Add a move constructor and move-assignment operator to your StrVec, 
+// String, and Message classes.
+// 
 
-#ifndef EX13_40_H
-#define EX13_40_H
+#ifndef EX13_49_STRVEC_H
+#define EX13_49_STRVEC_H
 
 #include <string>
 #include <memory>
@@ -18,6 +21,8 @@ public:
     StrVec(initializer_list<string>);
     StrVec(const StrVec&);
     StrVec& operator=(const StrVec&);
+    StrVec(StrVec&&) noexcept;
+    StrVec& operator=(StrVec&&) noexcept;
     ~StrVec();
 
     void push_back(const string&); // copy the element
@@ -26,6 +31,9 @@ public:
     string* begin() const { return elements; }
     string* end() const { return first_free; }
     
+    std::string& at(size_t pos) { return *(elements + pos); }
+    const std::string& at(size_t pos) const { return *(elements + pos); }
+
     void reserve(size_t);
     void resize(size_t);
     void resize(size_t, const string&);

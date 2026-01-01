@@ -1,12 +1,13 @@
-// Exercise 13.47
-// 
-// Give the copy constructor and copy-assignment operator in your String 
-// class from exercise 13.44 in § 13.5 (p. 531) a statement that prints a 
-// message each time the function is executed.
+// Exercise 13.49
 //
+// @see ex13_47.h
+//
+// Add a move constructor and move-assignment operator to your StrVec, 
+// String, and Message classes.
+// 
 
-#ifndef EX13_47_H
-#define EX13_47_H
+#ifndef EX13_49_STRING_H
+#define EX13_49_STRING_H
 
 #include <memory>
 
@@ -16,6 +17,8 @@ public:
     String(const char*);
     String(const String&);
     String& operator=(const String&);
+    String(String&&) noexcept;
+    String& operator=(String&&) noexcept;
 
     const char* c_str() const { return elements; }
     size_t size() const { return end - elements; }

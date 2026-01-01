@@ -1,3 +1,12 @@
+// Exercise 13.34, Exercise 13.36 and Exercise 13.37
+//
+// Exercise 13.34: Write the Message class as described in this section.
+// Exercise 13.36: Design and implement the corresponding Folder class. That class
+//                 should hold a set that points to the Messages in that Folder.            
+// Exercise 13.37: Add members to the Message class to insert or remove a given 
+//                 Folder* into folders. These members are analogous to Folder’s 
+//                 addMsg and remMsg operations.  
+
 #include "ex13_34_36_37.h"
 
 void swap(Message &lhs, Message &rhs) {

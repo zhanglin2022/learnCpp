@@ -1,6 +1,7 @@
 // Exercise 13.27
-// Define your own reference-counted version of HasPtr.
 // @see ex13_22
+// Define your own reference-counted version of HasPtr.
+//
 
 #ifndef EX13_27_H
 #define EX13_27_H
