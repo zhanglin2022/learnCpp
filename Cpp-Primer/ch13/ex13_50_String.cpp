@@ -1,12 +1,13 @@
-// Exercise 13.49
+// Exercise 13.50
 //
-// @see ex13_47.cpp
+// @see ex13.49_String.cpp
 //
-// Add a move constructor and move-assignment operator to your StrVec, 
-// String, and Message classes.
-// 
+// Put print statements in the move operations in your String class and
+// rerun the program from exercise 13.48 in § 13.6.1 (p. 534) that used 
+// a vector<String> to see when the copies are avoided.
+//
 
-#include "ex13_49_String.h"
+#include "ex13_50_String.h"
 #include <iostream>
 #include <algorithm>
 
@@ -54,6 +55,7 @@ String& String::operator=(const String &rhs) {
 }
 
 String::String(String &&s) noexcept : elements(s.elements), end(s.end) {
+    std::cout << "String move constructor called" << std::endl;
     s.elements = s.end = nullptr;
 }
 
@@ -64,5 +66,6 @@ String& String::operator=(String &&rhs) noexcept {
         end = rhs.end;
         rhs.elements = rhs.end = nullptr;
     }
+    std::cout << "String move assignment called" << std::endl;
     return *this;
 }
