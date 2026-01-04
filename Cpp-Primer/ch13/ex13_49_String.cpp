@@ -57,7 +57,7 @@ String::String(String &&s) noexcept : elements(s.elements), end(s.end) {
     s.elements = s.end = nullptr;
 }
 
-String& String::operator=(String &&rhs) {
+String& String::operator=(String &&rhs) noexcept {
     if (this != &rhs) {
         free();
         elements = rhs.elements;
