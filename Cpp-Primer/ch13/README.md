@@ -328,3 +328,4 @@ StrVec : [hpp](ex13_49_StrVec.h) | [cpp](ex13_49_StrVec.cpp)
 String : [hpp](ex13_49_String.h) | [cpp](ex13_49_String.cpp)
 Message : [hpp](ex13_49_Message.h) | [cpp](ex13_49_Message.cpp)
 
+## Exercise 13.50 [hpp](ex13_50_String.h) | [cpp](ex13_50_String.cpp) | [Test](ex13_50_TEST.cpp)
