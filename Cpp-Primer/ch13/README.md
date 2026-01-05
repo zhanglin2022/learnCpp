@@ -334,3 +334,20 @@ Message : [hpp](ex13_49_Message.h) | [cpp](ex13_49_Message.cpp)
 >Although unique_ptrs cannot be copied, in § 12.1.5 (p. 471) we wrote a clone function that returned a unique_ptr by value. Explain why that function is legal and how it works.
 
 Cause the object being returned is about to destroyed. It uses move constructor.
+
+## Exercise 13.52
+>Explain in detail what happens in the assignments of the `HasPtr` objects on page 541. In particular, describe step by step what happens to values of `hp`, `hp2`, and of the `rhs` parameter in the `HasPtr` assignment operator.
+
+```cpp
+HasPtr& operator=(HasPtr rhs) { 
+	swap(*this, rhs); return *this; 
+}
+// other code
+hp = hp2; //hp2 is an lvalue; copy constructor used to copy hp2
+hp = std::move(hp2); //move constructor moves hp2
+```
+the rhs parameter is nonreference, which means it's **copy initialized**. Depends on the type of argument, copy initialization uses either the **copy constructor** or the **move construcor**. 
+
+**lvalues are copied and rvalues are moved.**
+
+Thus, in `hp = hp2;`, `hp2` is an lvalue, copy constructor used to copy `hp2`. In `hp = std::move(hp2);`, move constructor moves `hp2`.
