@@ -20,8 +20,8 @@ public:
     HasPtr(const string &s = string()): ps(new string(s)), i(0) { }
     HasPtr(const HasPtr& hp): ps(new string(*hp.ps)), i(hp.i) { }
 
-    HasPtr& operator=(HasPtr tmp) {
-        this->swap(tmp);
+    HasPtr& operator=(HasPtr rhs) {
+        this->swap(rhs);
         return *this;
     }
 
