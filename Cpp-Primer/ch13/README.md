@@ -329,3 +329,8 @@ String : [hpp](ex13_49_String.h) | [cpp](ex13_49_String.cpp)
 Message : [hpp](ex13_49_Message.h) | [cpp](ex13_49_Message.cpp)
 
 ## Exercise 13.50 [hpp](ex13_50_String.h) | [cpp](ex13_50_String.cpp) | [Test](ex13_50_TEST.cpp)
+
+## Exercise 13.51
+>Although unique_ptrs cannot be copied, in § 12.1.5 (p. 471) we wrote a clone function that returned a unique_ptr by value. Explain why that function is legal and how it works.
+
+Cause the object being returned is about to destroyed. It uses move constructor.
