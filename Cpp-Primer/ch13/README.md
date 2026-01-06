@@ -351,3 +351,53 @@ the rhs parameter is nonreference, which means it's **copy initialized**. Depend
 **lvalues are copied and rvalues are moved.**
 
 Thus, in `hp = hp2;`, `hp2` is an lvalue, copy constructor used to copy `hp2`. In `hp = std::move(hp2);`, move constructor moves `hp2`.
+
+# Exercise 13.53
+>As a matter of low-level efficiency, the HasPtr assignment operator is not ideal. Explain why. Implement a copy-assignment and move-assignment operator for HasPtr and compare the operations executed in your new move-assignment operator versus the copy-and-swap version.
+
+the HasPtr assignment operator is not ideal because it need a extra temporay object, unnecessay swapping operations and extra resource transfer in move assignment cases.
+
+**compare the operations executed**:
+
+Test Function:
+```cpp
+#include "ex13_53.h"
+
+int main() {
+    HasPtr h1("Hello"), h2("world"), *pH = new HasPtr("good");
+    h1 = h2;
+    h1 = std::move(*pH);
+    delete pH;
+    
+    return 0;
+}
+```
+>Keep only pass-by-value assignment (copy-and-swap assignment), and comment out pass-by-reference assignment (copy assignment and move assignment).
+
+```
+call constructor       // Create h1
+call constructor       // Create h2
+call constructor       // Create *pH
+call copy constructor  // Create rhs (copy from h2)
+call swap              // Swap h1 and rhs
+call destructor        // Destructor for rhs (deletes original h1's "Hello")
+call move constructor  // Create rhs (move from *pH)
+call swap              // Swap h1 and rhs
+call destructor        // Destructor for rhs (deletes the "world" copy after first assignment)
+call destructor        // Manually delete the heap object pointed by pH
+call destructor        // Destruct h2 (delete "world")
+call destructor        // Destruct h1 (delete "good" moved from *pH)
+```
+
+>Keep only pass-by-reference assignment (copy assignment and move assignment), and comment out pass-by-value assignment (copy-and-swap assignment).
+
+```
+call constructor       // Create h1
+call constructor       // Create h2
+call constructor       // Create *pH
+call copy-assignment   // Copy assign from h2 to h1
+call move-assignment   // Move assign from pH to h1
+call destructor        // Manually delete the heap object pointed by pH
+call destructor        // Destruct h2
+call destructor        // Destruct h1
+```
