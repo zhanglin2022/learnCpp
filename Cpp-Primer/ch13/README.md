@@ -403,3 +403,13 @@ call destructor        // Manually delete the heap object pointed by pH
 call destructor        // Destruct h2
 call destructor        // Destruct h1
 ```
+see more information at [this question && answer](http://stackoverflow.com/questions/21010371/why-is-it-not-efficient-to-use-a-single-assignment-operator-handling-both-copy-a).
+
+## Exercise 13.54
+>What would happen if we defined a HasPtr move-assignment operator but did not change the copy-and-swap operator? Write code to test your answer.
+
+```sh
+error: ambiguous overload for 'operator=' (operand types are 'HasPtr' and 'std::remove_reference<HasPtr&>::type { aka HasPtr }')
+hp1 = std::move(*pH);
+^
+```
