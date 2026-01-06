@@ -329,3 +329,87 @@ String : [hpp](ex13_49_String.h) | [cpp](ex13_49_String.cpp)
 Message : [hpp](ex13_49_Message.h) | [cpp](ex13_49_Message.cpp)
 
 ## Exercise 13.50 [hpp](ex13_50_String.h) | [cpp](ex13_50_String.cpp) | [Test](ex13_50_TEST.cpp)
+
+## Exercise 13.51
+>Although unique_ptrs cannot be copied, in § 12.1.5 (p. 471) we wrote a clone function that returned a unique_ptr by value. Explain why that function is legal and how it works.
+
+Cause the object being returned is about to destroyed. It uses move constructor.
+
+## Exercise 13.52
+>Explain in detail what happens in the assignments of the `HasPtr` objects on page 541. In particular, describe step by step what happens to values of `hp`, `hp2`, and of the `rhs` parameter in the `HasPtr` assignment operator.
+
+```cpp
+HasPtr& operator=(HasPtr rhs) { 
+	swap(*this, rhs); return *this; 
+}
+// other code
+hp = hp2; //hp2 is an lvalue; copy constructor used to copy hp2
+hp = std::move(hp2); //move constructor moves hp2
+```
+the rhs parameter is nonreference, which means it's **copy initialized**. Depends on the type of argument, copy initialization uses either the **copy constructor** or the **move construcor**. 
+
+**lvalues are copied and rvalues are moved.**
+
+Thus, in `hp = hp2;`, `hp2` is an lvalue, copy constructor used to copy `hp2`. In `hp = std::move(hp2);`, move constructor moves `hp2`.
+
+# Exercise 13.53
+>As a matter of low-level efficiency, the HasPtr assignment operator is not ideal. Explain why. Implement a copy-assignment and move-assignment operator for HasPtr and compare the operations executed in your new move-assignment operator versus the copy-and-swap version.
+
+[hpp](ex13_53.h) | [cpp](ex13_53.cpp) | [Test](ex13_53_TEST.cpp)
+
+the HasPtr assignment operator is not ideal because it need a extra temporay object, unnecessay swapping operations and extra resource transfer in move assignment cases.
+
+**compare the operations executed**:
+
+Test Function:
+```cpp
+#include "ex13_53.h"
+
+int main() {
+    HasPtr h1("Hello"), h2("world"), *pH = new HasPtr("good");
+    h1 = h2;
+    h1 = std::move(*pH);
+    delete pH;
+    
+    return 0;
+}
+```
+>Keep only pass-by-value assignment (copy-and-swap assignment), and comment out pass-by-reference assignment (copy assignment and move assignment).
+
+```
+call constructor       // Create h1
+call constructor       // Create h2
+call constructor       // Create *pH
+call copy constructor  // Create rhs (copy from h2)
+call swap              // Swap h1 and rhs
+call destructor        // Destructor for rhs (deletes original h1's "Hello")
+call move constructor  // Create rhs (move from *pH)
+call swap              // Swap h1 and rhs
+call destructor        // Destructor for rhs (deletes the "world" copy after first assignment)
+call destructor        // Manually delete the heap object pointed by pH
+call destructor        // Destruct h2 (delete "world")
+call destructor        // Destruct h1 (delete "good" moved from *pH)
+```
+
+>Keep only pass-by-reference assignment (copy assignment and move assignment), and comment out pass-by-value assignment (copy-and-swap assignment).
+
+```
+call constructor       // Create h1
+call constructor       // Create h2
+call constructor       // Create *pH
+call copy-assignment   // Copy assign from h2 to h1
+call move-assignment   // Move assign from pH to h1
+call destructor        // Manually delete the heap object pointed by pH
+call destructor        // Destruct h2
+call destructor        // Destruct h1
+```
+see more information at [this question && answer](http://stackoverflow.com/questions/21010371/why-is-it-not-efficient-to-use-a-single-assignment-operator-handling-both-copy-a).
+
+## Exercise 13.54
+>What would happen if we defined a HasPtr move-assignment operator but did not change the copy-and-swap operator? Write code to test your answer.
+
+```sh
+error: ambiguous overload for 'operator=' (operand types are 'HasPtr' and 'std::remove_reference<HasPtr&>::type { aka HasPtr }')
+hp1 = std::move(*pH);
+^
+```
