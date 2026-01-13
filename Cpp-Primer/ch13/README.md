@@ -413,3 +413,13 @@ error: ambiguous overload for 'operator=' (operand types are 'HasPtr' and 'std::
 hp1 = std::move(*pH);
 ^
 ```
+
+## Exercise 13.55
+>Add an rvalue reference version of push_back to your StrBlob.
+
+StrBlob class is in [Exercise 13.26](ex13_26.h)
+
+```cpp
+void StrBlob::push_back(string &&s) { data->push_back(std::move(s)); }
+```
+
