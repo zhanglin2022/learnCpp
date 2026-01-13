@@ -32,7 +32,7 @@ public:
     size_type size() const { return data->size(); }
     bool empty() const { return data->empty(); }
 
-    void push_back(const string &t) { data->push_back(t); }
+    void push_back(const string &s) { data->push_back(s); }
     void pop_back();
 
     string& front();
