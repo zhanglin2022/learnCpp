@@ -423,3 +423,16 @@ StrBlob class is in [Exercise 13.26](ex13_26.h)
 void StrBlob::push_back(string &&s) { data->push_back(std::move(s)); }
 ```
 
+## Exercise 13.56
+>What would happen if we defined sorted as:
+```cpp
+Foo Foo::sorted() const & {
+    Foo ret(*this);
+    return ret.sorted();
+}
+```
+
+recursion and stack overflow.
+
+Because the local variable `ret` here is an Lvalue, so when we call `ret.sorted()`, we are actually not calling the member function `Foo Foo::sorted() &&` as expected, but `Foo Foo::sorted() const &` instead. As a result, the code will be trapped into a recursion and causes a deadly stack overflow.
+
