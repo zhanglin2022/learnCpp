@@ -442,3 +442,5 @@ Because the local variable `ret` here is an Lvalue, so when we call `ret.sorted(
 Foo Foo::sorted() const & { return Foo(*this).sorted(); }
 ```
 It will can the move version(&& version) of function `sorted`.
+
+## [Exercise 13.58](ex13_58.cpp)
