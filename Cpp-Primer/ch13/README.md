@@ -436,3 +436,9 @@ recursion and stack overflow.
 
 Because the local variable `ret` here is an Lvalue, so when we call `ret.sorted()`, we are actually not calling the member function `Foo Foo::sorted() &&` as expected, but `Foo Foo::sorted() const &` instead. As a result, the code will be trapped into a recursion and causes a deadly stack overflow.
 
+## Exercise 13.57
+>What if we defined sorted as:
+```cpp
+Foo Foo::sorted() const & { return Foo(*this).sorted(); }
+```
+It will can the move version(&& version) of function `sorted`.
