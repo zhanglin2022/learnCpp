@@ -1,5 +1,7 @@
 // Exercise 13.26
-// @see ex12_22 and ex13_25
+//
+// @See ex12_22 and ex13_25
+//
 // Write your own version of StrBlob described in the previous exercise.
 //
 

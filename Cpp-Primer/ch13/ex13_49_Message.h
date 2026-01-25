@@ -1,6 +1,6 @@
 // Exercise 13.49
 //
-// @see ex13_34_36_37.h
+// @See ex13_34_36_37.h
 //
 // Add a move constructor and move-assignment operator to your StrVec, 
 // String, and Message classes.
