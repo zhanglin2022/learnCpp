@@ -1,6 +1,7 @@
 // Exercise 7.41
-
+//
 // @See ex7_26.h
+//
 // Rewrite your own version of the Sales_data class to use delegating constructors. 
 // Add a statement to the body of each of the constructors that prints a message 
 // whenever it is executed. Write declarations to construct a Sales_data object in 
