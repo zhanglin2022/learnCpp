@@ -13,4 +13,6 @@ Moreover, overloaded versions of && or || operators do not preserve short-circui
 **Same**
 - An overloaded operator has the same precedence and associativity as the corresponding built-in operator.
 
-## [Exercise 14.2]()
+## Exercise 14.2
+
+[hpp](ex14_02.h) | [cpp](ex14_02.cpp) | [Test](ex14_02_TEST.cpp)
