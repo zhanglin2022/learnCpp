@@ -16,3 +16,15 @@ Moreover, overloaded versions of && or || operators do not preserve short-circui
 ## Exercise 14.2
 
 [hpp](ex14_02.h) | [cpp](ex14_02.cpp) | [Test](ex14_02_TEST.cpp)
+
+# Exercise 14.3
+>Both string and vector define an overloaded == that can be used to
+compare objects of those types. Assuming svec1 and svec2 are vectors that hold strings, identify which version of == is applied in each of the following expressions:
+```cpp
+(a) "cobble" == "stone"    (b) svec1[0] == svec2[0]
+(c) svec1 == svec2         (d) "svec1[0] == "stone"
+```
+
+
+(a) neither (b) `string` (c) `vector` (d) `string`
+
