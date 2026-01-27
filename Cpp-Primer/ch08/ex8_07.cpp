@@ -1,11 +1,11 @@
 // Exercise 8.7
 //
-// @brief  Revise the bookstore program from the previous section to write 
+// @Brief  Revise the bookstore program from the previous section to write 
 //         its output to a file. Pass the name of that file as a second argument 
 //         to main.
-// @see    "../ch07/ex7_26.h" (Sales_data class)
-// @run    give two parameters: "../../data/book.txt" "./output.txt"
-// @output output.txt(The following are contents)
+// @See    "../ch07/ex7_26.h" (Sales_data class)
+// @Run    give two parameters: "../../data/book.txt" "./output.txt"
+// @Output output.txt(The following are contents)
 //         0-201-78345-X 5 110
 //         0-201-78346-X 9 839.2
 

@@ -1,6 +1,6 @@
 // Exercise 13.50
 //
-// @see ex13.49_String.cpp
+// @See ex13.49_String.cpp
 //
 // Put print statements in the move operations in your String class and
 // rerun the program from exercise 13.48 in § 13.6.1 (p. 534) that used 

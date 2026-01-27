@@ -12,3 +12,43 @@ Moreover, overloaded versions of && or || operators do not preserve short-circui
 
 **Same**
 - An overloaded operator has the same precedence and associativity as the corresponding built-in operator.
+
+## Exercise 14.2
+
+[hpp](ex14_02.h) | [cpp](ex14_02.cpp) | [Test](ex14_02_TEST.cpp)
+
+## Exercise 14.3
+>Both string and vector define an overloaded == that can be used to
+compare objects of those types. Assuming svec1 and svec2 are vectors that hold strings, identify which version of == is applied in each of the following expressions:
+```cpp
+(a) "cobble" == "stone"    (b) svec1[0] == svec2[0]
+(c) svec1 == svec2         (d) "svec1[0] == "stone"
+```
+
+(a) neither (b) `string` (c) `vector` (d) `string`
+
+**Reference**
+- [Why does the following not invoke the overloaded operator== (const String &, const String &)? “cobble” == “stone”](http://stackoverflow.com/questions/2690737/why-does-the-following-not-invoke-the-overloaded-operator-const-string-con)
+
+
+## Exercise 14.4
+>Explain how to decide whether the following should be class members:
+```
+(a) %
+(b) %=
+(c) ++
+(d) ->
+(e) <<
+(f) &&
+(g) ==
+(h) ()
+```
+
+(a) symmetric operator. Hence, non-member
+(b) changing state of objects. Hence, member
+(c) changing state of objects. Hence, member
+(d) = () [] -> must be member
+(e) non-member
+(f) symetric , non-member
+(g) symetric , non-member
+(h) = () [] -> must be member

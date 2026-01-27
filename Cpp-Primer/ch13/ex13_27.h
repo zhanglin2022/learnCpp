@@ -1,5 +1,7 @@
 // Exercise 13.27
-// @see ex13_22
+//
+// @See ex13_22
+//
 // Define your own reference-counted version of HasPtr.
 //
 

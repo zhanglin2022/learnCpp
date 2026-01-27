@@ -1,6 +1,6 @@
 // Exercise 13.53
 //
-// @see ex13_31.h
+// @See ex13_31.h
 //
 // As a matter of low-level efficiency, the HasPtr assignment operator is 
 // not ideal. Explain why. 

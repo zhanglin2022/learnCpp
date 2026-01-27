@@ -1,11 +1,11 @@
 // Exercise 8.8
 //
-// @brief  Revise the program from the previous exercise to append its output 
+// @Brief  Revise the program from the previous exercise to append its output 
 //         to its given file. Run the program on the same output file at least 
 //         twice to ensure that the data are preserved.
-// @see    "../ch07/ex7_26.h" (Sales_data class)
-// @run    give two parameters: "../../data/book.txt" "./output.txt"
-// @output output.txt(The following are contents)
+// @See    "../ch07/ex7_26.h" (Sales_data class)
+// @Run    give two parameters: "../../data/book.txt" "./output.txt"
+// @Output output.txt(The following are contents)
 //         0-201-78345-X 5 110
 //         0-201-78346-X 9 839.2
 //         0-201-78345-X 5 110

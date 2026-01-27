@@ -1,6 +1,6 @@
 // Exercise 13.49
 //
-// @see ex13_47.cpp
+// @See ex13_47.cpp
 //
 // Add a move constructor and move-assignment operator to your StrVec, 
 // String, and Message classes.

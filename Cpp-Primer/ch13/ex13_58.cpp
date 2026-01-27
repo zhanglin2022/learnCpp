@@ -1,6 +1,6 @@
 // Exercise 13.58
 //
-// @see Exercise 13.56 and Exercise 13.57
+// @See Exercise 13.56 and Exercise 13.57
 //
 // Write versions of class Foo with print statements in their sorted
 // functions to test your answers to the previous two exercises.
