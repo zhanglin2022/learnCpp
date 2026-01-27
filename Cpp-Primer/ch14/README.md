@@ -27,3 +27,28 @@ compare objects of those types. Assuming svec1 and svec2 are vectors that hold s
 
 (a) neither (b) `string` (c) `vector` (d) `string`
 
+**Reference**
+- [Why does the following not invoke the overloaded operator== (const String &, const String &)? “cobble” == “stone”](http://stackoverflow.com/questions/2690737/why-does-the-following-not-invoke-the-overloaded-operator-const-string-con)
+
+
+## Exercise 14.4
+>Explain how to decide whether the following should be class members:
+```
+(a) %
+(b) %=
+(c) ++
+(d) ->
+(e) <<
+(f) &&
+(g) ==
+(h) ()
+```
+
+(a) symmetric operator. Hence, non-member
+(b) changing state of objects. Hence, member
+(c) changing state of objects. Hence, member
+(d) = () [] -> must be member
+(e) non-member
+(f) symetric , non-member
+(g) symetric , non-member
+(h) = () [] -> must be member
