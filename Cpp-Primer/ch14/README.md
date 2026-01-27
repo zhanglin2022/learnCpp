@@ -25,6 +25,5 @@ compare objects of those types. Assuming svec1 and svec2 are vectors that hold s
 (c) svec1 == svec2         (d) "svec1[0] == "stone"
 ```
 
-
 (a) neither (b) `string` (c) `vector` (d) `string`
 
