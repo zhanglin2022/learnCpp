@@ -52,3 +52,14 @@ compare objects of those types. Assuming svec1 and svec2 are vectors that hold s
 (f) symetric , non-member
 (g) symetric , non-member
 (h) = () [] -> must be member
+
+## Exercise 14.5
+>In exercise 7.40 from § 7.5.1 (p. 291) you wrote a sketch of one of the following classes. 
+Decide what, if any, overloaded operators your class should provide.
+```cpp
+(a) Book      (b) Date      (c) Employee
+(d) Vehicle   (e) Object    (f) Tree
+```
+Such as `Book` class.
+
+[hpp](ex14_05.h) | [cpp](ex14_05.cpp) | [Test](ex14_05_TEST.cpp)
