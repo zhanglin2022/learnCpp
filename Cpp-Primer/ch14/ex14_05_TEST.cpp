@@ -12,7 +12,7 @@ int main() {
     Book b;
     std::cin >> b;
     std::cout << b << std::endl;
-    std::cout << (a ==b) << std::endl;
+    std::cout << (a == b) << std::endl;
 
     return 0;
 }
