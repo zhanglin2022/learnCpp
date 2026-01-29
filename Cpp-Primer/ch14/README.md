@@ -68,3 +68,7 @@ Such as `Book` class.
 >Define an output operator for your Sales_data class.
 
 see Exercise 14.2
+
+## Exercise 14.7
+
+[hpp](ex14_07.h) | [cpp](ex14_07.cpp) | [Test](ex14_07_TEST.cpp)
