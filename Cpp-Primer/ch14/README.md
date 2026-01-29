@@ -63,3 +63,8 @@ Decide what, if any, overloaded operators your class should provide.
 Such as `Book` class.
 
 [hpp](ex14_05.h) | [cpp](ex14_05.cpp) | [Test](ex14_05_TEST.cpp)
+
+## Exercise 14.6
+>Define an output operator for your Sales_data class.
+
+see Exercise 14.2
