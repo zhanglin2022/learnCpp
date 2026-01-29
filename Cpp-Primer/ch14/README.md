@@ -72,3 +72,8 @@ see Exercise 14.2
 ## Exercise 14.7
 
 [hpp](ex14_07.h) | [cpp](ex14_07.cpp) | [Test](ex14_07_TEST.cpp)
+
+## Exercise 14.8
+>Define an output operator for the class you chose in exercise 7.40 from § 7.5.1 (p. 291).
+
+see Exercise 14.5
