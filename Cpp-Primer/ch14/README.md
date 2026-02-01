@@ -77,3 +77,8 @@ see Exercise 14.2
 >Define an output operator for the class you chose in exercise 7.40 from § 7.5.1 (p. 291).
 
 see Exercise 14.5
+
+## Exercise 14.9
+>Define an input operator for your Sales_data class.
+
+see Exercise 14.2
