@@ -82,3 +82,16 @@ see Exercise 14.5
 >Define an input operator for your Sales_data class.
 
 see Exercise 14.2
+
+## Exercise 14.10
+>Describe the behavior of the Sales_data input operator if given the following input:
+```
+(a) 0-201-99999-9 10 24.95
+(b) 10 24.95 0-210-99999-9
+```
+(a) correct format.
+(b) illegal input. But the `.95` will be converted into a float parsed as `price`. As a result, the data inside will be wrong. Morever, the revenue will be 24 * 0.95 = 22.8.
+Output: `10 24 22.8 0.95`
+
+check[Test](ex14_02_TEST.cpp)
+
