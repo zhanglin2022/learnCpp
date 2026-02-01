@@ -107,3 +107,9 @@ istream& operator>>(istream& in, Sales_data& s)
 }
 ```
 It doesn't check the state of istream& in. Nothing Happened.
+
+## Exercise 14.12
+>Define an input operator for the class you used in exercise 7.40 from § 7.5.1 (p. 291). Be sure the operator handles input errors.
+
+see Exercise 14.5
+ 
