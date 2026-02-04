@@ -67,7 +67,7 @@ Such as `Book` class.
 ## Exercise 14.6
 >Define an output operator for your Sales_data class.
 
-see Exercise 14.2
+see [Exercise 14.2](#exercise-142)
 
 ## Exercise 14.7
 
@@ -76,12 +76,12 @@ see Exercise 14.2
 ## Exercise 14.8
 >Define an output operator for the class you chose in exercise 7.40 from § 7.5.1 (p. 291).
 
-see Exercise 14.5
+see [Exercise 14.5](#exercise-145)
 
 ## Exercise 14.9
 >Define an input operator for your Sales_data class.
 
-see Exercise 14.2
+see [Exercise 14.2](#exercise-142)
 
 ## Exercise 14.10
 >Describe the behavior of the Sales_data input operator if given the following input:
@@ -111,5 +111,9 @@ It doesn't check the state of istream& in. Nothing Happened.
 ## Exercise 14.12
 >Define an input operator for the class you used in exercise 7.40 from § 7.5.1 (p. 291). Be sure the operator handles input errors.
 
-see Exercise 14.5
- 
+see [Exercise 14.5](#exercise-145 )
+
+## Exercise 14.13
+>Which other arithmetic operators (Table 4.1 (p. 139)), if any, do you think Sales_data ought to support? Define any you think the class should include.
+
+Substraction, in order to be able to revert a previously addition.
