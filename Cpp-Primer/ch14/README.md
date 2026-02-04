@@ -112,3 +112,8 @@ It doesn't check the state of istream& in. Nothing Happened.
 >Define an input operator for the class you used in exercise 7.40 from § 7.5.1 (p. 291). Be sure the operator handles input errors.
 
 see [Exercise 14.5](#exercise-145 )
+
+## Exercise 14.13
+>Which other arithmetic operators (Table 4.1 (p. 139)), if any, do you think Sales_data ought to support? Define any you think the class should include.
+
+Substraction, in order to be able to revert a previously addition.
