@@ -139,3 +139,8 @@ Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs) {
     return sum;
 }
 ```
+
+## Exercise 14.15
+>Should the class you chose for exercise 7.40 from § 7.5.1 (p. 291) define any of the arithmetic operators? If so, implement them. If not, explain why not.
+
+[hpp](ex14_15.h) | [hpp](ex14_15.cpp) | [Test](ex14_15_TEST.cpp)
