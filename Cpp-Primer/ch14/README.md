@@ -124,6 +124,8 @@ Substraction, in order to be able to revert a previously addition.
 
 `operator+=` would use an unnecessary temporary object if it were implemented using `operator+`, as you can see in the first line of the operator+ example.
 
+`operator+=` should directly modify the left operand and should not create temporary objects. `operator+` should return a new object, so it is reasonable for it to create a temporary object and reuse the addition logic of operator+=.
+
 ```cpp
 Sales_data& Sales_data::operator+=(const Sales_data &rhs) {
     units_sold += rhs.units_sold;
