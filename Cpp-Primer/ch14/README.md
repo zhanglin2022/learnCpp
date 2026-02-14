@@ -117,6 +117,23 @@ see [Exercise 14.5](#exercise-145 )
 >Which other arithmetic operators (Table 4.1 (p. 139)), if any, do you think Sales_data ought to support? Define any you think the class should include.
 
 Substraction, in order to be able to revert a previously addition.
-ref ex14_02.h
-
 [hpp](ex14_13.h) | [cpp](ex14_13.cpp) | [Test](ex14_13_TEST.cpp)
+
+## Exercise 14.14
+>Why do you think it is more efficient to define operator+ to call operator+= rather than the other way around?
+
+`operator+=` would use an unnecessary temporary object if it were implemented using `operator+`, as you can see in the first line of the operator+ example.
+
+```cpp
+Sales_data& Sales_data::operator+=(const Sales_data &rhs) {
+    units_sold += rhs.units_sold;
+    revenue += rhs.revenue;
+    return *this;
+}
+
+Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs) {
+    Sales_data sum = lhs;  
+    sum += rhs;             
+    return sum;
+}
+```
