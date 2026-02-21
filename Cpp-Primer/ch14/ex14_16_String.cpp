@@ -8,7 +8,6 @@
 //
 
 #include "ex14_16_String.h"
-
 #include <algorithm>
 
 std::allocator<char> String::alloc;

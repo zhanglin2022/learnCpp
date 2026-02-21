@@ -153,3 +153,8 @@ class `StrBlob` & `StrBlobPtr` : [hpp](ex14_16_StrBlob.h) | [cpp](ex14_16_StrBlo
 class `StrVec` : [hpp](ex14_16_StrVec.h) | [cpp](ex14_16_StrVec.cpp) | [Test](ex14_16_StrVec_TEST.cpp)
 
 class `String`: [hpp](ex14_16_String.h) | [cpp](ex14_16_String.cpp) | [Test](ex14_16_String_TEST.cpp)
+
+## Exercise 14.17
+>Should the class you chose for exercise 7.40 from § 7.5.1 (p. 291) define the equality operators? If so, implement them. If not, explain why not.
+
+see [Exercise 14.15](#exercise-1415)
