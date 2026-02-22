@@ -1,0 +1,143 @@
+// Exercise 14.18
+// 
+// @See Exercise 14.16
+//
+// Define relational operators for your StrBlob, StrBlobPtr, StrVec, and 
+// String classes.
+//
+
+#include "ex14_18_StrVec.h"
+#include <algorithm>
+
+using std::string;
+
+std::allocator<string> StrVec::alloc;
+
+bool operator==(const StrVec &lhs, const StrVec &rhs) {
+    if (lhs.size() != rhs.size()) 
+        return false;
+    else {
+        for (auto l_iter = lhs.begin(), r_iter = rhs.begin(); l_iter != lhs.end(); ++l_iter, ++r_iter) {
+            if (*l_iter != *r_iter)
+                return false;
+        }
+    }
+    return true;
+}
+
+bool operator!=(const StrVec &lhs, const StrVec &rhs) {
+    return !(lhs == rhs);
+}
+
+bool operator<(const StrVec &lhs, const StrVec &rhs) {
+    return std::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end());
+}
+
+bool operator>(const StrVec &lhs, const StrVec &rhs) {
+    return rhs < lhs;
+}
+
+bool operator<=(const StrVec &lhs, const StrVec &rhs) {
+    return !(lhs > rhs);
+}
+
+bool operator>=(const StrVec &lhs, const StrVec &rhs) {
+    return !(lhs < rhs);
+}
+
+void StrVec::push_back(const string &str) {
+    chk_n_alloc();
+    alloc.construct(first_free++, str);
+}
+
+std::pair<string*, string*> 
+StrVec::alloc_n_copy(const string *b, const string *e) {
+    // allocate space to hold as many elements as are in the range
+    auto data = alloc.allocate(e - b);
+    return {data, std::uninitialized_copy(b, e, data)};
+}
+
+void StrVec::free() {
+    if (elements) {
+        for (auto p = first_free; p != elements;) {
+            alloc.destroy(--p);
+        }
+        alloc.deallocate(elements, cap - elements);
+    }
+}
+
+void StrVec::range_initialize(const string *first, const string *last) {
+    auto newdata = alloc_n_copy(first, last);
+    elements = newdata.first;
+    first_free = cap = newdata.second;
+}
+
+StrVec::StrVec(const StrVec &rhs) {
+    range_initialize(rhs.elements, rhs.first_free);
+}
+
+StrVec::StrVec(initializer_list<string> il) {
+    range_initialize(il.begin(), il.end());
+}
+
+StrVec::~StrVec() {
+    free();
+}
+
+StrVec& StrVec::operator=(const StrVec &s) {
+    auto newdata = alloc_n_copy(s.elements, s.first_free);
+    free();
+    elements = newdata.first;
+    first_free = cap = newdata.second;
+    return *this;
+}
+
+StrVec::StrVec(StrVec &&s) noexcept
+    : elements(s.elements), first_free(s.first_free), cap(s.cap) {
+    s.elements = s.first_free = s.cap = nullptr;
+}
+
+StrVec& StrVec::operator=(StrVec &&rhs) noexcept {
+    if (this != &rhs) {
+        free();
+        elements = rhs.elements;
+        first_free = rhs.first_free;
+        cap = rhs.cap;
+        rhs.elements = rhs.first_free = rhs.cap = nullptr;
+    }
+    return *this;
+}
+
+void StrVec::alloc_n_move(size_t new_cap) {
+    auto newdata = alloc.allocate(new_cap);
+    auto dest = newdata;
+    auto elem = elements;
+    for (auto i = 0; i != size(); ++i)
+        alloc.construct(dest++, std::move(*elem++));
+    free();
+    elements = newdata;
+    first_free = dest;
+    cap = elements + new_cap;
+}
+
+void StrVec::reallocate() {
+    auto newcapacity = size() ? 2 * size() : 1;
+    alloc_n_move(newcapacity);
+}
+
+void StrVec::reserve(size_t new_cap) {
+    if (new_cap <= size()) return;
+    alloc_n_move(new_cap);
+}
+
+void StrVec::resize(size_t count, const string &s) {
+    if (count > size()) {
+        if (count > capacity()) reserve(2 * count);
+        for (size_t i = size(); i != count; ++i) 
+            alloc.construct(first_free++, s);
+    }
+    else if (count < size()) {
+        while (first_free != elements + count) 
+            alloc.destroy(--first_free);
+    }
+}
