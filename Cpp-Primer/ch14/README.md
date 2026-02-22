@@ -165,3 +165,8 @@ see [Exercise 14.15](#exercise-1415)
 class `StrBlob` & `StrBlobPtr` : [hpp](ex14_18_StrBlob.h) | [cpp](ex14_18_StrBlob.cpp) | [Test](ex14_18_StrBlob_TEST.cpp)
 class `StrVec` : [hpp](ex14_18_StrVec.h) | [cpp](ex14_18_StrVec.cpp) | [Test](ex14_18_StrVec_TEST.cpp)
 class `String` : [hpp](ex14_18_String.h) | [cpp](ex14_18_String.cpp) | [Test](ex14_18_String_TEST.cpp)
+
+## Exercise 14.19
+>Should the class you chose for exercise 7.40 from § 7.5.1 (p. 291) define the relational operators? If so, implement them. If not, explain why not.
+
+see [Exercise 14.15](#exercise-1415)
