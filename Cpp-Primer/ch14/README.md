@@ -175,3 +175,23 @@ see [Exercise 14.15](#exercise-1415)
 > Define the addition and compound-assignment operators for your Sales_data class.
 
 see [Exercise 14.2](#exercise-142)
+
+##Exercise 14.21
+>Write the Sales_data operators so that + does the actual addition and += calls +. Discuss the disadvantages of this approach compared to the way these operators were defined in § 14.3 (p. 560) and § 14.4 (p. 564).
+
+```cpp
+Sales_data& Sales_data::operator+=(const Sales_data &rhs) {
+    Sales_data old_data;
+    *this = old_data + rhs;
+    return *this;
+}
+
+Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs) {
+    Sales_data sum;
+    sum.units_sold = lhs.units_sold + rhs.units_sold;
+    sum.revenue = lhs.revenue + rhs.revenue;
+    return sum;
+}
+```
+
+**Disadvantages**: Both `+` and `+=`, uses an temporary object of `Sales_data`. But it is no need for that.
