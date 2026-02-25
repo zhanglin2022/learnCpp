@@ -195,3 +195,8 @@ Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs) {
 ```
 
 **Disadvantages**: Both `+` and `+=`, uses an temporary object of `Sales_data`. But it is no need for that.
+
+## Exercise 14.22
+>Define a version of the assignment operator that can assign a string representing an ISBN to a Sales_data.
+
+[hpp](ex14_22.h) | [cpp](ex14_22.cpp) | [Test](ex14_22_TEST.cpp)
