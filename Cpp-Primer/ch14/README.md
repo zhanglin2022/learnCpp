@@ -200,3 +200,8 @@ Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs) {
 >Define a version of the assignment operator that can assign a string representing an ISBN to a Sales_data.
 
 [hpp](ex14_22.h) | [cpp](ex14_22.cpp) | [Test](ex14_22_TEST.cpp)
+
+## Exercise 14.23
+>Define an initializer_list assignment operator for your version of the StrVec class.
+
+[hpp](ex14_23.h) | [cpp](ex14_23.cpp) | [Test](ex14_23_TEST.cpp)
