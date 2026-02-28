@@ -212,3 +212,17 @@ Sales_data operator+(const Sales_data &lhs, const Sales_data &rhs) {
 No, my `Book` class does not need custom copy-assignment and move-assignment operators. It contains only built-in types (unsigned) and standard library types (std::string), all of which already have correct copy and move semantics. 
 
 see [Exercise 14.15](#exercise-1415)
+
+## Exercise 14.25
+>Implement any other assignment operators your class should define. Explain which types should be used as operands and why.
+
+[hpp](ex14_25.h) | [cpp](ex14_25.cpp) | [Test](ex14_25_TEST.cpp)
+
+The right oprand is const unsigned, because it should not be changed and is a number.
+
+```cpp
+Book& Book::operator=(const unsigned isbn) {
+    *this = Book(isbn);
+    return *this;
+}
+```
