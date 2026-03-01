@@ -226,3 +226,10 @@ Book& Book::operator=(const unsigned isbn) {
     return *this;
 }
 ```
+
+## Exercise 14.26
+>Define subscript operators for your StrVec, String, StrBlob, and StrBlobPtr classes.
+
+class `StrVec` : [hpp](ex14_26_StrVec.h) | [cpp](ex14_26_StrVec.cpp) | [Test](ex14_26_StrVec_TEST.cpp)
+class `String` : [hpp](ex14_26_String.h) | [cpp](ex14_26_String.cpp) | [Test](ex14_26_String_TEST.cpp)
+class `StrBlob` and `StrBlobPtr` : [hpp](ex14_26_StrBlob.h) | [cpp](ex14_26_StrBlob.cpp) | [Test](ex14_26_StrBlob_TEST.cpp)
