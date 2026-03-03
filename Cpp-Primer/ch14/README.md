@@ -233,3 +233,13 @@ Book& Book::operator=(const unsigned isbn) {
 class `StrVec` : [hpp](ex14_26_StrVec.h) | [cpp](ex14_26_StrVec.cpp) | [Test](ex14_26_StrVec_TEST.cpp)
 class `String` : [hpp](ex14_26_String.h) | [cpp](ex14_26_String.cpp) | [Test](ex14_26_String_TEST.cpp)
 class `StrBlob` and `StrBlobPtr` : [hpp](ex14_26_StrBlob.h) | [cpp](ex14_26_StrBlob.cpp) | [Test](ex14_26_StrBlob_TEST.cpp)
+
+## Exercise 14.27
+>Add increment and decrement operators to your StrBlobPtr class.
+
+[hpp](ex14_27_28.h) | [cpp](ex14_27_28.cpp) | [Test](ex14_27_28_TEST.cpp)
+
+## Exercise 14.28 
+>Define addition and subtraction for StrBlobPtr so that these operators implement pointer arithmetic (§ 3.5.3, p. 119).
+
+see [Exercise 14.27](#exercise-1427)
