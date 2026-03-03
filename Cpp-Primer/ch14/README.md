@@ -243,3 +243,8 @@ class `StrBlob` and `StrBlobPtr` : [hpp](ex14_26_StrBlob.h) | [cpp](ex14_26_StrB
 >Define addition and subtraction for StrBlobPtr so that these operators implement pointer arithmetic (§ 3.5.3, p. 119).
 
 see [Exercise 14.27](#exercise-1427)
+
+## Exercise 14.29
+>We did not define a const version of the increment and decrement operators. Why not?
+
+Because `++` and `--` change the state of the object. Hence, it's meaningless to do so.
