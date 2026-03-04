@@ -237,7 +237,7 @@ class `StrBlob` and `StrBlobPtr` : [hpp](ex14_26_StrBlob.h) | [cpp](ex14_26_StrB
 ## Exercise 14.27
 >Add increment and decrement operators to your StrBlobPtr class.
 
-[hpp](ex14_27_28.h) | [cpp](ex14_27_28.cpp) | [Test](ex14_27_28_TEST.cpp)
+[hpp](ex14_27_28_StrBlob.h) | [cpp](ex14_27_28_StrBlob.cpp) | [Test](ex14_27_28_StrBlob_TEST.cpp)
 
 ## Exercise 14.28 
 >Define addition and subtraction for StrBlobPtr so that these operators implement pointer arithmetic (§ 3.5.3, p. 119).
