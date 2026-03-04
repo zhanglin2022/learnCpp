@@ -8,7 +8,7 @@
 //implement pointer arithmetic (§ 3.5.3, p. 119).
 //
 
-#include "ex14_27_28.h"
+#include "ex14_27_28_StrBlob.h"
 #include <algorithm>
 
 // operator of StrBlob

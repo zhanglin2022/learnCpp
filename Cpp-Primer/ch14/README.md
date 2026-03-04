@@ -237,7 +237,7 @@ class `StrBlob` and `StrBlobPtr` : [hpp](ex14_26_StrBlob.h) | [cpp](ex14_26_StrB
 ## Exercise 14.27
 >Add increment and decrement operators to your StrBlobPtr class.
 
-[hpp](ex14_27_28.h) | [cpp](ex14_27_28.cpp) | [Test](ex14_27_28_TEST.cpp)
+[hpp](ex14_27_28_StrBlob.h) | [cpp](ex14_27_28_StrBlob.cpp) | [Test](ex14_27_28_StrBlob_TEST.cpp)
 
 ## Exercise 14.28 
 >Define addition and subtraction for StrBlobPtr so that these operators implement pointer arithmetic (§ 3.5.3, p. 119).
@@ -248,3 +248,15 @@ see [Exercise 14.27](#exercise-1427)
 >We did not define a const version of the increment and decrement operators. Why not?
 
 Because `++` and `--` change the state of the object. Hence, it's meaningless to do so.
+
+## Exercise 14.30
+>Add dereference and arrow operators to your StrBlobPtr class and to the ConstStrBlobPtr class that you defined in exercise 12.22 from § 12.1.6 (p. 476). 
+Note that the operators in constStrBlobPtr must return const references because the data member in constStrBlobPtr points to a const vector.
+
+[hpp](ex14_30_StrBlob.h) | [cpp](ex14_30_StrBlob.cpp) | [Test](ex14_30_StrBlob_TEST.cpp)
+
+## Exercise 14.31
+>Our StrBlobPtr class does not define the copy constructor, assignment operator, or a destructor. Why is that okay?
+
+Applying the Rule of 3/5:
+There is no dynamic allocation to deal with, so the synthesized destructor is enough. Moreover, no unique is needed(weak_ptr rather than unique_ptr). Hence, the synthesized ones can handle all the corresponding operations.
