@@ -254,3 +254,9 @@ Because `++` and `--` change the state of the object. Hence, it's meaningless to
 Note that the operators in constStrBlobPtr must return const references because the data member in constStrBlobPtr points to a const vector.
 
 [hpp](ex14_30_StrBlob.h) | [cpp](ex14_30_StrBlob.cpp) | [Test](ex14_30_StrBlob_TEST.cpp)
+
+## Exercise 14.31
+>Our StrBlobPtr class does not define the copy constructor, assignment operator, or a destructor. Why is that okay?
+
+Applying the Rule of 3/5:
+There is no dynamic allocation to deal with, so the synthesized destructor is enough. Moreover, no unique is needed(weak_ptr rather than unique_ptr). Hence, the synthesized ones can handle all the corresponding operations.
