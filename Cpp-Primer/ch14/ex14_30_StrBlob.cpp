@@ -91,6 +91,11 @@ StrBlobPtr::check(std::size_t i, const std::string &msg) const {
     return ret;
 }
 
+std::string& StrBlobPtr::deref() const {
+    auto p = check(curr, "dereference past end");
+    return (*p)[curr];
+}
+
 std::string& StrBlobPtr::operator*() const {
     auto p = check(curr, "dereference past end");
     return (*p)[curr];
@@ -169,6 +174,11 @@ ConstStrBlobPtr::check(std::size_t i, const std::string &msg) const {
     if (!ret) throw std::runtime_error("unbound StrBlobPtr");
     if (i >= ret->size()) throw std::runtime_error(msg);
     return ret;
+}
+
+const std::string& ConstStrBlobPtr::deref() const {
+    auto p = check(curr, "deference past endl");
+    return (*p)[curr];
 }
 
 const std::string& ConstStrBlobPtr::operator*() const {
