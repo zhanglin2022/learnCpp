@@ -97,8 +97,7 @@ std::string& StrBlobPtr::deref() const {
 }
 
 std::string& StrBlobPtr::operator*() const {
-    auto p = check(curr, "dereference past end");
-    return (*p)[curr];
+    return deref();
 }
 
 std::string* StrBlobPtr::operator->() const {
@@ -182,8 +181,7 @@ const std::string& ConstStrBlobPtr::deref() const {
 }
 
 const std::string& ConstStrBlobPtr::operator*() const {
-    auto p = check(curr, "deference past endl");
-    return (*p)[curr];
+    return deref();
 }
 
 const std::string* ConstStrBlobPtr::operator->() const {
