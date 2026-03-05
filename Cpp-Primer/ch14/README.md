@@ -260,3 +260,8 @@ Note that the operators in constStrBlobPtr must return const references because 
 
 Applying the Rule of 3/5:
 There is no dynamic allocation to deal with, so the synthesized destructor is enough. Moreover, no unique is needed(weak_ptr rather than unique_ptr). Hence, the synthesized ones can handle all the corresponding operations.
+
+## Exercise 14.32
+>Define a class that holds a pointer to a StrBlobPtr. Define the overloaded arrow operator for that class.
+
+[hpp](ex14_32.h) | [cpp](ex14_32.cpp)

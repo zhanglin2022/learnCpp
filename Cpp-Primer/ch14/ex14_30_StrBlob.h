@@ -91,6 +91,7 @@ public:
     StrBlobPtr(StrBlob &a, size_t sz = 0): wptr(a.data), curr(sz) { }
     
     bool operator!=(const StrBlobPtr &p) { return p.curr != curr; }
+    std::string& deref() const;
 
     std::string& operator*() const;
     std::string* operator->() const;
@@ -136,6 +137,7 @@ public:
     ConstStrBlobPtr(const StrBlob &a, size_t sz = 0): wptr(a.data), curr(sz) { }
     
     bool operator!=(const ConstStrBlobPtr &p) { return p.curr != curr; }
+    const std::string& deref() const;
 
     const std::string& operator*() const;
     const std::string* operator->() const;

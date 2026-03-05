@@ -91,9 +91,13 @@ StrBlobPtr::check(std::size_t i, const std::string &msg) const {
     return ret;
 }
 
-std::string& StrBlobPtr::operator*() const {
-    auto p = check(curr, "dereference past end");
+std::string& StrBlobPtr::deref() const {
+    auto p = check(curr, "dereference past end StrBlobPtr");
     return (*p)[curr];
+}
+
+std::string& StrBlobPtr::operator*() const {
+    return deref();
 }
 
 std::string* StrBlobPtr::operator->() const {
@@ -171,9 +175,13 @@ ConstStrBlobPtr::check(std::size_t i, const std::string &msg) const {
     return ret;
 }
 
-const std::string& ConstStrBlobPtr::operator*() const {
-    auto p = check(curr, "deference past endl");
+const std::string& ConstStrBlobPtr::deref() const {
+    auto p = check(curr, "deference past end of ConstStrBlobPtr");
     return (*p)[curr];
+}
+
+const std::string& ConstStrBlobPtr::operator*() const {
+    return deref();
 }
 
 const std::string* ConstStrBlobPtr::operator->() const {
