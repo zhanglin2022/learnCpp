@@ -265,3 +265,6 @@ There is no dynamic allocation to deal with, so the synthesized destructor is en
 >Define a class that holds a pointer to a StrBlobPtr. Define the overloaded arrow operator for that class.
 
 [hpp](ex14_32.h) | [cpp](ex14_32.cpp)
+
+## Exercise 14.33
+>How many operands may an overloaded function-call operator take?
