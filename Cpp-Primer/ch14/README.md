@@ -271,3 +271,17 @@ There is no dynamic allocation to deal with, so the synthesized destructor is en
 
 An overloaded operator function has the same number of parameters as the operator has operands. Hence the maximum value should be around 256.
 ([question on SO](http://stackoverflow.com/questions/21211889/how-many-operands-may-an-overloaded-function-call-operator-take))
+
+## Exercise 14.34
+>Define a function-object class to perform an if-then-else operation: 
+The call operator for this class should take three parameters. 
+It should test its first parameter and if that test succeeds, it should return its second parameter; otherwise, it should return its third parameter.
+
+```cpp
+struct Test {
+    int operator(bool b, int iA, int iB) const {
+        return b ? iA : iB;
+    }
+}
+```
+
