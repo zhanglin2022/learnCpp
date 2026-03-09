@@ -289,3 +289,8 @@ struct Test {
 >Write a class like PrintString that reads a line of input from an istream and returns a string representing what was read. If the read fails, return the empty string.
 
 [code](ex14_35.cpp)
+
+## Exercise 14.36
+>Use the class from the previous exercise to read the standard input, storing each line as an element in a vector.
+
+[code](ex14_36.cpp)
