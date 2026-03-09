@@ -279,7 +279,7 @@ It should test its first parameter and if that test succeeds, it should return i
 
 ```cpp
 struct Test {
-    int operator(bool b, int iA, int iB) const {
+    int operator()(bool b, int iA, int iB) const {
         return b ? iA : iB;
     }
 }
