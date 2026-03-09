@@ -294,3 +294,9 @@ struct Test {
 >Use the class from the previous exercise to read the standard input, storing each line as an element in a vector.
 
 [code](ex14_36.cpp)
+
+## Exercise 14.37
+>Write a class that tests whether two values are equal. Use that object and the library algorithms to write a program to replace all instances of a given value in a sequence.
+
+[code](ex14_37.cpp)
+
