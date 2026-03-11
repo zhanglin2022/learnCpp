@@ -300,3 +300,12 @@ struct Test {
 
 [code](ex14_37.cpp)
 
+## Exercise 14.38
+>Write a class that tests whether the length of a given string matches a given bound. Use that object to write a program to report how many words in an input file are of sizes 1 through 10 inclusive.
+
+[code](ex14_38_39.cpp)
+
+## Exercise 14.39
+>Revise the previous program to report the count of words that are sizes 1 through 9 and 10 or more.
+
+see [Exercise 14.39](#exercise-1439)
