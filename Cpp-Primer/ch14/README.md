@@ -315,3 +315,7 @@ see [Exercise 14.38](#exercise-1438)
 
 [code](ex14_40.cpp)
 
+## Exercise 14.41
+>Why do you suppose the new standard added lambdas? Explain when you would use a lambda and when you would write a class instead.
+
+Lambda is quite handy to use. Lambda can be used when the functor is not used frequently nor complicated, whereas functor is supposed to call more times than lambda or quite complicated to implement as a lambda.
