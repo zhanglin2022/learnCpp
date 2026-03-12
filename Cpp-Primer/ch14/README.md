@@ -308,4 +308,14 @@ struct Test {
 ## Exercise 14.39
 >Revise the previous program to report the count of words that are sizes 1 through 9 and 10 or more.
 
-see [Exercise 14.39](#exercise-1439)
+see [Exercise 14.38](#exercise-1438)
+
+## Exercise 14.40
+>Rewrite the biggies function from § 10.3.2 (p. 391) to use function-object classes in place of lambdas.
+
+[code](ex14_40.cpp)
+
+## Exercise 14.41
+>Why do you suppose the new standard added lambdas? Explain when you would use a lambda and when you would write a class instead.
+
+Lambda is quite handy to use. Lambda can be used when the functor is not used frequently nor complicated, whereas functor is supposed to call more times than lambda or quite complicated to implement as a lambda.
