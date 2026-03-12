@@ -308,4 +308,5 @@ struct Test {
 ## Exercise 14.39
 >Revise the previous program to report the count of words that are sizes 1 through 9 and 10 or more.
 
-see [Exercise 14.39](#exercise-1439)
+see [Exercise 14.38](#exercise-1438)
+
