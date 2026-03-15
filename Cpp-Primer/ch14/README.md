@@ -318,3 +318,7 @@ Lambda is quite handy to use. Lambda can be used when the functor is not used fr
 
 ## [Exercise 14.43](ex14_43.cpp)
 >Using library function objects, determine whether a given int value is divisible by any element in a container of ints.
+
+## Exercise 14.44
+>Write your own version of a simple desk calculator that can handle binary operations.
+
