@@ -285,51 +285,40 @@ struct Test {
 }
 ```
 
-## Exercise 14.35
+## [Exercise 14.35](ex14_35.cpp)
 >Write a class like PrintString that reads a line of input from an istream and returns a string representing what was read. If the read fails, return the empty string.
 
-[code](ex14_35.cpp)
-
-## Exercise 14.36
+## [Exercise 14.36](ex14_36.cpp)
 >Use the class from the previous exercise to read the standard input, storing each line as an element in a vector.
 
-[code](ex14_36.cpp)
-
-## Exercise 14.37
+## [Exercise 14.37](ex14_37.cpp)
 >Write a class that tests whether two values are equal. Use that object and the library algorithms to write a program to replace all instances of a given value in a sequence.
 
-[code](ex14_37.cpp)
-
-## Exercise 14.38
+## [Exercise 14.38](ex14_38_39.cpp)
 >Write a class that tests whether the length of a given string matches a given bound. Use that object to write a program to report how many words in an input file are of sizes 1 through 10 inclusive.
-
-[code](ex14_38_39.cpp)
 
 ## Exercise 14.39
 >Revise the previous program to report the count of words that are sizes 1 through 9 and 10 or more.
 
 see [Exercise 14.38](#exercise-1438)
 
-## Exercise 14.40
+## [Exercise 14.40](ex14_40.cpp)
 >Rewrite the biggies function from § 10.3.2 (p. 391) to use function-object classes in place of lambdas.
-
-[code](ex14_40.cpp)
 
 ## Exercise 14.41
 >Why do you suppose the new standard added lambdas? Explain when you would use a lambda and when you would write a class instead.
 
 Lambda is quite handy to use. Lambda can be used when the functor is not used frequently nor complicated, whereas functor is supposed to call more times than lambda or quite complicated to implement as a lambda.
 
-## Exercise 14.42
+## [Exercise 14.42](ex14_42.cpp)
 >Using library function objects and adaptors, define an expression to
 (a) Count the number of values that are greater than 1024
 (b) Find the first string that is not equal to pooh
 (c) Multiply all values by 2
 
-[code](ex14_42.cpp)
-
-## Exercise 14.43
+## [Exercise 14.43](ex14_43.cpp)
 >Using library function objects, determine whether a given int value is divisible by any element in a container of ints.
 
-[code](ex14_43.cpp)
+## Exercise 14.44
+>Write your own version of a simple desk calculator that can handle binary operations.
 
