@@ -322,3 +322,5 @@ Lambda is quite handy to use. Lambda can be used when the functor is not used fr
 ## [Exercise 14.44](ex14_44.cpp)
 >Write your own version of a simple desk calculator that can handle binary operations.
 
+## Exercise 14.45
+>Write conversion operators to convert a Sales_data to string and to double. What values do you think these operators should return?
