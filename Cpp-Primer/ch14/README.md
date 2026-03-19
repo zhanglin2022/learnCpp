@@ -340,3 +340,15 @@ struct Integral {
     operator int() const; // promising that this operator will not change the state of the obj
 };
 ```
+
+## Exercise 14.48
+>Determine whether the class you used in exercise 7.40 from § 7.5.1(p. 291) should have a conversion to bool. If so, explain why, and explain whether the operator should be explicit. If not, explain why not.
+
+No, it is unnecessary to add a conversion to bool for class `Book`. Because a `Book` object does not have a natural Boolean meaning.
+
+Its state is defined by multiple attributes (e.g., ISBN, title, author, stock count) that do not collectively imply a true/false value. If you need to check a specific condition (like whether the book is in stock), it is better to provide a named member function, such as `bool in_stock() const`, rather than relying on an implicit conversion.
+
+Exercise 14.49
+>Regardless of whether it is a good idea to do so, define a conversion to bool for the class from the previous exercise.
+
+[hpp](ex14_49.h) | [cpp](ex14_49.cpp) | [Test](ex14_49_TEST.cpp)
