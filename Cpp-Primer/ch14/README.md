@@ -324,3 +324,6 @@ Lambda is quite handy to use. Lambda can be used when the functor is not used fr
 
 ## Exercise 14.45
 >Write conversion operators to convert a Sales_data to string and to double. What values do you think these operators should return?
+
+[hpp](ex14_45.h) | [cpp](ex14_45.cpp) | [Test](ex14_45_TEST.cpp)
+
