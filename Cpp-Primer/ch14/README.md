@@ -324,3 +324,19 @@ Lambda is quite handy to use. Lambda can be used when the functor is not used fr
 
 ## Exercise 14.45
 >Write conversion operators to convert a Sales_data to string and to double. What values do you think these operators should return?
+
+[hpp](ex14_45.h) | [cpp](ex14_45.cpp) | [Test](ex14_45_TEST.cpp)
+
+## Exercise 14.46
+>Explain whether defining these Sales_data conversion operators is a good idea and whether they should be explicit.
+
+It's a bad idea to do so, because these conversion is misleading.`explicit` should be added to prevent implicit conversion.
+
+## Exercise 14.47
+>Explain the difference between these two conversion operators:
+```cpp
+struct Integral {
+    operator const int(); // meaningless, it will be ignored by compiler
+    operator int() const; // promising that this operator will not change the state of the obj
+};
+```
