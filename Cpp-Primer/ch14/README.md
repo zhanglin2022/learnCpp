@@ -345,3 +345,8 @@ struct Integral {
 >Determine whether the class you used in exercise 7.40 from § 7.5.1(p. 291) should have a conversion to bool. If so, explain why, and explain whether the operator should be explicit. If not, explain why not.
 
 No, it is unnecessary to add a conversion to bool for class `Book`. Because a `Book` object does not have a natural Boolean meaning.
+
+Exercise 14.49
+>Regardless of whether it is a good idea to do so, define a conversion to bool for the class from the previous exercise.
+
+[hpp](ex14_49.h) | [cpp](ex14_49.cpp) | [Test](ex14_49_TEST.cpp)
