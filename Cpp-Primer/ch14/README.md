@@ -327,3 +327,9 @@ Lambda is quite handy to use. Lambda can be used when the functor is not used fr
 
 [hpp](ex14_45.h) | [cpp](ex14_45.cpp) | [Test](ex14_45_TEST.cpp)
 
+## Exercise 14.46
+>Explain whether defining these Sales_data conversion operators is a good idea and whether they should be explicit.
+
+It's a bad idea to do so, because these conversion is misleading.`explicit` should be added to prevent implicit conversion.
+
+
