@@ -383,3 +383,35 @@ review the order:
 3. promotion
 4. arithmetic or pointer conversion
 5. class-type conversion
+
+## Exercise 14.52
+>Which operator+, if any, is selected for each of the addition expressions? List the candidate functions, the viable functions, and the type conversions on the arguments for each viable function:
+```cpp
+struct LongDouble {
+    //member operator+ for illustration purposes; + is usually a nonmember
+    LongDouble operator+(const SmallInt&);
+    //other members as in § 14.9.2 (p. 587)
+};
+LongDouble operator+(LongDouble&, double);
+SmallInt si;
+LongDouble ld;
+ld = si + ld;
+ld = ld + si;
+```
+`ld = si + ld;` is ambiguous. Multiple built‑in versions of operator+ are viable(e.g., (int, double) vs. (double, int)), and their conversion sequences are equally good, so the compiler cannot select a single best match.
+
+`ld = ld + si;` calls the member version `LongDouble::operator+(const SmallInt&)`. This version provides an exact match for the second argument (si), which is superior to the nonmember version (which requires a user‑defined conversion for si) and to the built‑in versions (which require conversions for both operands).
+
+## Exercise 14.53
+>Given the definition of SmallInt on page 588, determine whether the following addition expression is legal. If so, what addition operator is used? If not, how might you change the code to make it legal?
+```cpp
+SmallInt s1;
+double d = s1 + 3.14;
+```
+ambiguous.
+
+**Fixed**:
+```cpp
+SmallInt s1;
+double d = s1 + SmallInt(3.14);
+```
