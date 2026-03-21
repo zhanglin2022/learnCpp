@@ -362,6 +362,7 @@ struct LongDouble {
     operator float();
 };
 LongDouble ldObj;
-int ex1 = ldObj;
-float ex2 = ldObj;
+int ex1 = ldObj;    // error ambiguous: double or float?
+float ex2 = ldObj;  // legal
 ```
+
