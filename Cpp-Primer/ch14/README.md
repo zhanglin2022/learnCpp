@@ -401,3 +401,17 @@ ld = ld + si;
 `ld = si + ld;` is ambiguous. Multiple built‑in versions of operator+ are viable(e.g., (int, double) vs. (double, int)), and their conversion sequences are equally good, so the compiler cannot select a single best match.
 
 `ld = ld + si;` calls the member version `LongDouble::operator+(const SmallInt&)`. This version provides an exact match for the second argument (si), which is superior to the nonmember version (which requires a user‑defined conversion for si) and to the built‑in versions (which require conversions for both operands).
+
+## Exercise 14.53
+>Given the definition of SmallInt on page 588, determine whether the following addition expression is legal. If so, what addition operator is used? If not, how might you change the code to make it legal?
+```cpp
+SmallInt s1;
+double d = s1 + 3.14;
+```
+ambiguous.
+
+**Fixed**:
+```cpp
+SmallInt s1;
+double d = s1 + SmallInt(3.14);
+```
