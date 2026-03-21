@@ -362,6 +362,24 @@ struct LongDouble {
     operator float();
 };
 LongDouble ldObj;
-int ex1 = ldObj;
-float ex2 = ldObj;
+int ex1 = ldObj;    // error ambiguous: double or float?
+float ex2 = ldObj;  // legal
 ```
+
+## Exercise 14.51
+>Show the conversion sequences (if any) needed to call each version of calc and explain why the best viable function is selected.
+```cpp
+void calc(int);
+void calc(LongDouble);
+double dval;
+calc(dval); //which calc?
+```
+best viable function: `void calc(int)`. because class-type conversion is the lowest ranked.
+
+review the order:
+
+1. exact match
+2. const conversion
+3. promotion
+4. arithmetic or pointer conversion
+5. class-type conversion
