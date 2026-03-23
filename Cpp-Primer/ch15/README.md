@@ -13,3 +13,17 @@ A virtual member in a base class expects its derived class define its own versio
 >Define your own versions of the Quote class and the print_total function.
 
 [hpp](ex15_01_Quote.h) | [cpp](ex15_01_Quote.cpp) | [Test](ex15_01_Quote_TEST.cpp)
+
+## Exercise 15.4
+>Which of the following declarations, if any, are incorrect? Explain why.
+```cpp
+class Base { ... };
+(a) class Derived : public Derived { ... };
+(b) class Derived : private Base { ... };
+(c) class Derived : public Base;
+```
+
+(a) **incorrect**, self-derived.
+(b) **incorrect**, it is a definition not a declaration.
+(c) **incorrect**, A derived class is declared like any other class. The declaration contains the class name but does not include its derivation list.
+
