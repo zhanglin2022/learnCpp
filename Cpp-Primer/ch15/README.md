@@ -27,3 +27,8 @@ class Base { ... };
 (b) **incorrect**, it is a definition not a declaration.
 (c) **incorrect**, A derived class is declared like any other class. The declaration contains the class name but does not include its derivation list.
 
+## Exercise 15.5:
+> Define your own version of the Bulk_quote class.
+
+[hpp](ex15.5.6/Bulk_quote.h) | [cpp](ex15.5.6/Bulk_quote.cpp)
+
