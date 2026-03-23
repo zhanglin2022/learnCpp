@@ -12,7 +12,7 @@ A virtual member in a base class expects its derived class define its own versio
 ## Exercise 15.3
 >Define your own versions of the Quote class and the print_total function.
 
-[hpp](ex15_01_Quote.h) | [cpp](ex15_01_Quote.cpp) | [Test](ex15_01_Quote_TEST.cpp)
+[hpp](ex15.3/Quote.h) | [cpp](ex15.3/Quote.cpp) | [Test](ex15.3/Quote_TEST.cpp)
 
 ## Exercise 15.4
 >Which of the following declarations, if any, are incorrect? Explain why.
