@@ -32,5 +32,6 @@ class Base { ... };
 
 [hpp](ex15.5.6/Bulk_quote.h) | [cpp](ex15.5.6/Bulk_quote.cpp)
 
-## Exercise 15.6
+## [Exercise 15.6](ex15.5.6/main.cpp)
 >Test your print_total function from the exercises in § 15.2.1 (p. 595) by passing both Quote and Bulk_quote objects o that function.
+
