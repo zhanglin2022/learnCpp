@@ -3,8 +3,6 @@
 
 #include "quote.h"
 
-class Quote;
-
 class Bulk_quote : public Quote {
 public:
     Bulk_quote() = default;
