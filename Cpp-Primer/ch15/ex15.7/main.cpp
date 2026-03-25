@@ -3,9 +3,11 @@
 #include "limit_quote.h"
 
 int main() {
-    Quote base("1234", 24.5);
-    Bulk_quote derive("5678", 24.5, 5, 0.2);
-    print_total(std::cout, base, 5);
-    print_total(std::cout, derive, 5);
+    Quote q("12", 24.5);
+    Bulk_quote bq("34", 24.5, 5, 0.2);
+    Limit_quote lq("56", 24.5, 5, 0.2);
+    print_total(std::cout, q, 10);
+    print_total(std::cout, bq, 10);
+    print_total(std::cout, lq, 10);
     return 0;
 }
