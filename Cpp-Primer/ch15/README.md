@@ -12,7 +12,7 @@ A virtual member in a base class expects its derived class define its own versio
 ## Exercise 15.3
 >Define your own versions of the Quote class and the print_total function.
 
-[hpp](ex15.3/Quote.h) | [cpp](ex15.3/Quote.cpp) | [Test](ex15.3/Quote_TEST.cpp)
+[hpp](ex15.3/quote.h) | [cpp](ex15.3/quote.cpp) | [Test](ex15.3/main.cpp)
 
 ## Exercise 15.4
 >Which of the following declarations, if any, are incorrect? Explain why.
@@ -30,5 +30,10 @@ class Base { ... };
 ## Exercise 15.5:
 > Define your own version of the Bulk_quote class.
 
-[hpp](ex15.5.6/Bulk_quote.h) | [cpp](ex15.5.6/Bulk_quote.cpp)
+[hpp](ex15.5.6/bulk_quote.h) | [cpp](ex15.5.6/bulk_quote.cpp)
 
+## [Exercise 15.6](ex15.5.6/main.cpp)
+>Test your print_total function from the exercises in § 15.2.1 (p. 595) by passing both Quote and Bulk_quote objects o that function.
+
+## Exercise 15.7 
+>Define a class that implements a limited discount strategy, which applies a discount to books purchased up to a given limit. If the number of copies exceeds that limit, the normal price applies to those purchased beyond the limit.

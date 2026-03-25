@@ -1,10 +1,5 @@
-// Exercise 15.1
-//
-// Define your own versions of the Quote class and the print_total function.
-// 
-
-#ifndef EX15_01_H
-#define EX15_01_H
+#ifndef QUOTE_H
+#define QUOTE_H
 
 #include <string>
 #include <iostream>
