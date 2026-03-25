@@ -1,4 +1,4 @@
-#include "Quote.h"
+#include "quote.h"
 
 void print_total(std::ostream &os, const Quote &item, std::size_t n) {
     double ret = item.net_price(n);

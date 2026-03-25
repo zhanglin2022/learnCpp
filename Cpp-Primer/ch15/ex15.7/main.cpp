@@ -1,5 +1,6 @@
-#include "Quote.h"
-#include "Bulk_quote.h"
+#include "quote.h"
+#include "bulk_quote.h"
+#include "limit_quote.h"
 
 int main() {
     Quote base("1234", 24.5);
