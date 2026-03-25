@@ -3,7 +3,7 @@
 // Define your own versions of the Quote class and the print_total function.
 // 
 
-#include "Quote.h"
+#include "quote.h"
 
 int main() {
     Quote book("1234", 25.5);

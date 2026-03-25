@@ -1,8 +1,3 @@
-// Exercise 15.5
-//
-// Define your own version of the Bulk_quote class.
-//
-
 #ifndef BULK_QUOTE_H
 #define BULK_QUOTE_H
 

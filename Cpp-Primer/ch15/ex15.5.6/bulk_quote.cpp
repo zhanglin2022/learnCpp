@@ -1,8 +1,3 @@
-// Exercise 15.5
-//
-// Define your own version of the Bulk_quote class.
-//
-
 #include "bulk_quote.h"
 
 double Bulk_quote::net_price(std::size_t n) const {
