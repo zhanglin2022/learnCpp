@@ -4,8 +4,8 @@
 // by passing both Quote and Bulk_quote objects o that function.
 //
 
-#include "Quote.h"
-#include "Bulk_quote.h"
+#include "quote.h"
+#include "bulk_quote.h"
 
 int main() {
     Quote base("1234", 24.5);
