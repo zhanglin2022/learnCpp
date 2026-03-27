@@ -38,3 +38,5 @@ class Base { ... };
 ## [Exercise 15.7](ex15.7/main.cpp)
 >Define a class that implements a limited discount strategy, which applies a discount to books purchased up to a given limit. If the number of copies exceeds that limit, the normal price applies to those purchased beyond the limit.
 
+## Exercise 15.8
+>Define static type and dynamic type.
