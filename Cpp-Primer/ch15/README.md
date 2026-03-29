@@ -42,3 +42,4 @@ class Base { ... };
 >Define static type and dynamic type.
 
 static type:
+dynamic type:
