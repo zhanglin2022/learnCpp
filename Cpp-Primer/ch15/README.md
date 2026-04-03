@@ -56,3 +56,6 @@ The static type of a pointer or reference to a base class may differ from its dy
 >Recalling the discussion from § 8.1 (p. 311), explain how the program on page 317 that passed an ifstream to the Sales_data read function works.
 
 The function takes a `std::istream` from which `std::ifstream` is derived. Hence the `ifstream` object "is a" i`stream` , which is why it works.
+
+## Exercise 15.11
+>Add a virtual debug function to your Quote class hierarchy that displays the data members of the respective classes.
