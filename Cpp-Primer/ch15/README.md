@@ -121,3 +121,15 @@ private:
    int i;
 };
 ```
+
+## Exercise 15.14
+>Given the classes from the previous exercise and the following objects, determine which function is called at run time:
+
+```cpp
+base bobj;     base *bp1 = &bobj;    base &br1 = bobj;
+derived dobj;  base *bp2 = &dobj;    base &br2 = dobj;
+(a) bobj.print();  (b) dobj.print();  (c) bp1->name();
+(d) bp2->name();   (e) br1.print();   (f) br2.print();
+```
+ 
+(e), (f) are called at run time. (a), (b) are objects and (c), (d) are not virtual functions so they are called at complie time.
