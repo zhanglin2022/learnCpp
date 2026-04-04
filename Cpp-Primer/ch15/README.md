@@ -59,3 +59,12 @@ The function takes a `std::istream` from which `std::ifstream` is derived. Hence
 
 ## [Exercise 15.11](ex15.11/main.cpp)
 >Add a virtual debug function to your Quote class hierarchy that displays the data members of the respective classes.
+
+```cpp
+void Quote::debug() const
+{
+    std::cout << "data members of this class:\n"
+              << "bookNo= " <<this->bookNo << " "
+              << "price= " <<this->price<< " ";
+}
+```
