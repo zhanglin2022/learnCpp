@@ -73,3 +73,51 @@ void Quote::debug() const
 >Is it ever useful to declare a member function as both override and final? Why or why not?
 
  Yes. override means overriding the same name virtual function in base class. final means preventing any overriding this virtual function by any derived classes that are more lower at the hierarchy.
+
+Exercise 15.13
+>Given the following classes, explain each print function:
+
+```cpp
+class base {
+public:
+    string name() { return basename; }
+    virtual void print(ostream &os) { os << basename; }
+private:
+    string basename;
+};
+class derived : public base {
+public:
+    void print(ostream &os) { print(os); os << " " << i; }
+private:
+    int i;
+};
+```
+>If there is a problem in this code, how would you fix it?
+
+We should add the class scope `base::` and we'd better add `override` for security.
+
+```cpp
+class base {
+public:
+   std::string name() { return basename; }
+   virtual void print(std::ostream &os) { os << basename; }
+   //      ~~~~~^^^^^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   //  The print here just output the basename of the base.
+private:
+   std::string basename = "base\n";
+};
+
+class derived : public base {
+public:
+   void print(std::ostream &os) override { base::print(os); os << " derived\n " << i; }
+   //   ^^^^^                   ^^^^^^^^   ^^^^^^    --  added to fix this problem
+   //  this print wanted to call the print from the base class.
+   //  however, the class scope base:: was omitted.As a result
+   //  it will cause an infinit recursion.
+   //  btw, we can add a keyword `override` to show this function
+   //  overrides a virtual function from the base class, although
+   //  it is not neccessary, but for security, the more, the better.
+private:
+   int i;
+};
+```
