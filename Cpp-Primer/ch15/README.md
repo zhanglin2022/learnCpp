@@ -57,5 +57,79 @@ The static type of a pointer or reference to a base class may differ from its dy
 
 The function takes a `std::istream` from which `std::ifstream` is derived. Hence the `ifstream` object "is a" i`stream` , which is why it works.
 
-## Exercise 15.11
+## [Exercise 15.11](ex15.11/main.cpp)
 >Add a virtual debug function to your Quote class hierarchy that displays the data members of the respective classes.
+
+```cpp
+void Quote::debug() const
+{
+    std::cout << "data members of this class:\n"
+              << "bookNo= " <<this->bookNo << " "
+              << "price= " <<this->price<< " ";
+}
+```
+
+## Exercise 15.12
+>Is it ever useful to declare a member function as both override and final? Why or why not?
+
+ Yes. override means overriding the same name virtual function in base class. final means preventing any overriding this virtual function by any derived classes that are more lower at the hierarchy.
+
+Exercise 15.13
+>Given the following classes, explain each print function:
+
+```cpp
+class base {
+public:
+    string name() { return basename; }
+    virtual void print(ostream &os) { os << basename; }
+private:
+    string basename;
+};
+class derived : public base {
+public:
+    void print(ostream &os) { print(os); os << " " << i; }
+private:
+    int i;
+};
+```
+>If there is a problem in this code, how would you fix it?
+
+We should add the class scope `base::` and we'd better add `override` for security.
+
+```cpp
+class base {
+public:
+   std::string name() { return basename; }
+   virtual void print(std::ostream &os) { os << basename; }
+   //      ~~~~~^^^^^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   //  The print here just output the basename of the base.
+private:
+   std::string basename = "base\n";
+};
+
+class derived : public base {
+public:
+   void print(std::ostream &os) override { base::print(os); os << " derived\n " << i; }
+   //   ^^^^^                   ^^^^^^^^   ^^^^^^    --  added to fix this problem
+   //  this print wanted to call the print from the base class.
+   //  however, the class scope base:: was omitted.As a result
+   //  it will cause an infinit recursion.
+   //  btw, we can add a keyword `override` to show this function
+   //  overrides a virtual function from the base class, although
+   //  it is not neccessary, but for security, the more, the better.
+private:
+   int i;
+};
+```
+
+## Exercise 15.14
+>Given the classes from the previous exercise and the following objects, determine which function is called at run time:
+
+```cpp
+base bobj;     base *bp1 = &bobj;    base &br1 = bobj;
+derived dobj;  base *bp2 = &dobj;    base &br2 = dobj;
+(a) bobj.print();  (b) dobj.print();  (c) bp1->name();
+(d) bp2->name();   (e) br1.print();   (f) br2.print();
+```
+ 
+(e), (f) are called at run time. (a), (b) are objects and (c), (d) are not virtual functions so they are called at complie time.
