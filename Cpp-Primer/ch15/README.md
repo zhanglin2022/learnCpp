@@ -68,3 +68,8 @@ void Quote::debug() const
               << "price= " <<this->price<< " ";
 }
 ```
+
+## Exercise 15.12
+>Is it ever useful to declare a member function as both override and final? Why or why not?
+
+ Yes. override means overriding the same name virtual function in base class. final means preventing any overriding this virtual function by any derived classes that are more lower at the hierarchy.
