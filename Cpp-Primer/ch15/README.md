@@ -134,5 +134,5 @@ derived dobj;  base *bp2 = &dobj;    base &br2 = dobj;
  
 (e), (f) are called at run time. (a), (b) are objects and (c), (d) are not virtual functions so they are called at complie time.
 
-## Exercise 15.15
+## [Exercise 15.15](ex15.15/main.cpp)
 >Define your own versions of Disc_quote and Bulk_quote.
