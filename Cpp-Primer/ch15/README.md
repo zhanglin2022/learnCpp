@@ -136,3 +136,5 @@ derived dobj;  base *bp2 = &dobj;    base &br2 = dobj;
 
 ## [Exercise 15.15](ex15.15/main.cpp)
 >Define your own versions of Disc_quote and Bulk_quote.
+
+[Disc_quote](ex15.15.16.17/disc_quote.h) | [Bulk_quote](ex15.15.16.17/bulk_quote.h)
