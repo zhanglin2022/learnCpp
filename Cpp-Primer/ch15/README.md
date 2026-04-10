@@ -158,3 +158,15 @@ note: because the following virtual functions are pure within ‘Disc_quote’:
 note: ‘virtual double Disc_quote::net_price(std::size_t) const’:
     virtual double net_price(std::size_t) const override = 0;
 ```
+
+## Exercise 15.18
+>Given the classes from page 612 and page 613, and assuming each object has the type specified in the comments, determine which of these assignments are legal. Explain why those that are illegal aren’t allowed:
+
+```cpp
+Base *p = &d1; //d1 has type Pub_Derv
+p = &d2;       //d2 has type Priv_Derv
+p = &d3;       //d3 has type Prot_Derv
+p = &dd1;      //dd1 has type Derived_from_Public
+p = &dd2;      //dd2 has type Derived_from_Private
+p = &dd3;      //dd3 has type Derived_from_Protected
+```
