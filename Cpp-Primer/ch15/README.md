@@ -170,4 +170,14 @@ p = &dd1;      // dd1 has type Derived_from_Public
 p = &dd2;      // dd2 has type Derived_from_Private
 p = &dd3;      // dd3 has type Derived_from_Protected
 ```
-// TODO
+
+```cpp
+Base *p = &d1; // legal
+p = &d2;       // illegal
+p = &d3;       // illegal
+p = &dd1;      // legal
+p = &dd2;      // illegal
+p = &dd3;      // illegal
+```
+
+User code may use the derived-to-base conversion only if D inherits publicly from B. User code may not use the conversion if D inherits from B using either protected or private.
