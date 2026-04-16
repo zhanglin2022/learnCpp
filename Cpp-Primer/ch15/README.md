@@ -170,4 +170,35 @@ p = &dd1;      // dd1 has type Derived_from_Public
 p = &dd2;      // dd2 has type Derived_from_Private
 p = &dd3;      // dd3 has type Derived_from_Protected
 ```
-// TODO
+
+```cpp
+Base *p = &d1; // legal
+p = &d2;       // illegal
+p = &d3;       // illegal
+p = &dd1;      // legal
+p = &dd2;      // illegal
+p = &dd3;      // illegal
+```
+
+User code may use the derived-to-base conversion only if D inherits publicly from B. User code may not use the conversion if D inherits from B using either protected or private.
+
+## Exercise 15.19
+>Assume that each of the classes from page 612 and page 613 has a member function of the form:
+```cpp
+void memfcn(Base &b) { b = *this; }
+```
+For each class, determine whether this function would be legal.
+
+Member functions and friends of D can use the conversion to B regardless of how D inherits from B. The derived-to-base conversion to a direct base class is always accessible to members and friends of a derived class.
+
+Hence, the 3 below are all legal:
+
+* Pub_Derv
+* Priv_Derv
+* Prot_Derv
+
+Member functions and friends of classes derived from D may use the derived-to-base conversion if D inherits from B using either public or protected. Such code may not use the conversion if D inherits privately from B.Hence:
+
+* Derived_from_Public **legal**
+* Derived_from_Private **illegal**
+* Derived_from_Protected **legal**
