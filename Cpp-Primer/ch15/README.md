@@ -197,8 +197,26 @@ Hence, the 3 below are all legal:
 * Priv_Derv
 * Prot_Derv
 
-Member functions and friends of classes derived from D may use the derived-to-base conversion if D inherits from B using either public or protected. Such code may not use the conversion if D inherits privately from B.Hence:
+Member functions and friends of classes derived from D may use the derived-to-base conversion if D inherits from B using either public or protected. Such code may not use the conversion if D inherits privately from B. 
+
+Hence:
 
 * Derived_from_Public **legal**
 * Derived_from_Private **illegal**
 * Derived_from_Protected **legal**
+
+## [Exercise 15.20](ex15.20/main.cpp)
+>Write code to test your answers to the previous two exercises.
+
+## [Exercise 15.21](ex15.21.22/main.cpp)
+>Choose one of the following general abstractions containing a family of types (or choose one of your own). Organize the types into an inheritance hierarchy:
+(a) Graphical file formats (such as gif, tiff, jpeg, bmp)
+(b) Geometric primitives (such as box, circle, sphere, cone)
+(c) C++ language types (such as class, function, member function)
+
+(b) Geometric primitives (such as box, circle, sphere, cone)
+
+## [Exercise 15.22](ex15.21.22/main.cpp)
+>For the class you chose in the previous exercise, identify some of the likely virtual functions as well as public and protected members.
+
+
