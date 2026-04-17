@@ -204,3 +204,7 @@ Hence:
 * Derived_from_Public **legal**
 * Derived_from_Private **illegal**
 * Derived_from_Protected **legal**
+
+## [Exercise 15.20](ex15.20/main.cpp)
+>Write code to test your answers to the previous two exercises.
+
