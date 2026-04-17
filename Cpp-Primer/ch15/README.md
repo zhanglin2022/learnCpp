@@ -197,7 +197,9 @@ Hence, the 3 below are all legal:
 * Priv_Derv
 * Prot_Derv
 
-Member functions and friends of classes derived from D may use the derived-to-base conversion if D inherits from B using either public or protected. Such code may not use the conversion if D inherits privately from B.Hence:
+Member functions and friends of classes derived from D may use the derived-to-base conversion if D inherits from B using either public or protected. Such code may not use the conversion if D inherits privately from B. 
+
+Hence:
 
 * Derived_from_Public **legal**
 * Derived_from_Private **illegal**
