@@ -216,3 +216,7 @@ Hence:
 
 (b) Geometric primitives (such as box, circle, sphere, cone)
 
+## [Exercise 15.22](ex15.21.22/main.cpp)
+>For the class you chose in the previous exercise, identify some of the likely virtual functions as well as public and protected members.
+
+
