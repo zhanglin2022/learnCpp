@@ -208,3 +208,11 @@ Hence:
 ## [Exercise 15.20](ex15.20/main.cpp)
 >Write code to test your answers to the previous two exercises.
 
+## [Exercise 15.21](ex15.21.22/main.cpp)
+>Choose one of the following general abstractions containing a family of types (or choose one of your own). Organize the types into an inheritance hierarchy:
+(a) Graphical file formats (such as gif, tiff, jpeg, bmp)
+(b) Geometric primitives (such as box, circle, sphere, cone)
+(c) C++ language types (such as class, function, member function)
+
+(b) Geometric primitives (such as box, circle, sphere, cone)
+
