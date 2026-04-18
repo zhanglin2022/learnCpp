@@ -219,4 +219,6 @@ Hence:
 ## [Exercise 15.22](ex15.21.22/main.cpp)
 >For the class you chose in the previous exercise, identify some of the likely virtual functions as well as public and protected members.
 
+## [Exercise 15.23](ex15.23/main.cpp)
+>Assuming class D1 on page 620 had intended to override its inherited fcn function, how would you fix that class? Assuming you fixed the class so that fcn matched the definition in Base, how would the calls in that section be resolved?
 
