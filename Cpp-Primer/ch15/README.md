@@ -222,3 +222,4 @@ Hence:
 ## [Exercise 15.23](ex15.23/main.cpp)
 >Assuming class D1 on page 620 had intended to override its inherited fcn function, how would you fix that class? Assuming you fixed the class so that fcn matched the definition in Base, how would the calls in that section be resolved?
 
+Add keyword `virtual` to the funciton `int fcn()` in class `Base` and modify the function `int fcn(int);` to `int fcn();` in class `D1`. 
