@@ -11,6 +11,8 @@ public:
     
     double  net_price(std::size_t) const override;
     void    debug() const override;
+
+    ~Bulk_quote() = default;
 };
 
 #endif
