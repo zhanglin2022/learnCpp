@@ -239,3 +239,10 @@ Without it, when building the statement below, the compiler would complain that:
 The reason is that a constructor taking 4 parameters has been defined, which prevented the compiler generate synthesized version default constructor.
 
 As a result, the default constructor of any class derived from it has been defined as deleted. Thus the default constructor must be defined explicitly so that the derived classes can call it when executing its default constructor.
+
+## [Exercise 15.26](ex15.26/main.cpp)
+>Define the Quote and Bulk_quote copy-control members to do the same job as the synthesized versions. 
+Give them and the other constructors print statements that identify which function is running. 
+Write programs using these classes and predict what objects will be created and destroyed. 
+Compare your predictions with the output and continue experimenting until your predictions are reliably correct.
+

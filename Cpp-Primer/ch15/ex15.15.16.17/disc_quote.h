@@ -10,6 +10,8 @@ public:
         Quote(b, p), quantity(qty), discount(disc) { }
 
     virtual double net_price(std::size_t) const override = 0;
+
+    ~Disc_quote() = default;
     
 protected:
     std::size_t  quantity = 0;
