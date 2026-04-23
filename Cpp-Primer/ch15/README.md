@@ -246,3 +246,6 @@ Give them and the other constructors print statements that identify which functi
 Write programs using these classes and predict what objects will be created and destroyed. 
 Compare your predictions with the output and continue experimenting until your predictions are reliably correct.
 
+## [Exercise 15.27](ex15.27/bulk_quote.h)
+>Redefine your Bulk_quote class to inherit its constructors.
+
