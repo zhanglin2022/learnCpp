@@ -249,3 +249,8 @@ Compare your predictions with the output and continue experimenting until your p
 ## [Exercise 15.27](ex15.27/bulk_quote.h)
 >Redefine your Bulk_quote class to inherit its constructors.
 
+## [Exercise 15.28](ex15.28.29/main.cpp)
+>Define a vector to hold Quote objects but put Bulk_quote objects into that vector. Compute the total net_price of all the elements in the vector.
+
+
+
