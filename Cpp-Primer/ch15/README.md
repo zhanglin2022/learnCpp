@@ -258,3 +258,7 @@ Compare your predictions with the output and continue experimenting until your p
 Since the vector from the previous exercise holds objects, there's no polymorphism happened while calling the virtual function net_price. Essentially, the objects held in it are the Quote subjects of the Bulk_quote objects being pushed back, Thus, the virtual net_price functions called are Quote::net_price. As a result, no discount was applied. The outcome was 9090.
 
 The objects held for this exercise are smart pointers to the Quote objects.In this case, polymorphism happened as expected.The actual virtual functions being called are Bulk_quote::net_price that ensure discount is applied.Thus, the outcome is 6363. It can be found that 30% discount has been applied to the price calculation.
+
+## [Exercise 15.30](ex15.30/main.cpp)
+>Write your own version of the Basket class and use it to compute prices for the same transactions as you used in the previous exercises.
+
