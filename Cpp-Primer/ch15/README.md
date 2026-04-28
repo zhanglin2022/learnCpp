@@ -262,3 +262,13 @@ The objects held for this exercise are smart pointers to the Quote objects.In th
 ## [Exercise 15.30](ex15.30/main.cpp)
 >Write your own version of the Basket class and use it to compute prices for the same transactions as you used in the previous exercises.
 
+## Exercise 15.31
+>Given that s1, s2, s3, and s4 are all strings, determine what objects are created in the following expressions:
+```
+(a) Query(s1) | Query(s2) & ~ Query(s3);
+(b) Query(s1) | (Query(s2) & ~ Query(s3));
+(c) (Query(s1) & (Query(s2)) | (Query(s3) & Query(s4)));
+```
+(a) OrQuery, AndQuery, NotQuery, WordQuery
+(b) the same as the precvious one
+(c) OrQuery, AndQuery, WordQuery
