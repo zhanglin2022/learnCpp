@@ -291,3 +291,8 @@ The synthesized move assignment will be called. The rest is the same as the move
 
 * **destroy:**
 The synthesized destructor will be called. It will call the destructor of `shared_ptr` which decrements the use count. If the count becomes zero, the destructor from shared_ptr will delete the resources it point to.
+
+## Exercise 15.33
+>What about objects of type Query_base?
+
+Managed by the synthesized version. Since Query_base a abstract class, the object of this type is essentially a subobject of its derived class.
