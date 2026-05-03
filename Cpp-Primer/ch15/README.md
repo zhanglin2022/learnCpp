@@ -296,3 +296,10 @@ The synthesized destructor will be called. It will call the destructor of `share
 >What about objects of type Query_base?
 
 Managed by the synthesized version. Since Query_base a abstract class, the object of this type is essentially a subobject of its derived class.
+
+## Exercise 15.34
+>For the expression built in Figure 15.3 (p. 638):
+(a) List the constructors executed in processing that expression.
+(b) List the calls to rep that are made from cout << q.
+(c) List the calls to eval made from q.eval().
+
