@@ -303,4 +303,29 @@ Managed by the synthesized version. Since Query_base a abstract class, the objec
 (b) List the calls to rep that are made from cout << q.
 (c) List the calls to eval made from q.eval().
 
-// TODO
+Query q = Query("fiery") & Query("bird") | Query("wind");
+
+(a) 
+
+1. `Query::Query(const std::string &s)` where s == "fiery", "bird" and "wind"
+2. `WordQuery::WordQuery(const std::string& s)` where s == "fiery","bird" and "wind"
+3. `BinaryQuery::BinaryQuery(const Query &l, const Query &r, std::string s)`
+4. `AndQuery::AndQuery(const Query &left, const Query &right)`
+5. `BinaryQuery::BinaryQuery(const Query &l, const Query &r, std::string s)`
+6. `OrQuery::OrQuery(const Query &left, const Query &right)`
+7. `Query::Query(std::shared_ptr<Query_base> query)`
+
+(b) 
+
+1. `query.rep()` inside the operator<<
+2. `q->rep()` inside the rep() function of class Query which called the virtual rep() function of class Query_base.
+3. `OrQuery::rep()`
+4. `BinaryQuery::rep()`
+5. `AndQuery::rep()` -> `BinaryQuery::rep()` -> `WordQuery::rep()` (BinaryQuery lhs)
+6. `WordQuery::rep()` (BinaryQuery rhs)
+
+(c)
+
+1. `q.eval()`
+2. `q->rep()`: where q is a pointer to `OrQuary`.
+3. `OrQuery::eval()` (OrQuery override eval, no further calls)
