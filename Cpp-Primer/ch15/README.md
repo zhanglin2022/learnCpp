@@ -318,14 +318,14 @@ Query q = Query("fiery") & Query("bird") | Query("wind");
 (b) 
 
 1. `query.rep()` inside the operator<<
-2. `q->rep()` inside the rep() function of class Query which called the virtual rep() function of class Query_base.
+2. `q->rep()` inside the rep() function of class Query which called the virtual rep() function of class Query_base
 3. `OrQuery::rep()`
 4. `BinaryQuery::rep()`
-5. `AndQuery::rep()` -> `BinaryQuery::rep()` -> `WordQuery::rep()` (BinaryQuery lhs)
-6. `WordQuery::rep()` (BinaryQuery rhs)
+5. `AndQuery::rep()` -> `BinaryQuery::rep()` -> `WordQuery::rep()` BinaryQuery lhs
+6. `WordQuery::rep()` BinaryQuery rhs
 
 (c)
 
 1. `q.eval()`
-2. `q->rep()`: where q is a pointer to `OrQuary`.
-3. `OrQuery::eval()` (OrQuery override eval, no further calls)
+2. `q->rep()` where q is a pointer to `OrQuary`
+3. `OrQuery::eval()` OrQuery override eval, no further calls
