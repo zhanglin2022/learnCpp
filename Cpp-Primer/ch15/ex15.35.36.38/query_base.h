@@ -1,0 +1,3 @@
+class Query_base {
+
+};
