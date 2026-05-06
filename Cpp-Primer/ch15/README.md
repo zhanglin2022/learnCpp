@@ -329,3 +329,6 @@ Query q = Query("fiery") & Query("bird") | Query("wind");
 1. `q.eval()`
 2. `q->rep()` where q is a pointer to `OrQuary`
 3. `OrQuery::eval()` OrQuery override eval, no further calls
+
+## Exercise 15.35
+>Implement the Query and Query_base classes, including a definition of rep but omitting the definition of eval.
