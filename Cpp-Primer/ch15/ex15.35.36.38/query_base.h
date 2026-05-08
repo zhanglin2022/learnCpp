@@ -8,7 +8,6 @@
  * abstract class acts as a basic class for all concrete query types.
  * all members are private.
  */
-
 class Query_base {
     friend class Query;
 protected:
