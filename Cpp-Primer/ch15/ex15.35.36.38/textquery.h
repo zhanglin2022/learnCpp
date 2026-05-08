@@ -21,7 +21,6 @@ class QueryResult;
 /**
  * @brief The TextQuery class using StrBlob
  */
-
 class TextQuery {
 public:
     using line_no = StrBlob::size_type;
