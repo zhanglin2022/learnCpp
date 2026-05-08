@@ -25,7 +25,10 @@ public:
 
     // interface functions: call the corresponding Query_base operatopns
     QueryResult eval(const TextQuery &t) const { return q->eval(t); }
-    std::string rep() const { return q->rep(); }
+    std::string rep() const { 
+        std::cout << "Query::rep() \n";
+        return q->rep(); 
+    }
 
 private:
     // constructor only for friends
