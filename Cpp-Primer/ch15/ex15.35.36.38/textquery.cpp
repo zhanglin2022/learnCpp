@@ -15,7 +15,6 @@
 /**
  * @brief constructor using StrBlob
  */
-
  TextQuery::TextQuery(std::ifstream &fin) : 
     file(StrBlob()), 
     wordMap(std::map<std::string, std::shared_ptr<std::set<line_no>>> ()) {
@@ -38,3 +37,14 @@
         }
     }
  }
+
+/**
+ * @brief do a query opertion and return QueryResult object.
+ */
+QueryResult TextQuery::query(const std::string &str) const {
+    // use static just allocate once
+    static std::shared_ptr<std::set<line_no>> noData(new std::set<line_no>);
+    auto iter = wordMap.find(str);
+    if (iter == wordMap.end()) return QueryResult(str, noData, file);
+    else return QueryResult(str, iter->second, file);
+}
