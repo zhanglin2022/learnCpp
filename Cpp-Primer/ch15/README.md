@@ -332,3 +332,5 @@ Query q = Query("fiery") & Query("bird") | Query("wind");
 
 ## Exercise 15.35
 >Implement the Query and Query_base classes, including a definition of rep but omitting the definition of eval.
+
+[Query](ex15.35.36.38/query.h) | [Query_base](ex15.35.36.38/query_base.h)
