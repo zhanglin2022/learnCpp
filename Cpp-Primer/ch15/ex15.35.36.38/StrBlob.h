@@ -36,9 +36,13 @@
 
 // forward declaration needed for friend declaration in StrBlob
 class StrBlobPtr;
+// forward declaration needed for friend declaration in StrBlob
+class ConstStrBlobPtr;
 
 class StrBlob {
     friend class StrBlobPtr;
+    friend class ConstStrBlobPtr;
+
 public:
     using size_type = std::vector<std::string>::size_type;
 
@@ -63,6 +67,9 @@ public:
 	// interface to StrBlobPtr
     StrBlobPtr begin(); // can't be defined until StrBlobPtr is
     StrBlobPtr end();
+
+    ConstStrBlobPtr begin() const; // should add const
+    ConstStrBlobPtr end() const; // should add const
 
 private:
     std::shared_ptr<std::vector<std::string>> data;
@@ -137,11 +144,11 @@ inline StrBlobPtr& StrBlobPtr::incr() {
     return *this;
 }
 
-inline StrBlobPtr& StrBlobPtr::decr()
-{
+inline StrBlobPtr& StrBlobPtr::decr() {
     // if curr is zero, decrementing it will yield an invalid subscript
-    --curr;       // move the current state back one element}
-    check(-1, "decrement past begin of StrBlobPtr");
+    if (curr == 0)
+        throw std::out_of_range("decrement past begin of StrBlobPtr");
+    --curr;
     return *this;
 }
 
@@ -167,6 +174,49 @@ inline bool eq(const StrBlobPtr &lhs, const StrBlobPtr &rhs) {
 
 inline bool neq(const StrBlobPtr &lhs, const StrBlobPtr &rhs) {
 	return !eq(lhs, rhs); 
+}
+
+class ConstStrBlobPtr {
+public:
+    ConstStrBlobPtr(): curr(0) { }
+    ConstStrBlobPtr(const StrBlob &a, size_t sz = 0):
+            wptr(a.data), curr(sz) { } // should add const
+    bool operator!=(const ConstStrBlobPtr &p) { return p.curr != curr; }
+    const std::string& deref() const; // return value should add const
+    ConstStrBlobPtr& incr();
+
+private:
+    std::shared_ptr<std::vector<std::string>> 
+        check(std::size_t, const std::string&) const;
+    std::weak_ptr<std::vector<std::string>> wptr;
+    std::size_t curr;
+};
+
+std::shared_ptr<std::vector<std::string>>
+ConstStrBlobPtr::check(std::size_t i, const std::string &msg) const {
+    auto ret = wptr.lock();
+    if (!ret) throw std::runtime_error("unbound StrBlobPtr");
+    if (i >= ret->size()) throw std::runtime_error(msg);
+    return ret;
+}
+
+const std::string& ConstStrBlobPtr::deref() const {  // should add const
+    auto p = check(curr, "dereference past end");
+    return (*p)[curr];
+}
+
+ConstStrBlobPtr& ConstStrBlobPtr::incr() {
+    auto p = check(curr, "increment past end of StrBlobPtr");
+    ++curr;
+    return *this;
+}
+
+ConstStrBlobPtr StrBlob::begin() const {  // should add const
+    return ConstStrBlobPtr(*this);
+}
+
+ConstStrBlobPtr StrBlob::end() const {    // should add const
+    return ConstStrBlobPtr(*this, data->size());
 }
 
 #endif
