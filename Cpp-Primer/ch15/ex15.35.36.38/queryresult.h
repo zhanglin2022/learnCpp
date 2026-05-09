@@ -26,7 +26,7 @@ public:
     QueryResult(std::string s, 
                 std::shared_ptr<std::set<StrBlob::size_type>> p,
                 const StrBlob &f):
-        word(s), lines(p), file(f) { }
+        sought(s), lines(p), file(f) { }
     
     const StrBlob& get_file() const{ return file; }
 
@@ -34,7 +34,7 @@ public:
     std::set<TextQuery::line_no>::iterator end()   { return lines->end(); }
 
 private:
-    std::string word;
+    std::string sought;
     std::shared_ptr<std::set<TextQuery::line_no>> lines;
     StrBlob file;
 };

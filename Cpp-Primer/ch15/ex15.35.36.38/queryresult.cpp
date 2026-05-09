@@ -16,7 +16,7 @@
  * @note    class QueryResult's friend
  */
 std::ostream& print(std::ostream &os, const QueryResult &qr) {
-    os << qr.word << " occurs " << qr.lines->size() << (qr.lines->size() > 1 ? " times" : " time") << std::endl;
+    os << qr.sought << " occurs " << qr.lines->size() << (qr.lines->size() > 1 ? " times" : " time") << std::endl;
     
     for (auto index : *qr.lines) {
         ConstStrBlobPtr wp(qr.file, index);
