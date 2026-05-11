@@ -9,6 +9,7 @@
  *An abstract class holds data needed by the query types that operate on two operands
  */
 class BinaryQuery: public Query_base {
+protected:
     BinaryQuery(const Query &l, const Query &r, std::string s) :
         lhs(l), rhs(r), opSym(s) { 
         std::cout << "BinaryQuery::BinaryQuery()  where s=" + s + "\n";            
