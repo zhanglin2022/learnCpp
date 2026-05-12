@@ -307,22 +307,24 @@ Query q = Query("fiery") & Query("bird") | Query("wind");
 
 (a) 
 
-1. `Query::Query(const std::string &s)` where s == "fiery", "bird" and "wind"
-2. `WordQuery::WordQuery(const std::string& s)` where s == "fiery","bird" and "wind"
+1. `WordQuery::WordQuery(const std::string& s)` where s == "fiery","bird" and "wind"
+2. `Query::Query(const std::string &s)` where s == "fiery", "bird" and "wind"
 3. `BinaryQuery::BinaryQuery(const Query &l, const Query &r, std::string s)`
 4. `AndQuery::AndQuery(const Query &left, const Query &right)`
-5. `BinaryQuery::BinaryQuery(const Query &l, const Query &r, std::string s)`
-6. `OrQuery::OrQuery(const Query &left, const Query &right)`
-7. `Query::Query(std::shared_ptr<Query_base> query)`
+5. `Query::Query(std::shared_ptr<Query_base> query)`
+6. `BinaryQuery::BinaryQuery(const Query &l, const Query &r, std::string s)`
+7. `OrQuery::OrQuery(const Query &left, const Query &right)`
+8. `Query::Query(std::shared_ptr<Query_base> query)`
 
 (b) 
 
-1. `query.rep()` inside the operator<<
+1. `query.rep()` inside the operator<<()
 2. `q->rep()` inside the rep() function of class Query which called the virtual rep() function of class Query_base
 3. `OrQuery::rep()`
-4. `BinaryQuery::rep()`
-5. `AndQuery::rep()` -> `BinaryQuery::rep()` -> `WordQuery::rep()` BinaryQuery lhs
-6. `WordQuery::rep()` BinaryQuery rhs
+4. `Query::rep()` for `lhs` and `rhs`:
+for `rhs` which is a `WordQuery` : `WordQuery::rep()` where `query_word("wind")` is returned. For `lhs` which is an `AndQuery`.
+5. `AndQuery::rep()` which is inherited from `BinaryQuery`.
+6. `BinaryQuer::rep()`: for `rhs: WordQuery::rep()`->`Query::rep()`   where query_word("fiery") is returned. For `lhs: WordQuery::rep()` ->`Query::rep()` where query_word("bird" ) is returned.
 
 (c)
 
@@ -334,3 +336,35 @@ Query q = Query("fiery") & Query("bird") | Query("wind");
 >Implement the Query and Query_base classes, including a definition of rep but omitting the definition of eval.
 
 [Query](ex15.35.36.38/query.h) | [Query_base](ex15.35.36.38/query_base.h)
+
+## Exercise 15.36
+>Put print statements in the constructors and rep members and run your code to check your answers to (a) and (b) from the first exercise.
+
+```cpp
+// constructor
+WordQuery::WordQuery(wind)
+Query::Query(const std::string& s) where s=wind
+WordQuery::WordQuery(bird)
+Query::Query(const std::string& s) where s=bird
+WordQuery::WordQuery(fiery)
+Query::Query(const std::string& s) where s=fiery
+BinaryQuery::BinaryQuery()  where s=&
+AndQuery::AndQuery()
+Query::Query(std::shared_ptr<Query_base> query)
+BinaryQuery::BinaryQuery()  where s=|
+OrQuery::OrQuery()
+Query::Query(std::shared_ptr<Query_base> query)
+
+// rep()
+Query::rep() 
+BinaryQuery::rep()
+Query::rep() 
+WordQuery::rep()
+Query::rep() 
+BinaryQuery::rep()
+Query::rep() 
+WordQuery::rep()
+Query::rep() 
+WordQuery::rep()
+((fiery & bird) | wind)
+```
