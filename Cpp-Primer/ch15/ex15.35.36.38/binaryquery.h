@@ -27,4 +27,4 @@ protected:
     std::string opSym;
 };
 
-#endif
+#endif // BINARYQUERY_H

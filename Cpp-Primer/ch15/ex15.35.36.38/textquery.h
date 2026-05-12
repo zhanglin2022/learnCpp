@@ -36,4 +36,4 @@ private:
     std::map<std::string, std::shared_ptr<std::set<StrBlob::size_type>>> wordMap;
 };
 
-#endif
+#endif // TEXTQUERY_H

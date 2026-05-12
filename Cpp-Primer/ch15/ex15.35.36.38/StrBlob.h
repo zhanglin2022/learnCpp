@@ -219,4 +219,4 @@ ConstStrBlobPtr StrBlob::end() const {    // should add const
     return ConstStrBlobPtr(*this, data->size());
 }
 
-#endif
+#endif // STRBLOB_H

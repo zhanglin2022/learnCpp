@@ -30,4 +30,4 @@ inline Query operator~(const Query &operand) {
     return std::shared_ptr<Query_base>(new NotQuery(operand));
 }
 
-#endif
+#endif // NOTQUERY_H

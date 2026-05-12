@@ -19,4 +19,4 @@ class WordQuery: public Query_base {
     std::string query_word;
 };
 
-#endif
+#endif // WORDQUERY_H

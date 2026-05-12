@@ -43,4 +43,4 @@ inline std::ostream& operator<< (std::ostream& os, const Query& query) {
     return os << query.rep();
 }
 
-#endif
+#endif // QUERY_H
