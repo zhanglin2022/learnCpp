@@ -77,31 +77,31 @@ private:
     void check(size_type i, const std::string &msg) const;
 };
 
-void StrBlob::check(size_type i, const std::string &msg) const {
+inline void StrBlob::check(size_type i, const std::string &msg) const {
     if (i >= data->size()) throw std::out_of_range(msg);
 }
 
-void StrBlob::pop_back() {
+inline void StrBlob::pop_back() {
     check(0, "pop_back on empty StrBlob");
     data->pop_back();
 }
 
-std::string& StrBlob::front() { 
+inline std::string& StrBlob::front() { 
     check(0, "front on empty StrBlob"); 
     return data->front(); 
 } 
 
-std::string& StrBlob::back() { 
+inline std::string& StrBlob::back() { 
     check(0, "back on empty StrBlob"); 
     return data->back(); 
 }
 
-const std::string& StrBlob::front() const {
+inline const std::string& StrBlob::front() const {
     check(0, "front on empty StrBlob"); 
     return data->front();
 }
 
-const std::string& StrBlob::back() const {
+inline const std::string& StrBlob::back() const {
     check(0, "back on empty StrBlob"); 
     return data->back(); 
 }
@@ -153,11 +153,11 @@ inline StrBlobPtr& StrBlobPtr::decr() {
 }
 
 
-StrBlobPtr StrBlob::begin() {
+inline StrBlobPtr StrBlob::begin() {
     return StrBlobPtr(*this);
 }
 
-StrBlobPtr StrBlob::end() {
+inline StrBlobPtr StrBlob::end() {
     return StrBlobPtr(*this, data->size());
 }
 
@@ -192,7 +192,7 @@ private:
     std::size_t curr;
 };
 
-std::shared_ptr<std::vector<std::string>>
+inline std::shared_ptr<std::vector<std::string>>
 ConstStrBlobPtr::check(std::size_t i, const std::string &msg) const {
     auto ret = wptr.lock();
     if (!ret) throw std::runtime_error("unbound StrBlobPtr");
@@ -200,22 +200,22 @@ ConstStrBlobPtr::check(std::size_t i, const std::string &msg) const {
     return ret;
 }
 
-const std::string& ConstStrBlobPtr::deref() const {  // should add const
+inline const std::string& ConstStrBlobPtr::deref() const {  // should add const
     auto p = check(curr, "dereference past end");
     return (*p)[curr];
 }
 
-ConstStrBlobPtr& ConstStrBlobPtr::incr() {
+inline ConstStrBlobPtr& ConstStrBlobPtr::incr() {
     auto p = check(curr, "increment past end of StrBlobPtr");
     ++curr;
     return *this;
 }
 
-ConstStrBlobPtr StrBlob::begin() const {  // should add const
+inline ConstStrBlobPtr StrBlob::begin() const {  // should add const
     return ConstStrBlobPtr(*this);
 }
 
-ConstStrBlobPtr StrBlob::end() const {    // should add const
+inline ConstStrBlobPtr StrBlob::end() const {    // should add const
     return ConstStrBlobPtr(*this, data->size());
 }
 
