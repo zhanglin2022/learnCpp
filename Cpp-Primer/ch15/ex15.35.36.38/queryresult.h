@@ -44,4 +44,4 @@ private:
  */
 std::ostream& print(std::ostream&, const QueryResult&);
 
-#endif
+#endif // QUERYRESULT_H

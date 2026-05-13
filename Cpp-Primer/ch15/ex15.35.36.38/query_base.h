@@ -1,5 +1,5 @@
-#ifndef QUOTE_BASE_H
-#define QUOTE_BASE_H
+#ifndef QUERY_BASE_H
+#define QUERY_BASE_H
 
 #include "textquery.h"
 #include "queryresult.h"
@@ -20,4 +20,4 @@ private:
     virtual std::string rep() const = 0;
 };
 
-#endif
+#endif // QUERY_BASE_H

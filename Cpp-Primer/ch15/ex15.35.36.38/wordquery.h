@@ -3,7 +3,7 @@
 
 #include "query_base.h"
 
-class WordQuery : public Query_base {
+class WordQuery: public Query_base {
     friend class Query;
     WordQuery(const std::string &s) : query_word(s) { 
         std::cout << "WordQuery::WordQuery(" + s + ")\n";
@@ -19,4 +19,4 @@ class WordQuery : public Query_base {
     std::string query_word;
 };
 
-#endif
+#endif // WORDQUERY_H
