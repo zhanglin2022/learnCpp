@@ -368,3 +368,8 @@ Query::rep()
 WordQuery::rep()
 ((fiery & bird) | wind)
 ```
+
+## Exercise 15.37
+>What changes would your classes need if the derived classes had members of type shared_ptr<Query_base> rather than of type Query?
+
+Change constructors to extract shared_ptr<Query_base> from Query arguments, and change member access from . to ->.
