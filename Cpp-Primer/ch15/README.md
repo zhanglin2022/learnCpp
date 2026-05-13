@@ -373,3 +373,15 @@ WordQuery::rep()
 >What changes would your classes need if the derived classes had members of type shared_ptr<Query_base> rather than of type Query?
 
 Change constructors to extract shared_ptr<Query_base> from Query arguments, and change member access from . to ->.
+
+## Exercise 15.38
+>Are the following declarations legal? If not, why not? If so, explain what the declarations mean.
+```cpp
+BinaryQuery a = Query("fiery") & Query("bird"); 
+AndQuery b = Query("fiery") & Query("bird");    
+OrQuery c = Query("fiery") & Query("bird");     
+```
+
+1. illegal. Because `BinaryQuery` is a abstract class.
+2. illegal. Because operator & returns a `Query`(store AndQuery pointer) which can not be converted to an `AndQuery` object.
+3. illegal. Because operator & returns a `Query`(store AndQuery pointer) which can not be converted to an `OrQuery` object.
