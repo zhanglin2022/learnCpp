@@ -28,7 +28,7 @@ public:
                 const StrBlob &f):
         sought(s), lines(p), file(f) { }
     
-    const StrBlob& get_file() const{ return file; }
+    const StrBlob& get_file() const { return file; }
 
     std::set<TextQuery::line_no>::iterator begin() { return lines->begin(); }
     std::set<TextQuery::line_no>::iterator end()   { return lines->end(); }
