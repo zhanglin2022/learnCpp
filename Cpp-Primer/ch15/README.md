@@ -399,4 +399,10 @@ std::shared_ptr<std::set<line_no>> ret_lines =
     std::make_shared<std::set<line_no>>(left.begin(), left.end());
 ```
 
-Since `std::make_shared` will allocate dynamically a new `std::set`, nothing will be added into this `std::set` if any set is empty.
+Since `std::make_shared` will allocate dynamically a new `std::set`:
+- If rhs is an empty set, then the result is lhs.
+- If lhs is an empty set, then the result is rhs.
+- If both are empty sets, then the result is empty.
+
+## Exercise 15.41
+>Reimplement your classes to use built-in pointers to Query_base rather than shared_ptrs. Remember that your classes will no longer be able to use the synthesized copy-control members.
