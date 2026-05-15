@@ -385,3 +385,7 @@ OrQuery c = Query("fiery") & Query("bird");
 1. illegal. Because `BinaryQuery` is a abstract class.
 2. illegal. Because operator & returns a `Query`(store AndQuery pointer) which can not be converted to an `AndQuery` object.
 3. illegal. Because operator & returns a `Query`(store AndQuery pointer) which can not be converted to an `OrQuery` object.
+
+## [Exercise 15.39](ex15.39.40/main.cpp)
+>Implement the Query and Query_base classes. Test your application by evaluating and printing a query such as the one in Figure 15.3 (p. 638).
+
