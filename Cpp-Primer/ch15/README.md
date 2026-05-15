@@ -385,3 +385,24 @@ OrQuery c = Query("fiery") & Query("bird");
 1. illegal. Because `BinaryQuery` is a abstract class.
 2. illegal. Because operator & returns a `Query`(store AndQuery pointer) which can not be converted to an `AndQuery` object.
 3. illegal. Because operator & returns a `Query`(store AndQuery pointer) which can not be converted to an `OrQuery` object.
+
+## [Exercise 15.39](ex15.39.40/main.cpp)
+>Implement the Query and Query_base classes. Test your application by evaluating and printing a query such as the one in Figure 15.3 (p. 638).
+
+## Exercise 15.40
+>In the OrQuery eval function what would happen if its rhs member returned an empty set? What if its lhs member did so? What if both rhs and lhs returned empty sets?
+
+Nothing special will happen.  The codes as following:
+
+```cpp
+std::shared_ptr<std::set<line_no>> ret_lines =
+    std::make_shared<std::set<line_no>>(left.begin(), left.end());
+```
+
+Since `std::make_shared` will allocate dynamically a new `std::set`:
+- If rhs is an empty set, then the result is lhs.
+- If lhs is an empty set, then the result is rhs.
+- If both are empty sets, then the result is empty.
+
+## Exercise 15.41
+>Reimplement your classes to use built-in pointers to Query_base rather than shared_ptrs. Remember that your classes will no longer be able to use the synthesized copy-control members.

@@ -20,7 +20,7 @@
  * @brief Query Result
  */
 class QueryResult {
-friend std::ostream& print(std::ostream&, const QueryResult&);
+friend std::ostream& operator<<(std::ostream&, const QueryResult&);
 
 public:
     QueryResult(std::string s, 
@@ -42,6 +42,6 @@ private:
 /**
  * @brief print the result to the output stream specified.
  */
-std::ostream& print(std::ostream&, const QueryResult&);
+std::ostream& operator<<(std::ostream&, const QueryResult&);
 
 #endif // QUERYRESULT_H
