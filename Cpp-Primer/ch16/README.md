@@ -18,3 +18,6 @@ Instantiation is the process of creating a new “instance” of the template us
 ## [Exercise 16.6](ex16.6/main.cpp)
 >How do you think the library begin and end functions that take an array argument work? Define your own versions of these functions.
 
+## [Exercise 16.7](ex16.7.8/main.cpp)
+>Write a constexpr template that returns the size of a given array.
+
