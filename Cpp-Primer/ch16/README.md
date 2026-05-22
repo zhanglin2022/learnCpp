@@ -15,3 +15,6 @@ Instantiation is the process of creating a new “instance” of the template us
 ## [Exercise 16.5](ex16.5/main.cpp)
 >Write a template version of the print function from § 6.2.4 (p. 217) that takes a reference to an array and can handle arrays of any size and any element type.
 
+## [Exercise 16.6](ex16.6/main.cpp)
+>How do you think the library begin and end functions that take an array argument work? Define your own versions of these functions.
+
