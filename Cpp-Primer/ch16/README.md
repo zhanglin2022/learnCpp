@@ -21,3 +21,7 @@ Instantiation is the process of creating a new “instance” of the template us
 ## [Exercise 16.7](ex16.7.8/main.cpp)
 >Write a constexpr template that returns the size of a given array.
 
+## Exercise 16.8
+>In the “Key Concept” box on page 108, we noted that as a matter of habit C++ programmers prefer using != to using <. Explain the rationale for this habit.
+
+C++ programmers prefer `!=` because it works with all iterator types, while `<` requires random-access iterators.
