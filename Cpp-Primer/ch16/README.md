@@ -11,3 +11,7 @@ Instantiation is the process of creating a new “instance” of the template us
 
 ## [Exercise 16.4](ex16.4/main.cpp)
 >Write a template that acts like the library find algorithm. The function will need two template type parameters, one to represent the function’s iterator parameters and the other for the type of the value. Use your function to find a given value in a vector<int> and in a list<string>.
+
+## [Exercise 16.5](ex16.5/main.cpp)
+>Write a template version of the print function from § 6.2.4 (p. 217) that takes a reference to an array and can handle arrays of any size and any element type.
+
