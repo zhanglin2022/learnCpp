@@ -38,3 +38,37 @@ A class template is a blueprint for generating classes. Class templates differ f
 
 The compiler uses these template arguments to instantiate a specific class from the template.
 
+## Exercise 16.11
+>The following definition of List is incorrect. How would you fix it?
+```cpp
+template <typename elemType> class ListItem;
+template <typename elemType> class List {
+public:
+    List<elemType>();
+    List<elemType>(const List<elemType> &);
+    List<elemType>& operator=(const List<elemType> &);
+    ~List();
+    void insert(ListItem *ptr, elemType value);
+private:
+    ListItem *front, *end;
+};
+```
+
+Fixed:
+```cpp
+template <typename elemType> class ListItem;
+template <typename elemType> class List
+{
+public:
+    List<elemType>();
+    List<elemType>(const List<elemType> &);
+    List<elemType>& operator=(const List<elemType> &);
+    ~List();
+    void insert(ListItem<elemType> *ptr, elemType value);
+    //                  ^^^^^^^^^^  -- template name is not a type, template arguments must be provided
+
+private:
+    ListItem<elemType> *front, *end;
+    //       ^^^^^^^^ -- template name is not a type, template arguments must be provided
+};
+```
