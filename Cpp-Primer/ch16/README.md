@@ -25,3 +25,11 @@ Instantiation is the process of creating a new “instance” of the template us
 >In the “Key Concept” box on page 108, we noted that as a matter of habit C++ programmers prefer using != to using <. Explain the rationale for this habit.
 
 C++ programmers prefer `!=` because it works with all iterator types, while `<` requires random-access iterators.
+
+## Exercise 16.9
+>What is a function template? What is a class template?
+
+A function template is a formula from which we can generate type-specific versions of that function.
+
+A class template is a blueprint for generating classes. Class templates differ from function templates in that the compiler  cannot deduce the template parameter type(s) for a class template. Instead, as we’ve seen many times, to use a class template we must supply additional information inside angle brackets following the template’s name (§ 3.3, p. 97).
+
