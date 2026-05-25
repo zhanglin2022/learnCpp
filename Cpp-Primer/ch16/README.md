@@ -82,3 +82,6 @@ private:
 >Explain which kind of friendship you chose for the equality and relational operators for BlobPtr.
 
 As shown in the class body [BlobPtr](ex16.12.13/blobptr.h).
+
+## [Exercise 16.14](ex16.14.15/main.cpp)
+>Write a Screen class template that uses nontype parameters to define the height and width of the Screen.
