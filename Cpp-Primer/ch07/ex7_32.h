@@ -63,8 +63,7 @@ inline Screen& Screen::set(char c) {
     return *this;
 }
 
-inline Screen& Screen::set(pos r, pos c, char ch)
-{
+inline Screen& Screen::set(pos r, pos c, char ch) {
     contents[r*width+c] = ch;
     return *this;
 }

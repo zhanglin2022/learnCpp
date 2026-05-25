@@ -72,3 +72,13 @@ private:
     //       ^^^^^^^^ -- template name is not a type, template arguments must be provided
 };
 ```
+
+## Exercise 16.12
+>Write your own version of the Blob and BlobPtr templates. including the various const members that were not shown in the text.
+
+[Blob](ex16.12.13/blob.h) | [BlobPtr](ex16.12.13/blobptr.h)
+
+## Exercise 16.13
+>Explain which kind of friendship you chose for the equality and relational operators for BlobPtr.
+
+As shown in the class body [BlobPtr](ex16.12.13/blobptr.h).
