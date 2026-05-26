@@ -92,3 +92,6 @@ Which, if any, friends are necessary in class Screen to make the input and outpu
 Explain why each friend declaration, if any, was needed.
 
 According to chapter 14.2.1, `operator<<` and `operator>>` should be a friend of this class.
+
+## [Exercise 16.16](ex16.16/main.cpp)
+>Rewrite the StrVec class (§ 13.5, p. 526) as a template named Vec.
