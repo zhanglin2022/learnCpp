@@ -95,3 +95,10 @@ According to chapter 14.2.1, `operator<<` and `operator>>` should be a friend of
 
 ## [Exercise 16.16](ex16.16/main.cpp)
 >Rewrite the StrVec class (§ 13.5, p. 526) as a template named Vec.
+
+## Exercise 16.17
+>What, if any, are the differences between a type parameter that is declared as a typename and one that is declared as a class? When must typename be used?
+
+There is no difference. typename and class are interchangeable in the declaration of a type template parameter.
+
+When we want to inform the compiler that a name represents a type, we must use the keyword typename, not class
