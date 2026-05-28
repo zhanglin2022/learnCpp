@@ -102,3 +102,33 @@ According to chapter 14.2.1, `operator<<` and `operator>>` should be a friend of
 There is no difference. typename and class are interchangeable in the declaration of a type template parameter.
 
 When we want to inform the compiler that a name represents a type, we must use the keyword typename, not class
+
+## Exercise 16.18
+>Explain each of the following function template declarations and identify whether any are illegal. Correct each error that you find.
+```
+(a) template <typename T, U, typename V> void f1(T, U, V);
+(b) template <typename T> T f2(int &T);
+(c) inline template <typename T> T foo(T, unsigned int*);
+(d) template <typename T> f4(T, T);
+(e) typedef char Ctype;
+template <typename Ctype> Ctype f5(Ctype a);
+```
+
+```cpp
+template <typename T, typename U, typename V> void f1(T, U, V);
+//                   ^^^^^^^^ added to fix the error
+
+template <typename T> T f2(T&);
+//                        ^^ delete extra int
+
+template <typename T> inline T foo(T, unsigned int*);
+//                   ^^^^^^ inline must be after template
+
+template <typename T> T f4(T, T);
+//                   ^ -- return type must be provided
+
+typedef char Ctype;
+//          ^^^^^
+//the template declatation below hides this typedef
+template <typename Ctype> Ctype f5(Ctype a);
+```
