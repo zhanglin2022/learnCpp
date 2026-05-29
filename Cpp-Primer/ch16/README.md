@@ -139,3 +139,6 @@ Use the container’s size_type and size members to control the loop that prints
 
 ## [Exercise 16.20](ex16.19.20/main.cpp)
 >Rewrite the function from the previous exercise to use iterators returned from begin and end to control the loop.
+
+## [Exercise 16.21](ex16.21.22/debugdelete.h)
+>Write your own version of DebugDelete.
