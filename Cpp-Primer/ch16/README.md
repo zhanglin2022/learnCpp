@@ -140,5 +140,8 @@ Use the container’s size_type and size members to control the loop that prints
 ## [Exercise 16.20](ex16.19.20/main.cpp)
 >Rewrite the function from the previous exercise to use iterators returned from begin and end to control the loop.
 
-## [Exercise 16.21](ex16.21.22/debugdelete.h)
+## [Exercise 16.21](ex16.21.22/DebugDelete.h)
 >Write your own version of DebugDelete.
+
+## [Exercise 16.22](ex16.21.22/main.cpp)
+>Revise your TextQuery programs from § 12.3 (p. 484) so that the shared_ptr members use a DebugDelete as their deleter (§ 12.1.4, p. 468).
