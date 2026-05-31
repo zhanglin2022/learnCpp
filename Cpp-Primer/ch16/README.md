@@ -157,3 +157,5 @@ The call operator of DebugDelete is executed every time a shared_ptr (or unique_
 
 If you expected fewer calls, you might have missed the per-word sets or the static nodata object. The actual output shows one deletion message for every dynamically allocated object managed by DebugDelete.
 
+## [Exercise 16.24](ex16.24/Blob.h)
+>Add a constructor that takes two iterators to your Blob template.
