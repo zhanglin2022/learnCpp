@@ -140,5 +140,22 @@ Use the container’s size_type and size members to control the loop that prints
 ## [Exercise 16.20](ex16.19.20/main.cpp)
 >Rewrite the function from the previous exercise to use iterators returned from begin and end to control the loop.
 
-## [Exercise 16.21](ex16.21.22/debugdelete.h)
+## [Exercise 16.21](ex16.21.22/DebugDelete.h)
 >Write your own version of DebugDelete.
+
+## [Exercise 16.22](ex16.21.22/main.cpp)
+>Revise your TextQuery programs from § 12.3 (p. 484) so that the shared_ptr members use a DebugDelete as their deleter (§ 12.1.4, p. 468).
+
+## Exercise 16.23
+>Predict when the call operator will be executed in your main query program. 
+If your expectations and what happens differ, be sure you understand why.
+
+The call operator of DebugDelete is executed every time a shared_ptr (or unique_ptr) that uses DebugDelete as its deleter is destroyed. In the main query program, this happens when:
+- The TextQuery object goes out of scope at the end of main, destroying its shared_ptr members file and wordMap.
+- Each `shared_ptr<std::set<size_t>>` stored in the map for distinct words is destroyed (one per unique word).
+- The static nodata shared_ptr inside the query function is destroyed when the program terminates.
+
+If you expected fewer calls, you might have missed the per-word sets or the static nodata object. The actual output shows one deletion message for every dynamically allocated object managed by DebugDelete.
+
+## [Exercise 16.24](ex16.24/Blob.h)
+>Add a constructor that takes two iterators to your Blob template.
