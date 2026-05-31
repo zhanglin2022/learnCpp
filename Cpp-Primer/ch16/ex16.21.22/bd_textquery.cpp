@@ -9,7 +9,7 @@
 
 TextQuery::TextQuery(std::ifstream &fin) : 
    file(new std::vector<std::string>(), DebugDelete()), 
-   wordMap( new std::map<std::string, std::shared_ptr<std::set<size_t>>>(), DebugDelete()) {
+   wordMap(new std::map<std::string, std::shared_ptr<std::set<size_t>>>(), DebugDelete()) {
    if (!fin) throw std::runtime_error("Cannot open file");
     
    for (std::string line; std::getline(fin, line);) {
