@@ -159,3 +159,12 @@ If you expected fewer calls, you might have missed the per-word sets or the stat
 
 ## [Exercise 16.24](ex16.24/Blob.h)
 >Add a constructor that takes two iterators to your Blob template.
+
+## Exercise 16.25
+>Explain the meaning of these declarations:
+```cpp
+// instantiation declaration. The definition of it is somewhere else
+extern template class vector<string>;
+// instantiation definition. The compiler will generate codes for it.
+template class vector<Sales_data>;
+```
