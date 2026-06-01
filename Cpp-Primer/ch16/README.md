@@ -168,3 +168,12 @@ extern template class vector<string>;
 // instantiation definition. The compiler will generate codes for it.
 template class vector<Sales_data>;
 ```
+
+## Exercise 16.26
+>Assuming NoDefault is a class that does not have a default constructor, can we explicitly instantiate vector<NoDefault>? If not, why not?
+
+No, we cannot explicitly instantiate `vector<NoDefault>`.
+
+The reason is that explicit instantiation (`template class vector<NoDefault>;`) instantiates all members of the class template, including constructors and member functions that require the element type to be default-constructible. In C++11 and later, vector has a constructor vector(size_type n) and overloads of resize that require default construction of elements. Since NoDefault lacks a default constructor, the instantiation of these members fails.
+
+(Implicit instantiation, which only instantiates members actually used, would still be allowed as long as no such member is called.)
