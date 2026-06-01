@@ -177,3 +177,40 @@ No, we cannot explicitly instantiate `vector<NoDefault>`.
 The reason is that explicit instantiation (`template class vector<NoDefault>;`) instantiates all members of the class template, including constructors and member functions that require the element type to be default-constructible. In C++11 and later, vector has a constructor vector(size_type n) and overloads of resize that require default construction of elements. Since NoDefault lacks a default constructor, the instantiation of these members fails.
 
 (Implicit instantiation, which only instantiates members actually used, would still be allowed as long as no such member is called.)
+
+## Exercise 16.27
+>For each labeled statement explain what, if any, instantiations happen. If a template is instantiated, explain why; if not, explain why not.
+
+```cpp
+template <typename T> class Stack { };
+void f1(Stack<char>);// (a)
+class Exercise {
+    Stack<double> &rsd;// (b)
+    Stack<int>si;// (c)
+};
+int main() {
+    Stack<char> *sc;// (d)
+    f1(*sc);// (e)
+    int iObj = sizeof(Stack< string >); // (f)
+}
+```
+
+- (a) `void f1(Stack<char>);`
+No instantiation. This is a function declaration; the parameter type is a template specialization, but a declaration does not require the type to be complete. The compiler does not generate code for `Stack<char>` here.
+
+- (b) `Stack<double> &rsd;`
+No instantiation. A reference declaration does not need the referenced type to be complete. The template is not instantiated.
+
+- (c) `Stack<int> si;`
+Instantiation. Defining an object of type `Stack<int>` requires the class to be complete (the compiler needs to know its size and implicitly generated members like the default constructor). This triggers implicit instantiation of `Stack<int>`.
+
+- (d) `Stack<char> *sc;`
+No instantiation. Declaring a pointer does not require the pointed-to type to be complete. The template is not instantiated.
+
+- (e) `f1(*sc);`
+Instantiation. The expression `*sc` yields a `Stack<char>` object, which is passed by value to f1. Passing an object by value requires the copy constructor (or move constructor) of `Stack<char>`, so the compiler must instantiate `Stack<char>`.
+
+- (f) `int iObj = sizeof(Stack<string>);`
+Instantiation. The sizeof operator requires the size of the type `Stack<string>`, which forces the compiler to implicitly instantiate the template to obtain the complete type information.
+
+In summary, instantiations happen in (c), (e), and (f).
