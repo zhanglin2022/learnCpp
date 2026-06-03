@@ -214,3 +214,6 @@ Instantiation. The expression `*sc` yields a `Stack<char>` object, which is pass
 Instantiation. The sizeof operator requires the size of the type `Stack<string>`, which forces the compiler to implicitly instantiate the template to obtain the complete type information.
 
 In summary, instantiations happen in (c), (e), and (f).
+
+## Exercise 16.28
+>Write your own versions of shared_ptr and unique_ptr.
