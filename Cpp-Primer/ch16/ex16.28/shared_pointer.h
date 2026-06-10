@@ -60,6 +60,11 @@ namespace CP5 {
             }
             return *this;
         }
+        // destructor
+        ~SharedPointer() {
+            decrement_and_destroy();
+        }
+        
         // member function
         operator bool() const {
             return ptr ? true : false;
