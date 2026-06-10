@@ -11,16 +11,14 @@ namespace CP5 {
     template<typename T>
     class SharedPointer;
 
+    // To make swap<T> valid in the friend declaration
     template<typename T>
-    void swap(SharedPointer<T> &lhs, SharedPointer<T> &rhs) {
-        using std::swap;
-        swap(lhs.ptr, rhs.ptr);
-        swap(lhs.ref_count, rhs.ref_count);
-        swap(lhs.deleter, rhs.deleter);
-    }
+    void swap(SharedPointer<T>&, SharedPointer<T>&);
 
     template<typename T>
     class SharedPointer {
+        friend void swap<T>(SharedPointer<T>&, SharedPointer<T>&);
+
     public:
         // default constructor
         SharedPointer() : 
@@ -34,15 +32,15 @@ namespace CP5 {
             if (ref_count) ++*ref_count;
         }
         // move constructor
-        SharedPointer(const SharedPointer &&rhs) :
+        SharedPointer(SharedPointer &&rhs) noexcept :
             ptr(rhs.ptr), ref_count(rhs.ref_count), deleter(std::move(rhs.deleter)) { 
             rhs.ptr = nullptr;
             rhs.ref_count = nullptr;
         }
         // copy assignment
-        SharedPointer& SharedPointer(const SharedPointer &rhs) {
+        SharedPointer& operator=(const SharedPointer &rhs) {
             if (this != &rhs) {
-                if(rhs.ref_count) ++*rhs.ref_count;
+                if (rhs.ref_count) ++*rhs.ref_count;
                 decrement_and_destroy();
                 ptr = rhs.ptr;
                 ref_count = rhs.ref_count;
@@ -51,7 +49,7 @@ namespace CP5 {
             return *this;
         }
         // move assignment
-        SharedPointer& SharedPointer(const SharedPointer &&rhs) {
+        SharedPointer& operator=(SharedPointer &&rhs) noexcept {
             if (this != &rhs) {
                 decrement_and_destroy();
                 ptr = rhs.ptr;
@@ -62,7 +60,6 @@ namespace CP5 {
             }
             return *this;
         }
-
         // member function
         operator bool() const {
             return ptr ? true : false;
@@ -73,41 +70,41 @@ namespace CP5 {
         }
 
         T* operator->() const {
-            return &*ptr;
-        }
-
-        auto use_count() const {
-            return ref_count ? *ref_count : 0;
-        }
-
-        auto get() const {
             return ptr;
         }
 
-        auto unique() {
-            return 1 == use_count();
+        std::size_t use_count() const {
+            return ref_count ? *ref_count : 0;
         }
 
-        auto swap(SharedPointer &rhs) {
-            ::swap(*this, rhs);
+        T* get() const {
+            return ptr;
+        }
+
+        bool unique() const {
+            return use_count() == 1;
+        }
+
+        void swap(SharedPointer &rhs) {
+            CP5::swap(*this, rhs);
         }
 
         // free the object pointed to, if unique
-        auto reset() {
+        void reset() {
             decrement_and_destroy();
         }
 
         // reset the new raw pointer
-        auto reset(T *pointer) {
+        void reset(T *pointer) {
             if (ptr != pointer) {
                 decrement_and_destroy();
                 ptr = pointer;
-                ref_count = new std::size_t(1);
+                ref_count = pointer ? new std::size_t(1) : nullptr;
             }
         }
 
         // reset with raw pointer and deleter
-        auto reset(T *pointer, const std::function<void(T*)> &d) {
+        void reset(T *pointer, const std::function<void(T*)> &d) {
             reset(pointer);
             deleter = d;
         }
@@ -116,19 +113,24 @@ namespace CP5 {
         T *ptr;
         std::size_t* ref_count;
         std::function<void(T*)> deleter;
-        // TODO 是否要修改
-        auto decrement_and_destroy() {
-            if (ptr && 0 == -*ref_count) {
+
+        void decrement_and_destroy() {
+            if (ref_count && --*ref_count == 0) {
                 delete ref_count;
-                deleter(ptr);
+                deleter(ptr); 
             }
-            else if (!ptr)
-                delete ref_count;
             ref_count = nullptr;
             ptr = nullptr;
         }    
     };
 
+    template<typename T>
+    void swap(SharedPointer<T> &lhs, SharedPointer<T> &rhs) {
+        using std::swap;
+        swap(lhs.ptr, rhs.ptr);
+        swap(lhs.ref_count, rhs.ref_count);
+        swap(lhs.deleter, rhs.deleter);
+    }
 } // CP5
 
 #endif // SHARED_POINTER_H
