@@ -8,13 +8,16 @@
 #include "delete.h"
 
 namespace CP5 {
+    // forward declarations for friendship
     template<typename T>
     class SharedPointer;
 
-    // To make swap<T> valid in the friend declaration
     template<typename T>
     void swap(SharedPointer<T>&, SharedPointer<T>&);
-
+    
+    /**
+     * @brief std::shared_ptr like class template
+     */
     template<typename T>
     class SharedPointer {
         friend void swap<T>(SharedPointer<T>&, SharedPointer<T>&);
