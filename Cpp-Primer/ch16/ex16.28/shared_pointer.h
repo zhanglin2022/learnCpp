@@ -1,7 +1,7 @@
 // Refer to Exercise 13.53
 
-#ifndef SHARED_POINTER_H
-#define SHARED_POINTER_H
+#ifndef SHAREDPOINTER_H
+#define SHAREDPOINTER_H
 
 #include <functional>
 
@@ -138,4 +138,4 @@ namespace CP5 {
     }
 } // CP5
 
-#endif // SHARED_POINTER_H
+#endif // SHAREDPOINTER_H
