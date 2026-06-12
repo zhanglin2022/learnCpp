@@ -231,4 +231,11 @@ modify:
 Rerun some of your programs to verify your shared_ptr and revised Blob classes. 
 (Note: Implementing the weak_ptr type is beyond the scope of this Primer, so you will not be able to use the BlobPtr class with your revised Blob.)
 
+## Exercise 16.31
+>Explain how the compiler might inline the call to the deleter if we used DebugDelete with unique_ptr.
 
+When a function object (like `DebugDelete`) is used as the deleter for `std::unique_ptr`:
+- the deleter type is part of the template parameter.
+- The compiler knows the exact type and can see the definition of `operator()` (usually inline). 
+
+Therefore, when the `unique_ptr` destructor calls `deleter(ptr)`, the call can be inlined directly to `delete ptr`, eliminating function call overhead. In contrast, a function pointer holds a runtime address, making inlining impossible.
