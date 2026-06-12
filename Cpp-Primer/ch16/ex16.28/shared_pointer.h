@@ -69,33 +69,14 @@ namespace CP5 {
         }
         
         // member function
-        operator bool() const {
-            return ptr ? true : false;
-        }
+        operator bool() const { return ptr ? true : false; }
+        T& operator*() const { return *ptr; }
+        T* operator->() const { return ptr; }
 
-        T& operator*() const {
-            return *ptr;
-        }
-
-        T* operator->() const {
-            return ptr;
-        }
-
-        std::size_t use_count() const {
-            return ref_count ? *ref_count : 0;
-        }
-
-        T* get() const {
-            return ptr;
-        }
-
-        bool unique() const {
-            return use_count() == 1;
-        }
-
-        void swap(SharedPointer &rhs) {
-            CP5::swap(*this, rhs);
-        }
+        T* get() const { return ptr; }
+        std::size_t use_count() const { return ref_count ? *ref_count : 0; }
+        bool unique() const { return use_count() == 1; }
+        void swap(SharedPointer &rhs) { CP5::swap(*this, rhs); }
 
         // free the object pointed to, if unique
         void reset() {
@@ -133,7 +114,7 @@ namespace CP5 {
     };
 
     template<typename T>
-    void swap(SharedPointer<T> &lhs, SharedPointer<T> &rhs) {
+    inline void swap(SharedPointer<T> &lhs, SharedPointer<T> &rhs) {
         using std::swap;
         swap(lhs.ptr, rhs.ptr);
         swap(lhs.ref_count, rhs.ref_count);
