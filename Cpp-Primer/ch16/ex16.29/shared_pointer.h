@@ -5,7 +5,7 @@
 
 #include <functional>
 
-#include "delete.h"
+#include "DebugDelete.h"
 
 namespace CP5 {
     // forward declarations for friendship
@@ -25,10 +25,10 @@ namespace CP5 {
     public:
         // default constructor
         SharedPointer() : 
-            ptr(nullptr), ref_count(nullptr), deleter(CP5::Delete()) { }
+            ptr(nullptr), ref_count(nullptr), deleter(CP5::DebugDelete()) { }
         // constructor that takes a raw pointer
         explicit SharedPointer(T *raw_ptr) : 
-            ptr(raw_ptr), ref_count(raw_ptr ? new std::size_t(1) : nullptr), deleter(CP5::Delete()) { }
+            ptr(raw_ptr), ref_count(raw_ptr ? new std::size_t(1) : nullptr), deleter(CP5::DebugDelete()) { }
         // copy constructor
         SharedPointer(const SharedPointer &rhs) : 
             ptr(rhs.ptr), ref_count(rhs.ref_count), deleter(rhs.deleter) {

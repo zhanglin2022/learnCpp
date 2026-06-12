@@ -1,7 +1,7 @@
 #ifndef UNIQUEPOINTER_H
 #define UNIQUEPOINTER_H
 
-#include "delete.h"
+#include "DebugDelete.h"
 
 namespace CP5 {
     // forward declarations for friendship
@@ -14,7 +14,7 @@ namespace CP5 {
     /**
      * @brief std::unique_ptr like class template
      */
-    template<typename T, typename D = CP5::Delete>
+    template<typename T, typename D = CP5::DebugDelete>
     class UniquePointer {
         friend void swap<T, D>(UniquePointer<T, D>&, UniquePointer<T, D>&);
 
