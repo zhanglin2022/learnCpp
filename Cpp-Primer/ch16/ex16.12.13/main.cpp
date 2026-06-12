@@ -1,5 +1,5 @@
-#include "blob.h"
-#include "blobptr.h"
+#include "Blob.h"
+#include "BlobPtr.h"
 
 int main() {
     return 0;    
