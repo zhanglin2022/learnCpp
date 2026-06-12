@@ -217,3 +217,5 @@ In summary, instantiations happen in (c), (e), and (f).
 
 ## Exercise 16.28
 >Write your own versions of shared_ptr and unique_ptr.
+
+[shared_ptr](ex16.28/shared_pointer.h) | [unique_ptr](ex16.28/unique_pointer.h)
