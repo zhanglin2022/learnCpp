@@ -1,8 +1,8 @@
-#ifndef DELETE_H
-#define DELETE_H
+#ifndef DEBUGDELETE_H
+#define DEBUGDELETE_H
 
 namespace CP5 {
-    class Delete {
+    class DebugDelete {
     public:
         template<typename T> 
         auto operator()(T *p) const {
@@ -11,4 +11,4 @@ namespace CP5 {
     };
 }
 
-#endif // DELETE_H
+#endif // DEBUGDELETE_H

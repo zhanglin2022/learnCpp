@@ -217,3 +217,25 @@ In summary, instantiations happen in (c), (e), and (f).
 
 ## Exercise 16.28
 >Write your own versions of shared_ptr and unique_ptr.
+
+[shared_ptr](ex16.28/shared_pointer.h) | [unique_ptr](ex16.28/unique_pointer.h)
+
+## [Exercise 16.29](ex16.29.30/Blob.h)
+>Revise your Blob class to use your version of shared_ptr rather than the library version.
+
+modify:
+- std::shared_ptr => CP5::SharedPointer
+- std::make_shard => new
+
+## [Exercise 16.30](ex16.29.30/main.cpp)
+Rerun some of your programs to verify your shared_ptr and revised Blob classes. 
+(Note: Implementing the weak_ptr type is beyond the scope of this Primer, so you will not be able to use the BlobPtr class with your revised Blob.)
+
+## Exercise 16.31
+>Explain how the compiler might inline the call to the deleter if we used DebugDelete with unique_ptr.
+
+When a function object (like `DebugDelete`) is used as the deleter for `std::unique_ptr`:
+- the deleter type is part of the template parameter.
+- The compiler knows the exact type and can see the definition of `operator()` (usually inline). 
+
+Therefore, when the `unique_ptr` destructor calls `deleter(ptr)`, the call can be inlined directly to `delete ptr`, eliminating function call overhead. In contrast, a function pointer holds a runtime address, making inlining impossible.

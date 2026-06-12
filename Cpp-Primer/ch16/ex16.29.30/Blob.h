@@ -6,6 +6,8 @@
 #include <vector>
 #include <memory>
 
+#include "shared_pointer.h"
+
 template <typename T> class Blob {
 public:
     typedef T value_type;
@@ -30,25 +32,25 @@ public:
     T& operator[] (size_type i);
 
     const T& back() const;
-    const T& operator [](size_type i) const;
+    const T& operator[](size_type i) const;
 
 private:
-    std::shared_ptr<std::vector<T>> data;
+    CP5::SharedPointer<std::vector<T>> data;
     void check(size_type i, const std::string &msg) const;
 };
 
 //  default constructor
 template<typename T>
-Blob<T>::Blob() : data(std::make_shared<std::vector<T>>()) { }
+Blob<T>::Blob() : data(new std::vector<T>()) { }
 
 // constructor taking initializer_list
 template<typename T>
-Blob<T>::Blob(std::initializer_list<T> il) : data(std::make_shared<std::vector<T>>(il)) { }
+Blob<T>::Blob(std::initializer_list<T> il) : data(new std::vector<T>(il)) { }
 
 // constructor taking two iterators
 template<typename T>    // for class
 template<typename It>   // for this member
-Blob<T>::Blob(It be, It ed): data(std::make_shared<std::vector<T>>(be, ed)) { }
+Blob<T>::Blob(It be, It ed): data(new std::vector<T>(be, ed)) { }
 
 template<typename T>
 void Blob<T>::check(size_type i, const std::string &msg) const {
