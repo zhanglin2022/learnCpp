@@ -220,9 +220,15 @@ In summary, instantiations happen in (c), (e), and (f).
 
 [shared_ptr](ex16.28/shared_pointer.h) | [unique_ptr](ex16.28/unique_pointer.h)
 
-## [Exercise 16.29](ex16.29/main.cpp)
+## [Exercise 16.29](ex16.29.30/Blob.h)
 >Revise your Blob class to use your version of shared_ptr rather than the library version.
 
 modify:
 - std::shared_ptr => CP5::SharedPointer
 - std::make_shard => new
+
+## [Exercise 16.30](ex16.29.30/main.cpp)
+Rerun some of your programs to verify your shared_ptr and revised Blob classes. 
+(Note: Implementing the weak_ptr type is beyond the scope of this Primer, so you will not be able to use the BlobPtr class with your revised Blob.)
+
+
