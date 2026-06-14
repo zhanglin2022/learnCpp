@@ -256,9 +256,23 @@ During template argument deduction, the compiler uses types of the arguments in 
 >Given only the following code, explain whether each of these calls is legal. If so, what is the type of T? If not, why not?
 ```cpp
 template <class T> int compare(const T&, const T&);
-(a) compare("hi", "world"); 
-(b) compare("bye", "dad");
+(a) compare("hi", "world"); (b) compare("bye", "dad");
 ```
-(a) Illegal. These two types are different, char[3] and char[6].
-(b) Legal. These two types are the same.
+(a) illegal. These two types are different, char[3] and char[6].
+(b) legal. These two types are the same.
+
+## Exercise 16.35
+>Which, if any, of the following calls are errors? If the call is legal, what is the type of T? If the call is not legal, what is the problem?
+```cpp
+template <typename T> T calc(T, int);
+template <typename T> T fcn(T, T);
+double d;float f;char c;
+(a) calc(c, ’c’); (b) calc(d, f);
+(c) fcn(c, ’c’); (d) fcn(d, f);
+```
+
+(a) legal, T is a char
+(b) legal, T is a double
+(c) legal, T is a char
+(d) illegal, arguments d and f are double and float repectively
 
