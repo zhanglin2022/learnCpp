@@ -276,3 +276,22 @@ double d;float f;char c;
 (c) legal, T is a char
 (d) illegal, arguments d and f are double and float repectively
 
+## Exercise 16.36
+>What happens in the following calls:
+```cpp
+template <typename T> f1(T, T);
+template <typename T1, typename T2> f2(T1, T2);
+int i = 0, j = 42, *p1 = &i, *p2 = &j;
+const int *cp1 = &i, *cp2 = &j;
+(a) f1(p1, p2);(b) f2(p1, p2);(c) f1(cp1, cp2);
+(d) f2(cp1, cp2);(e) f1(p1, cp1);(f) f2(p1, cp1);
+```
+
+```cpp
+(a) legal, T = int*
+(b) legal, T1 = int*, T2 = int*
+(c) legal, T = int const*
+(d) legal, T1 = int const*, T2 = int const*
+(e) illegal, types not match, p1 is int* while cp1 is int const*
+(f) legal, T1 is int* and T2 is int const*
+```
