@@ -239,3 +239,8 @@ When a function object (like `DebugDelete`) is used as the deleter for `std::uni
 - The compiler knows the exact type and can see the definition of `operator()` (usually inline). 
 
 Therefore, when the `unique_ptr` destructor calls `deleter(ptr)`, the call can be inlined directly to `delete ptr`, eliminating function call overhead. In contrast, a function pointer holds a runtime address, making inlining impossible.
+
+## Exercise 16.32
+>What happens during template argument deduction?
+
+During template argument deduction, the compiler uses types of the arguments in the call to find the template arguments that generate a version of the function that best matches the given call.
