@@ -239,3 +239,59 @@ When a function object (like `DebugDelete`) is used as the deleter for `std::uni
 - The compiler knows the exact type and can see the definition of `operator()` (usually inline). 
 
 Therefore, when the `unique_ptr` destructor calls `deleter(ptr)`, the call can be inlined directly to `delete ptr`, eliminating function call overhead. In contrast, a function pointer holds a runtime address, making inlining impossible.
+
+## Exercise 16.32
+>What happens during template argument deduction?
+
+During template argument deduction, the compiler uses types of the arguments in the call to find the template arguments that generate a version of the function that best matches the given call.
+
+## Exercise 16.33
+>Name two type conversions allowed on function arguments involved in template argument deduction.
+
+- const conversions: A function parameter that is a reference (or pointer) to a const can be passed a reference (or pointer) to a nonconst object (§ 4.11.2, p. 162).
+
+- Array- or function-to-pointer conversions: If the function parameter is not a reference type, then the normal pointer conversion will be applied to arguments of array or function type. An array argument will be converted to a pointer to its first element. Similarly, a function argument will be converted to a pointer to the function’s type (§ 4.11.2, p. 161).
+
+## Exercise 16.34
+>Given only the following code, explain whether each of these calls is legal. If so, what is the type of T? If not, why not?
+```cpp
+template <class T> int compare(const T&, const T&);
+(a) compare("hi", "world"); (b) compare("bye", "dad");
+```
+(a) illegal. These two types are different, char[3] and char[6].
+(b) legal. These two types are the same.
+
+## Exercise 16.35
+>Which, if any, of the following calls are errors? If the call is legal, what is the type of T? If the call is not legal, what is the problem?
+```cpp
+template <typename T> T calc(T, int);
+template <typename T> T fcn(T, T);
+double d;float f;char c;
+(a) calc(c, ’c’); (b) calc(d, f);
+(c) fcn(c, ’c’); (d) fcn(d, f);
+```
+
+(a) legal, T is a char
+(b) legal, T is a double
+(c) legal, T is a char
+(d) illegal, arguments d and f are double and float repectively
+
+## Exercise 16.36
+>What happens in the following calls:
+```cpp
+template <typename T> f1(T, T);
+template <typename T1, typename T2> f2(T1, T2);
+int i = 0, j = 42, *p1 = &i, *p2 = &j;
+const int *cp1 = &i, *cp2 = &j;
+(a) f1(p1, p2);(b) f2(p1, p2);(c) f1(cp1, cp2);
+(d) f2(cp1, cp2);(e) f1(p1, cp1);(f) f2(p1, cp1);
+```
+
+```cpp
+(a) legal, T = int*
+(b) legal, T1 = int*, T2 = int*
+(c) legal, T = int const*
+(d) legal, T1 = int const*, T2 = int const*
+(e) illegal, types not match, p1 is int* while cp1 is int const*
+(f) legal, T1 is int* and T2 is int const*
+```
