@@ -251,3 +251,14 @@ During template argument deduction, the compiler uses types of the arguments in 
 - const conversions: A function parameter that is a reference (or pointer) to a const can be passed a reference (or pointer) to a nonconst object (§ 4.11.2, p. 162).
 
 - Array- or function-to-pointer conversions: If the function parameter is not a reference type, then the normal pointer conversion will be applied to arguments of array or function type. An array argument will be converted to a pointer to its first element. Similarly, a function argument will be converted to a pointer to the function’s type (§ 4.11.2, p. 161).
+
+## Exercise 16.34
+>Given only the following code, explain whether each of these calls is legal. If so, what is the type of T? If not, why not?
+```cpp
+template <class T> int compare(const T&, const T&);
+(a) compare("hi", "world"); 
+(b) compare("bye", "dad");
+```
+(a) Illegal. These two types are different, char[3] and char[6].
+(b) Legal. These two types are the same.
+
