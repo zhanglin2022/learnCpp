@@ -329,3 +329,16 @@ int compare(const T &v1, const T &v2) {
 compare<const char*>("hello", "world"); // const char* version
 compare<std::string>("hello", "world"); // std::string version
 ```
+
+## Exercise 16.40
+>Is the following function legal? If not, why not? If it is legal, what, if any, are the restrictions on the argument type(s) that can be passed, and what is the return type?
+```cpp
+template <typename It>
+auto fcn3(It beg, It end) -> decltype(*beg + 0) {
+    // process the range
+    return *beg; // return a copy of an element from the range
+}
+```
+
+It is legal. Only type that support dereference and this + 0 operation can be passed. The return type depends on the what type the operator + returns.
+
