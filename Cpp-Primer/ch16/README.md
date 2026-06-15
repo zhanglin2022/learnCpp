@@ -295,3 +295,12 @@ const int *cp1 = &i, *cp2 = &j;
 (e) illegal, types not match, p1 is int* while cp1 is int const*
 (f) legal, T1 is int* and T2 is int const*
 ```
+
+## Exercise 16.37
+>The library max function has two function parameters and returns the larger of its arguments. This function has one template type parameter. Could you call max passing it an int and a double? If so, how? If not, why not?
+
+Yes, just offer an explicit template augment, for example:
+```cpp
+int a = 3; double b = 3.14;
+max<double>(a, b);
+```
