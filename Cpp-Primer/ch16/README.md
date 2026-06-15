@@ -312,3 +312,20 @@ Without specified type given, make_shared has no possibility to determine how bi
 
 Depending on the type specified, make_shared allocates proper size of memory space and returns a proper type of shared_ptr pointing to it.
 
+## Exercise 16.39
+>Use an explicit template argument to make it sensible to pass two string literals to the original version of compare from § 16.1.1 (p. 652).
+
+```cpp
+// function compare from § 16.1.1
+template <typename T>
+int compare(const T &v1, const T &v2) {
+    if (v1 < v2) return -1;
+    if (v2 < v1) return 1;
+    return 0;
+}
+```
+
+```cpp
+compare<const char*>("hello", "world"); // const char* version
+compare<std::string>("hello", "world"); // std::string version
+```
