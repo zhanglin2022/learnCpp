@@ -6,7 +6,7 @@
 #include <vector>
 #include <memory>
 
-#include "blob.h"
+#include "Blob.h"
 
 template <typename> class BlobPtr;
 
@@ -50,7 +50,7 @@ private:
 };
 
 // prefix ++
-template<typename T>
+template <typename T>
 BlobPtr<T>& BlobPtr<T>::operator++() {
     // if curr already points past the end of the container, can't increment it
     check(curr, "increment past end of StrBlob");
@@ -59,7 +59,7 @@ BlobPtr<T>& BlobPtr<T>::operator++() {
 }
 
 // prefix --
-template<typename T>
+template <typename T>
 BlobPtr<T>& BlobPtr<T>::operator--() {
     -- curr;
     check(curr, "decrement past begin of BlobPtr");
@@ -68,7 +68,7 @@ BlobPtr<T>& BlobPtr<T>::operator--() {
 }
 
 // postfix ++
-template<typename T>
+template <typename T>
 BlobPtr<T> BlobPtr<T>::operator++(int) {
     BlobPtr ret = *this;
     ++*this;
@@ -77,7 +77,7 @@ BlobPtr<T> BlobPtr<T>::operator++(int) {
 }
 
 // postfix --
-template<typename T>
+template <typename T>
 BlobPtr<T> BlobPtr<T>::operator--(int) {
     BlobPtr ret = *this;
     --*this;
@@ -85,14 +85,14 @@ BlobPtr<T> BlobPtr<T>::operator--(int) {
     return ret;
 }
 
-template<typename T> bool operator==(const BlobPtr<T> &lhs, const BlobPtr<T> &rhs) {
+template <typename T> bool operator==(const BlobPtr<T> &lhs, const BlobPtr<T> &rhs) {
     if (lhs.wptr.lock() != rhs.wptr.lock()) {
 		throw runtime_error("ptrs to different Blobs!");
 	}
 	return lhs.i == rhs.i;
 }
 
-template<typename T> bool operator< (const BlobPtr<T> &lhs, const BlobPtr<T> &rhs) {
+template <typename T> bool operator< (const BlobPtr<T> &lhs, const BlobPtr<T> &rhs) {
 	if (lhs.wptr.lock() != rhs.wptr.lock()) {
 		throw runtime_error("ptrs to different Blobs!");
 	}
