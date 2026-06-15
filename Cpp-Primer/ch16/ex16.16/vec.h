@@ -3,7 +3,7 @@
 
 #include <memory>
 
-template<typename T>
+template <typename T>
 class Vec {
 public:
     Vec(): elements(nullptr), first_free(nullptr), cap(nullptr) { }
@@ -33,7 +33,7 @@ private:
 };
 
 // copy control
-template<typename T>
+template <typename T>
 Vec<T>::Vec(const Vec &s) {
     //call alloc_n_copy to allocate exactly as many elements as in s
     auto newdata = alloc_n_copy(s.begin(), s.end());
@@ -41,7 +41,7 @@ Vec<T>::Vec(const Vec &s) {
     first_free = cap = newdata.second;
 }
 
-template<typename T>
+template <typename T>
 Vec<T>::Vec(std::initializer_list<T> l) {
     T* const newData = alloc.allocate(l.size());
     T* p = newData;
@@ -51,10 +51,10 @@ Vec<T>::Vec(std::initializer_list<T> l) {
     first_free = cap = elements + l.size();
 }
 
-template<typename T>
+template <typename T>
 Vec<T>::~Vec<T>() { free(); }
 
-template<typename T>
+template <typename T>
 Vec<T>& Vec<T>::operator=(const Vec &rhs) {
     auto data = alloc_n_copy(rhs.begin(), rhs.end());
     free();
@@ -64,19 +64,19 @@ Vec<T>& Vec<T>::operator=(const Vec &rhs) {
 }
  
 // member function
-template<typename T>
+template <typename T>
 void Vec<T>::push_back(const T &s) {
     chk_n_alloc();
     alloc.construct(first_free++, s);
 }
 
-template<typename T>
+template <typename T>
 std::pair<T*, T*> Vec<T>::alloc_n_copy(const T *b, const T *e) {
     auto data = alloc.allocate(e - b);
     return {data, uninitialized_copy(b, e, data)};
 }
 
-template<typename T>
+template <typename T>
 void Vec<T>::free() {
     if (elements) {
         for (auto p = first_free; p != elements; /*empty*/)
@@ -85,7 +85,7 @@ void Vec<T>::free() {
     }
 }
 
-template<typename T>
+template <typename T>
 void Vec<T>::reallocate() {
     auto newcapacity = size() ? 2 * size() : 1;
     auto newdata = alloc.allocate(newcapacity);
@@ -100,7 +100,7 @@ void Vec<T>::reallocate() {
 }
 
 // static member alloc
-template<typename T>
+template <typename T>
 std::allocator<T> Vec<T>::alloc;
 
 #endif // VEC_H
