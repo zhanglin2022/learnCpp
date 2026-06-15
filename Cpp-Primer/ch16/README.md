@@ -295,3 +295,59 @@ const int *cp1 = &i, *cp2 = &j;
 (e) illegal, types not match, p1 is int* while cp1 is int const*
 (f) legal, T1 is int* and T2 is int const*
 ```
+
+## Exercise 16.37
+>The library max function has two function parameters and returns the larger of its arguments. This function has one template type parameter. Could you call max passing it an int and a double? If so, how? If not, why not?
+
+Yes, just offer an explicit template augment, for example:
+```cpp
+int a = 3; double b = 3.14;
+max<double>(a, b);
+```
+
+## Exercise 16.38
+>When we call make_shared (§ 12.1.1, p. 451), we have to provide an explicit template argument. Explain why that argument is needed and how it is used.
+
+Without specified type given, make_shared has no possibility to determine how big the size it should allocate, which is the reason.
+
+Depending on the type specified, make_shared allocates proper size of memory space and returns a proper type of shared_ptr pointing to it.
+
+## Exercise 16.39
+>Use an explicit template argument to make it sensible to pass two string literals to the original version of compare from § 16.1.1 (p. 652).
+
+```cpp
+// function compare from § 16.1.1
+template <typename T>
+int compare(const T &v1, const T &v2) {
+    if (v1 < v2) return -1;
+    if (v2 < v1) return 1;
+    return 0;
+}
+```
+
+```cpp
+compare<const char*>("hello", "world"); // const char* version
+compare<std::string>("hello", "world"); // std::string version
+```
+
+## Exercise 16.40
+>Is the following function legal? If not, why not? If it is legal, what, if any, are the restrictions on the argument type(s) that can be passed, and what is the return type?
+```cpp
+template <typename It>
+auto fcn3(It beg, It end) -> decltype(*beg + 0) {
+    // process the range
+    return *beg; // return a copy of an element from the range
+}
+```
+
+It is legal. Only type that support dereference and this + 0 operation can be passed. The return type depends on the what type the operator + returns.
+
+## Exercise 16.41
+>Write a version of sum with a return type that is guaranteed to be large enough to hold the result of the addition.
+
+```cpp
+template <typename T> 
+auto sum(const T a, const T b) -> decltype(a + b) {
+    return a + b;
+}
+```

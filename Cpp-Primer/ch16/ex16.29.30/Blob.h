@@ -18,7 +18,7 @@ public:
     Blob(std::initializer_list<T> il);
 
     // constructor taking two iterators
-    template<typename It>
+    template <typename It>
     Blob(It be, It ed);
 
     size_type size() const { return data->size(); }
@@ -40,19 +40,19 @@ private:
 };
 
 //  default constructor
-template<typename T>
+template <typename T>
 Blob<T>::Blob() : data(new std::vector<T>()) { }
 
 // constructor taking initializer_list
-template<typename T>
+template <typename T>
 Blob<T>::Blob(std::initializer_list<T> il) : data(new std::vector<T>(il)) { }
 
 // constructor taking two iterators
-template<typename T>    // for class
-template<typename It>   // for this member
+template <typename T>    // for class
+template <typename It>   // for this member
 Blob<T>::Blob(It be, It ed): data(new std::vector<T>(be, ed)) { }
 
-template<typename T>
+template <typename T>
 void Blob<T>::check(size_type i, const std::string &msg) const {
     if (i >= data->size()) throw std::out_of_range(msg);
 }
@@ -69,7 +69,7 @@ T& Blob<T>::back() {
     return data->back();
 }
 
-template<typename T>
+template <typename T>
 const T& Blob<T>::back() const {
     check(0, "back on empty Blob");
     return data->back();
@@ -81,7 +81,7 @@ T& Blob<T>::operator[](size_type i) {
     return (*data)[i];
 }
 
-template<typename T>
+template <typename T>
 const T& Blob<T>::operator [](size_type i) const {
     check(i, "subscript out of range");
     return (*data)[i];

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-template<typename Arr>
+template <typename Arr>
 void print(Arr const &arr) {
     for (auto ele : arr)
         std::cout << ele << std::endl;

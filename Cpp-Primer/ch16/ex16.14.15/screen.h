@@ -11,7 +11,7 @@
 #include <string>
 #include <vector>
 
-template<unsigned H, unsigned W>
+template <unsigned H, unsigned W>
 class Screen {
 public:
     typedef std::string::size_type pos;
@@ -43,7 +43,7 @@ private:
     std::string contents;
 };
 
-template<unsigned H, unsigned W>
+template <unsigned H, unsigned W>
 inline Screen<H, W>& Screen<H, W>::move(pos r, pos c) {
     cursor = r * width + c;
     return *this;

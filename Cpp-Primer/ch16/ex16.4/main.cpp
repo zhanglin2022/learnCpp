@@ -4,7 +4,7 @@
 #include <vector>
 
 namespace ch16 {
-    template<typename Iterator, typename Value>
+    template <typename Iterator, typename Value>
     Iterator find(Iterator beg, Iterator end, Value const &value) {
         for (Iterator it = beg; it != end; ++it)
             if (*it == value) return it;

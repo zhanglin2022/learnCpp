@@ -1,6 +1,6 @@
 #include <iostream>
 
-template<typename T, size_t size>
+template <typename T, size_t size>
 constexpr size_t getSize(T (&arr)[size]) {
     return size;
 }
