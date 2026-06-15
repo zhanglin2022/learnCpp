@@ -9,16 +9,16 @@
 
 namespace CP5 {
     // forward declarations for friendship
-    template<typename T>
+    template <typename T>
     class SharedPointer;
 
-    template<typename T>
+    template <typename T>
     void swap(SharedPointer<T>&, SharedPointer<T>&);
     
     /**
      * @brief std::shared_ptr like class template
      */
-    template<typename T>
+    template <typename T>
     class SharedPointer {
         friend void swap<T>(SharedPointer<T>&, SharedPointer<T>&);
 
@@ -113,7 +113,7 @@ namespace CP5 {
         }    
     };
 
-    template<typename T>
+    template <typename T>
     inline void swap(SharedPointer<T> &lhs, SharedPointer<T> &rhs) {
         using std::swap;
         swap(lhs.ptr, rhs.ptr);

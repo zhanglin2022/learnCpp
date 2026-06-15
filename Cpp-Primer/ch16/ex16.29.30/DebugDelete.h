@@ -4,7 +4,7 @@
 namespace CP5 {
     class DebugDelete {
     public:
-        template<typename T> 
+        template <typename T> 
         auto operator()(T *p) const {
             delete p;
         }

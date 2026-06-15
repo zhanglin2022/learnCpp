@@ -5,16 +5,16 @@
 
 namespace CP5 {
     // forward declarations for friendship
-    template<typename T, typename D>
+    template <typename T, typename D>
     class UniquePointer;
 
-    template<typename T, typename D>
+    template <typename T, typename D>
     void swap(UniquePointer<T, D>&, UniquePointer<T, D>&);
 
     /**
      * @brief std::unique_ptr like class template
      */
-    template<typename T, typename D = CP5::DebugDelete>
+    template <typename T, typename D = CP5::DebugDelete>
     class UniquePointer {
         friend void swap<T, D>(UniquePointer<T, D>&, UniquePointer<T, D>&);
 
@@ -79,7 +79,7 @@ namespace CP5 {
         D deleter;
     };
 
-    template<typename T, typename D>
+    template <typename T, typename D>
     inline void swap(UniquePointer<T, D> &lhs, UniquePointer<T, D> &rhs) {
         using std::swap;
         swap(lhs.ptr, rhs.ptr);
