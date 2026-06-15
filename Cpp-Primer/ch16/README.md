@@ -342,3 +342,12 @@ auto fcn3(It beg, It end) -> decltype(*beg + 0) {
 
 It is legal. Only type that support dereference and this + 0 operation can be passed. The return type depends on the what type the operator + returns.
 
+## Exercise 16.41
+>Write a version of sum with a return type that is guaranteed to be large enough to hold the result of the addition.
+
+```cpp
+template <typename T> 
+auto sum(const T a, const T b) -> decltype(a + b) {
+    return a + b;
+}
+```
