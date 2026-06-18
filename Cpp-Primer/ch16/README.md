@@ -351,3 +351,11 @@ auto sum(const T a, const T b) -> decltype(a + b) {
     return a + b;
 }
 ```
+
+## Exercise 16.42
+>Determine the type of T and of val in each of the following calls:
+```cpp
+template <typename T> void g(T&& val);
+int i = 0; const int ci = i;
+(a) g(i);(b) g(ci);(c) g(i * ci);
+```
