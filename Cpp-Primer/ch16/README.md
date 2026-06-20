@@ -369,4 +369,18 @@ int i = 0; const int ci = i;
 
 (i = ci) returns lvalue refering to the object i. Hence T is deduced as int& and val is int& && collapsing to int&. Any change on val changes the object i.
 
+## Exercise 16.44
+>Using the same three calls as in the first exercise, determine the types for T if g’s function parameter is declared as T (not T&&). What if g’s function parameter is const T&?
+
+if g’s function parameter is declared as T (not T&&).
+                                         ^
+    g(i);       --  T is deduced as int
+    g(ci);      --  T is deduced as int, const is ignored.
+    g(i * ci);  --  T is deduced as int, (i * ci) returns rvalue which is copied to
+                    
+What if g’s function parameter is const T&?
+                                  ^^^^^^^^
+    g(i)        --  T is deduced as int  , val : const int&
+    g(ci)       --  T is deduced as int  , val : const int&
+    g(i * ci)   --  T is deduced as int  , val : const int&(see example on page 687)
 
