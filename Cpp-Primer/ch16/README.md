@@ -359,3 +359,8 @@ template <typename T> void g(T&& val);
 int i = 0; const int ci = i;
 (a) g(i);(b) g(ci);(c) g(i * ci);
 ```
+
+(a) since i is lvalue, T is deduced as int&, val is int& && collapsing to int&.
+(b) since ci is lvaue, T is deduced as const int&, val is const int& && collapsing to const int&.
+(c) since i * ci is rvalue, T is deduced as int, val is int&& && colapsing to int&&.
+
