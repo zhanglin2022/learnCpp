@@ -351,3 +351,49 @@ auto sum(const T a, const T b) -> decltype(a + b) {
     return a + b;
 }
 ```
+
+## Exercise 16.42
+>Determine the type of T and of val in each of the following calls:
+```cpp
+template <typename T> void g(T&& val);
+int i = 0; const int ci = i;
+(a) g(i);(b) g(ci);(c) g(i * ci);
+```
+
+(a) since i is lvalue, T is deduced as int&, val is int& && collapsing to int&.
+(b) since ci is lvaue, T is deduced as const int&, val is const int& && collapsing to const int&.
+(c) since i * ci is rvalue, T is deduced as int, val is int&& && colapsing to int&&.
+
+## Exercise 16.43
+>Using the function defined in the previous exercise, what would the template parameter of g be if we called g(i = ci)?
+
+(i = ci) returns lvalue refering to the object i. Hence T is deduced as int& and val is int& && collapsing to int&. Any change on val changes the object i.
+
+## Exercise 16.44
+>Using the same three calls as in the first exercise, determine the types for T if g’s function parameter is declared as T (not T&&). What if g’s function parameter is const T&?
+
+if g’s function parameter is declared as T (not T&&).
+                                         ^
+    g(i);       --  T is deduced as int
+    g(ci);      --  T is deduced as int, const is ignored.
+    g(i * ci);  --  T is deduced as int, (i * ci) returns rvalue which is copied to
+                    
+What if g’s function parameter is const T&?
+                                  ^^^^^^^^
+    g(i)        --  T is deduced as int  , val : const int&
+    g(ci)       --  T is deduced as int  , val : const int&
+    g(i * ci)   --  T is deduced as int  , val : const int&(see example on page 687)
+
+## Exercise 16.45
+>Given the following template, explain what happens if we call g on a literal value such as 42. What if we call g on a variable of type int?
+```cpp
+template <typename T> void g(T&& val) { vector<T> v; }
+```
+
+
+if we call g on a literal value such as 42.
+    Compiles successfully. T is deduced as int, so `vector<T> v;` becomes `vector<int> v;`, which is valid.
+
+What if we call g on a variable of type int?
+    Results in a compilation error. T is deduced as int& (lvalue reference), so `vector<T> v;` becomes `vector<int&> v;`, which is ill-formed. According to the C++ standard, the element type of a standard container (like std::vector) must be an object type and must satisfy the Erasable requirement.
+
