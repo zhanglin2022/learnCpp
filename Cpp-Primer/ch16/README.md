@@ -384,3 +384,17 @@ What if g’s function parameter is const T&?
     g(ci)       --  T is deduced as int  , val : const int&
     g(i * ci)   --  T is deduced as int  , val : const int&(see example on page 687)
 
+## Exercise 16.45
+>Given the following template, explain what happens if we call g on a literal value such as 42. What if we call g on a variable of type int?
+```cpp
+template <typename T> void g(T&& val) { vector<T> v; }
+```
+
+
+if we call g on a literal value such as 42.
+    Compiles successfully. T is deduced as int, so `vector<T> v;` becomes `vector<int> v;`, which is valid.
+
+What if we call g on a variable of type int?
+    Results in a compilation error. T is deduced as int& (lvalue reference), so `vector<T> v;` becomes `vector<int&> v;`, which is ill-formed. According to the C++ standard, the element type of a standard container (like std::vector) must be an object type and must satisfy the Erasable requirement.
+
+
