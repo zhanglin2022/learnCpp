@@ -397,4 +397,3 @@ if we call g on a literal value such as 42.
 What if we call g on a variable of type int?
     Results in a compilation error. T is deduced as int& (lvalue reference), so `vector<T> v;` becomes `vector<int&> v;`, which is ill-formed. According to the C++ standard, the element type of a standard container (like std::vector) must be an object type and must satisfy the Erasable requirement.
 
-
