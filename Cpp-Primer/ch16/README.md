@@ -364,3 +364,9 @@ int i = 0; const int ci = i;
 (b) since ci is lvaue, T is deduced as const int&, val is const int& && collapsing to const int&.
 (c) since i * ci is rvalue, T is deduced as int, val is int&& && colapsing to int&&.
 
+## Exercise 16.43
+>Using the function defined in the previous exercise, what would the template parameter of g be if we called g(i = ci)?
+
+(i = ci) returns lvalue refering to the object i. Hence T is deduced as int& and val is int& && collapsing to int&. Any change on val changes the object i.
+
+
