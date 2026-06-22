@@ -390,10 +390,18 @@ What if g’s function parameter is const T&?
 template <typename T> void g(T&& val) { vector<T> v; }
 ```
 
-
 if we call g on a literal value such as 42.
     Compiles successfully. T is deduced as int, so `vector<T> v;` becomes `vector<int> v;`, which is valid.
 
 What if we call g on a variable of type int?
     Results in a compilation error. T is deduced as int& (lvalue reference), so `vector<T> v;` becomes `vector<int&> v;`, which is ill-formed. According to the C++ standard, the element type of a standard container (like std::vector) must be an object type and must satisfy the Erasable requirement.
+
+## Exercise 16.46
+>Explain this loop from StrVec::reallocate in § 13.5 (p. 530):
+```cpp
+for (size_t i = 0; i != size(); ++i)
+    alloc.construct(dest++, std::move(*elem++));
+```
+
+In each iteration, the dereference operator * returns a lvalue which is changed to rvalue by `std::move`, because the member function construct takes rvalue reference rather than lvalue reference.
 
