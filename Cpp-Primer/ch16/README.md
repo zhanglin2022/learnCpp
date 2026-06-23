@@ -405,3 +405,5 @@ for (size_t i = 0; i != size(); ++i)
 
 In each iteration, the dereference operator * returns a lvalue which is changed to rvalue by `std::move`, because the member function construct takes rvalue reference rather than lvalue reference.
 
+## [Exercise 16.47](ex16.47/main.cpp)
+>Write your own version of the flip function and test it by calling functions that have lvalue and rvalue reference parameters.
