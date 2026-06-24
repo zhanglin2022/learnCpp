@@ -425,14 +425,17 @@ f(42);f(p);f(ci);f(p2);
 ```
 
 ```cpp
-g(42);    // template <typename T> void g(T); --is called
-g(p);     // template <typename T> void g(T*); --is called
-g(ci);    // template <typename T> void g(T)   --is called
-g(p2);    // template <typename T> void g(T*)  --is called
-f(42);    // f(T)
-f(p);     // f(T)
-f(ci);    // f(T)
-f(p2);    // f(const T*)
+g(42); //   g(T)
+g(p);  //   g(T*)
+g(ci); //   g(T)
+g(p2); //   g(T*)
+f(42); //   f(T)
+f(p);  //   f(T)
+f(ci); //   f(T)
+f(p2); //   f(const T*)
 ```
 
+## Exercise 16.50
+>Define the functions from the previous exercise so that they print an identifying message. 
+Run the code from that exercise. If the calls behave differently from what you expected, make sure you understand why.
 
