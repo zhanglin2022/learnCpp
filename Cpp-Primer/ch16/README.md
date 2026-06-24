@@ -411,3 +411,28 @@ In each iteration, the dereference operator * returns a lvalue which is changed 
 ## [Exercise 16.48](ex16.48/main.cpp)
 >Write your own versions of the debug_rep functions.
 
+## Exercise 16.49
+>Explain what happens in each of the following calls:
+```cpp
+template <typename T> void f(T);
+template <typename T> void f(const T*);
+template <typename T> void g(T);
+template <typename T> void g(T*);
+int i = 42, *p = &i;
+const int ci = 0, *p2 = &ci;
+g(42);g(p);g(ci);g(p2);
+f(42);f(p);f(ci);f(p2);
+```
+
+```cpp
+g(42);    // template <typename T> void g(T); --is called
+g(p);     // template <typename T> void g(T*); --is called
+g(ci);    // template <typename T> void g(T)   --is called
+g(p2);    // template <typename T> void g(T*)  --is called
+f(42);    // f(T)
+f(p);     // f(T)
+f(ci);    // f(T)
+f(p2);    // f(const T*)
+```
+
+
