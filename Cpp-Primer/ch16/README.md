@@ -407,3 +407,7 @@ In each iteration, the dereference operator * returns a lvalue which is changed 
 
 ## [Exercise 16.47](ex16.47/main.cpp)
 >Write your own version of the flip function and test it by calling functions that have lvalue and rvalue reference parameters.
+
+## [Exercise 16.48](ex16.48/main.cpp)
+>Write your own versions of the debug_rep functions.
+
