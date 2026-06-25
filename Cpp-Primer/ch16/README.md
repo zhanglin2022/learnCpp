@@ -459,3 +459,8 @@ foo("hi");           // Args = 0, rest = 0
 >What happens if we call print on a type that doesn’t have an << operator?
 
 It will not compile.
+
+## Exercise 16.55
+>Explain how the variadic version of print would execute if we declared the nonvariadic version of print after the definition of the variadic version.
+
+error: no matching function for call to 'print(std::ostream&, const T &t)'
