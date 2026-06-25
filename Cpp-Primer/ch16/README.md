@@ -411,7 +411,7 @@ In each iteration, the dereference operator * returns a lvalue which is changed 
 ## [Exercise 16.48](ex16.48/main.cpp)
 >Write your own versions of the debug_rep functions.
 
-## Exercise 16.49
+## [Exercise 16.49](ex16.49.50/main.cpp)
 >Explain what happens in each of the following calls:
 ```cpp
 template <typename T> void f(T);
@@ -435,7 +435,32 @@ f(ci); //   f(T)
 f(p2); //   f(const T*)
 ```
 
-## Exercise 16.50
+## [Exercise 16.50](ex16.49.50/main.cpp)
 >Define the functions from the previous exercise so that they print an identifying message. 
 Run the code from that exercise. If the calls behave differently from what you expected, make sure you understand why.
 
+## [Exercise 16.51](ex16.51.52/main.cpp)
+>Determine what sizeof...(Args) and sizeof...(rest) return for each call to foo in this section.
+
+```cpp
+foo(i, s, 42, d);    // Args = 3, rest = 3
+foo(s, 42, "hi");    // Args = 2, rest = 2
+foo(d, s);           // Args = 1, rest = 1
+foo("hi");           // Args = 0, rest = 0
+```
+
+## [Exercise 16.52](ex16.51.52/main.cpp)
+>Write a program to check your answer to the previous question.
+
+## [Exercise 16.53](ex16.53/main.cpp)
+>Write your own version of the print functions and test them by printing one, two, and five arguments, each of which should have different types.
+
+## Exercise 16.54
+>What happens if we call print on a type that doesn’t have an << operator?
+
+It will not compile.
+
+## Exercise 16.55
+>Explain how the variadic version of print would execute if we declared the nonvariadic version of print after the definition of the variadic version.
+
+error: no matching function for call to 'print(std::ostream&, const T &t)'
