@@ -411,7 +411,7 @@ In each iteration, the dereference operator * returns a lvalue which is changed 
 ## [Exercise 16.48](ex16.48/main.cpp)
 >Write your own versions of the debug_rep functions.
 
-## Exercise 16.49
+## [Exercise 16.49](ex16.49.50/main.cpp)
 >Explain what happens in each of the following calls:
 ```cpp
 template <typename T> void f(T);
@@ -435,7 +435,7 @@ f(ci); //   f(T)
 f(p2); //   f(const T*)
 ```
 
-## Exercise 16.50
+## [Exercise 16.50](ex16.49.50/main.cpp)
 >Define the functions from the previous exercise so that they print an identifying message. 
 Run the code from that exercise. If the calls behave differently from what you expected, make sure you understand why.
 
