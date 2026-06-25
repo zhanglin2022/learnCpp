@@ -449,3 +449,6 @@ foo(d, s);           // Args = 1, rest = 1
 foo("hi");           // Args = 0, rest = 0
 ```
 
+## [Exercise 16.52](ex16.51.52/main.cpp)
+>Write a program to check your answer to the previous question.
+
