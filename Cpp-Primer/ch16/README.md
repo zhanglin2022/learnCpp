@@ -439,3 +439,13 @@ f(p2); //   f(const T*)
 >Define the functions from the previous exercise so that they print an identifying message. 
 Run the code from that exercise. If the calls behave differently from what you expected, make sure you understand why.
 
+## [Exercise 16.51](ex16.51.52/main.cpp)
+>Determine what sizeof...(Args) and sizeof...(rest) return for each call to foo in this section.
+
+```cpp
+foo(i, s, 42, d);    // Args = 3, rest = 3
+foo(s, 42, "hi");    // Args = 2, rest = 2
+foo(d, s);           // Args = 1, rest = 1
+foo("hi");           // Args = 0, rest = 0
+```
+
