@@ -455,3 +455,7 @@ foo("hi");           // Args = 0, rest = 0
 ## [Exercise 16.53](ex16.53/main.cpp)
 >Write your own version of the print functions and test them by printing one, two, and five arguments, each of which should have different types.
 
+## Exercise 16.54
+>What happens if we call print on a type that doesn’t have an << operator?
+
+It will not compile.
