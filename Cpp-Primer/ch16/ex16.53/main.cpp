@@ -6,7 +6,7 @@ std::ostream& print(std::ostream &os, const T &t) {
 }
 
 template <typename T, typename ... Args>
-std::ostream& print(std::ostream &os, const T &t, const Args& ... rest) {
+std::ostream& print(std::ostream &os, const T &t, const Args&... rest) {
     os << t << ", ";
     return print(os, rest...);
 }
