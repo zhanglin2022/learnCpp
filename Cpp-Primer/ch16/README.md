@@ -468,3 +468,8 @@ error: no matching function for call to 'print(std::ostream&, const T &t)'
 ## [Exercise 16.56](ex16.56/main.cpp)
 >Write and test a variadic version of errorMsg.
 
+## Exercise 16.57
+>Compare your variadic version of errorMsg to the error_msg function in § 6.2.6 (p. 220). What are the advantages and disadvantages of each approach?
+
+The error_msg takes initializer_list as the argument. So only the elements stored in it must be the same or at least convertible. In contrast, the variadic version provides better flexibility.
+
