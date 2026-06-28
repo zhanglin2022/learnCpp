@@ -491,3 +491,17 @@ The error_msg takes initializer_list as the argument. So only the elements store
 - The newly constructed `std::string` uses its copy constructor (which takes `const std::string&`) to copy from `s`.
 
 - Therefore, a copy of `s` is constructed directly in the vector’s memory. No move happens; it’s just a copy.
+
+## Exercise 16.60
+>Explain how make_shared (§ 12.1.1, p. 451) works.
+
+```cpp
+//shared_ptr that points to an int with value 42
+shared_ptr<int> p3 = make_shared<int>(42);
+//p4 points to a string with value 9999999999
+shared_ptr<string> p4 = make_shared<string>(10, ’9’);
+//p5 points to an int that is value initialized (§ 3.3.1 (p. 98)) to 0
+shared_ptr<int> p5 = make_shared<int>();
+```
+
+`make_shared` should be a variadic template function that forwards all arguments to underlying constructors that allocate and initializes an object in dynamic memory and, at last, build a shared_ptr by wrapping the raw pointer.
