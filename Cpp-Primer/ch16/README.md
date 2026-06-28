@@ -479,4 +479,15 @@ The error_msg takes initializer_list as the argument. So only the elements store
 - StrVec : [hpp](ex16.58/StrVec.h) | [cpp](ex16.58/StrVec.cpp)
 - Vec : [hpp](ex16.58/vec.h)
 
+## Exercise 16.59
+>Assuming s is a string, explain svec.emplace_back(s).
 
+- s is an lvalue, so template argument deduction yields `Args = std::string&` (reference collapsing).
+
+- `std::forward<Args>(args)...` becomes `std::forward<std::string&>(s)`, which forwards s as an lvalue reference.
+
+- This lvalue reference is passed to `alloc.construct`, which constructs a new `std::string` object directly in the vector’s memory.
+
+- The newly constructed `std::string` uses its copy constructor (which takes `const std::string&`) to copy from `s`.
+
+- Therefore, a copy of `s` is constructed directly in the vector’s memory. No move happens; it’s just a copy.
