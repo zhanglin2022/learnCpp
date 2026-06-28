@@ -505,3 +505,6 @@ shared_ptr<int> p5 = make_shared<int>();
 ```
 
 `make_shared` should be a variadic template function that forwards all arguments to underlying constructors that allocate and initializes an object in dynamic memory and, at last, build a shared_ptr by wrapping the raw pointer.
+
+## Exercise 16.61
+>Define your own version of make_shared.
