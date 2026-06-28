@@ -2,7 +2,7 @@
 #include <memory>
 #include <string>
 
-//to differ from std::make_shared
+// to differ from std::make_shared
 namespace ch16 {
     template <typename T, typename ... Args>
     auto make_shared(Args&&... args) -> std::shared_ptr<T> {
