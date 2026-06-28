@@ -473,3 +473,10 @@ error: no matching function for call to 'print(std::ostream&, const T &t)'
 
 The error_msg takes initializer_list as the argument. So only the elements stored in it must be the same or at least convertible. In contrast, the variadic version provides better flexibility.
 
+## Exercise 16.58
+>Write the emplace_back function for your StrVec class and for the Vec class that you wrote for the exercises in § 16.1.2 (p. 668).
+
+- StrVec : [hpp](ex16.58/StrVec.h) | [cpp](ex16.58/StrVec.cpp)
+- Vec : [hpp](ex16.58/vec.h)
+
+
