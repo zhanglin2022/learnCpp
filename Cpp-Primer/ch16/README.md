@@ -464,3 +464,47 @@ It will not compile.
 >Explain how the variadic version of print would execute if we declared the nonvariadic version of print after the definition of the variadic version.
 
 error: no matching function for call to 'print(std::ostream&, const T &t)'
+
+## [Exercise 16.56](ex16.56/main.cpp)
+>Write and test a variadic version of errorMsg.
+
+## Exercise 16.57
+>Compare your variadic version of errorMsg to the error_msg function in § 6.2.6 (p. 220). What are the advantages and disadvantages of each approach?
+
+The error_msg takes initializer_list as the argument. So only the elements stored in it must be the same or at least convertible. In contrast, the variadic version provides better flexibility.
+
+## Exercise 16.58
+>Write the emplace_back function for your StrVec class and for the Vec class that you wrote for the exercises in § 16.1.2 (p. 668).
+
+- StrVec : [hpp](ex16.58/StrVec.h) | [cpp](ex16.58/StrVec.cpp)
+- Vec : [hpp](ex16.58/vec.h)
+
+## Exercise 16.59
+>Assuming s is a string, explain svec.emplace_back(s).
+
+- s is an lvalue, so template argument deduction yields `Args = std::string&` (reference collapsing).
+
+- `std::forward<Args>(args)...` becomes `std::forward<std::string&>(s)`, which forwards s as an lvalue reference.
+
+- This lvalue reference is passed to `alloc.construct`, which constructs a new `std::string` object directly in the vector’s memory.
+
+- The newly constructed `std::string` uses its copy constructor (which takes `const std::string&`) to copy from `s`.
+
+- Therefore, a copy of `s` is constructed directly in the vector’s memory. No move happens; it’s just a copy.
+
+## Exercise 16.60
+>Explain how make_shared (§ 12.1.1, p. 451) works.
+
+```cpp
+//shared_ptr that points to an int with value 42
+shared_ptr<int> p3 = make_shared<int>(42);
+//p4 points to a string with value 9999999999
+shared_ptr<string> p4 = make_shared<string>(10, ’9’);
+//p5 points to an int that is value initialized (§ 3.3.1 (p. 98)) to 0
+shared_ptr<int> p5 = make_shared<int>();
+```
+
+`make_shared` should be a variadic template function that forwards all arguments to underlying constructors that allocate and initializes an object in dynamic memory and, at last, build a shared_ptr by wrapping the raw pointer.
+
+## [Exercise 16.61](ex16.61/main.cpp)
+>Define your own version of make_shared.
