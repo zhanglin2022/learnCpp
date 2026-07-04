@@ -51,3 +51,13 @@ Sales_data operator-(const Sales_data &lhs, const Sales_data &rhs) {
     diff -= rhs;
     return diff;
 }
+
+bool operator==(const Sales_data &lhs, const Sales_data &rhs) {
+    return lhs.isbn() == rhs.isbn() &&
+           lhs.units_sold == rhs.units_sold &&
+           lhs.revenue == rhs.revenue;
+}
+
+bool operator!=(const Sales_data &lhs, const Sales_data &rhs) {
+    return !(lhs == rhs);
+}
