@@ -510,5 +510,7 @@ shared_ptr<int> p5 = make_shared<int>();
 >Define your own version of make_shared.
 
 ## [Exercise 16.62](ex16.62/main.cpp)
->Define your own version of hash<Sales_data> and define an unordered_multiset of Sales_data objects. 
-Put several transactions into the container and print its contents.
+>Define your own version of hash<Sales_data> and define an unordered_multiset of Sales_data objects. Put several transactions into the container and print its contents.
+
+## Exercise 16.63
+>Define a function template to count the number of occurrences of a given value in a vector. Test your program by passing it a vector of doubles, a vector of ints, and a vector of strings.
