@@ -525,3 +525,10 @@ shared_ptr<int> p5 = make_shared<int>();
 >What are the advantages and disadvantages of overloading these debug_rep functions as compared to defining specializations?
 
 Overloading is better than specialization because it changes the function match during overload resolution, involving all candidates directly, whereas specialization does not affect primary template selection and can be silently ignored.
+
+## Exercise 16.67
+>Would defining these specializations affect function matching for debug_rep? If so, how? If not, why not?
+
+Won't change.
+
+Specializations instantiate a template; they do not overload it. As a result, specializations do not affect function matching.
