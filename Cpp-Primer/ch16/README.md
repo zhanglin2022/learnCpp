@@ -515,3 +515,6 @@ shared_ptr<int> p5 = make_shared<int>();
 ## [Exercise 16.63](ex16.63.64/main.cpp)
 >Define a function template to count the number of occurrences of a given value in a vector. Test your program by passing it a vector of doubles, a vector of ints, and a vector of strings.
 
+## [Exercise 16.64](ex16.63.64/main.cpp)
+>Write a specialized version of the template from the previous exercise to handle vector<const char*> and a program that uses this specialization.
+
