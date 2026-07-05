@@ -512,5 +512,23 @@ shared_ptr<int> p5 = make_shared<int>();
 ## [Exercise 16.62](ex16.62/main.cpp)
 >Define your own version of hash<Sales_data> and define an unordered_multiset of Sales_data objects. Put several transactions into the container and print its contents.
 
-## Exercise 16.63
+## [Exercise 16.63](ex16.63.64/main.cpp)
 >Define a function template to count the number of occurrences of a given value in a vector. Test your program by passing it a vector of doubles, a vector of ints, and a vector of strings.
+
+## [Exercise 16.64](ex16.63.64/main.cpp)
+>Write a specialized version of the template from the previous exercise to handle vector<const char*> and a program that uses this specialization.
+
+## [Exercise 16.65](ex16.65/main.cpp)
+>In § 16.3 (p. 698) we defined overloaded two versions of debug_rep one had a const char* and the other a char* parameter. Rewrite these functions as specializations.
+
+## Exercise 16.66
+>What are the advantages and disadvantages of overloading these debug_rep functions as compared to defining specializations?
+
+Overloading is better than specialization because it changes the function match during overload resolution, involving all candidates directly, whereas specialization does not affect primary template selection and can be silently ignored.
+
+## Exercise 16.67
+>Would defining these specializations affect function matching for debug_rep? If so, how? If not, why not?
+
+Won't change.
+
+Specializations instantiate a template; they do not overload it. As a result, specializations do not affect function matching.
