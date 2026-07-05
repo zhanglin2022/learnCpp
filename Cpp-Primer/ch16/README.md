@@ -518,3 +518,6 @@ shared_ptr<int> p5 = make_shared<int>();
 ## [Exercise 16.64](ex16.63.64/main.cpp)
 >Write a specialized version of the template from the previous exercise to handle vector<const char*> and a program that uses this specialization.
 
+## [Exercise 16.65](ex16.65/main.cpp)
+>In § 16.3 (p. 698) we defined overloaded two versions of debug_rep one had a const char* and the other a char* parameter. Rewrite these functions as specializations.
+
