@@ -521,3 +521,7 @@ shared_ptr<int> p5 = make_shared<int>();
 ## [Exercise 16.65](ex16.65/main.cpp)
 >In § 16.3 (p. 698) we defined overloaded two versions of debug_rep one had a const char* and the other a char* parameter. Rewrite these functions as specializations.
 
+## Exercise 16.66
+>What are the advantages and disadvantages of overloading these debug_rep functions as compared to defining specializations?
+
+Overloading is better than specialization because it changes the function match during overload resolution, involving all candidates directly, whereas specialization does not affect primary template selection and can be silently ignored.
