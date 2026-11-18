@@ -19,3 +19,23 @@
 | Chapter 14 Overloaded Operations and Conversions | ✅      |
 | Chapter 15 Object-Oriented Programming           | ✅      |
 | Chapter 16 Templates and Generic Programming     | ✅      |
+
+- Leetcode 101
+
+| Chapter                                          | Status |
+| ------------------------------------------------ | ------ |
+| Chapter 1 Greey Algorithm                        | ✅      |
+| Chapter 2 Double Pointers                        | 🟨      |
+| Chapter 3 Binary Search                          | 🟨      |
+| Chapter 4 Sort Algorithm                         | 🟨      |
+| Chapter 5 Search Algorithm                       | 🟨      |
+| Chapter 6 Dynamic Programming                    | 🟨      |
+| Chapter 7 Divide and Conquer                     | 🟨      |
+| Chapter 8 Math Problem                           | 🟨      |
+| Chapter 9 Bitwise Operation                      | 🟨      |
+| Chapter 10 Data Structures                       | 🟨      |
+| Chapter 11 String                                | 🟨      |
+| Chapter 12 Link List                             | 🟨      |
+| Chapter 13 Tree                                  | 🟨      |
+| Chapter 14 Graph                                 | 🟨      |
+| Chapter 15 More Complicated Data Structures      | 🟨      |
